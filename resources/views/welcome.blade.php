@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
             <div>
-                <h1>Pagrindinis puslapis</h1>
+                <h1 style="text-align: center">Pagrindinis puslapis</h1>
                 <ul>
                     <li><a href="{{ url('logIn') }}">Prisijungti</a></li>
                     <li><a href="{{ url('profile') }}">Profilis</a></li>

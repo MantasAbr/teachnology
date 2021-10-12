@@ -1,64 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Git intructions
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Cloning the repository
+- Open up the GitBash terminal (or any other - VSCode works too);
+- Go to the XAMPP directory where websites are stored with the <span style = "color:yellow">**cd**</span> command. Usually it's located at *C:\xampp\htdocs*;
+- Once you're in the directory, type in <span style = "color:yellow">**git clone https://github.com/MantasAbr/teachnology.git**</span>
 
-## About Laravel
+## Branches
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Creating branches
+- Before starting a new branch for your work, make sure that you're currently in the *master* branch. Type in the command <span style = "color:yellow">**git branch**</span>. The current branch will be highlighted;
+- Once you've confirmed you're in the *master* branch, type in the command <span style = "color:yellow">**git checkout -b *your branch name***</span>. This will create a new branch with the name that you've specified.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Changing branches
+- To change the branch that you're currently in, type in the command <span style = "color:yellow">**git branch -a**</span> to see all the branches that are both in the remote and local repositories;
+- Type in the command <span style = "color:yellow">**git checkout *branch name***</span> to switch to the branch that you wish.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Deleting branches
+- Once you’ve finished working on a branch and have merged it into the main code base, you’re free to delete the branch without losing any history with this command <span style = "color:yellow">**git branch -d *branch name***</span>;
 
-## Learning Laravel
+## Pushing your work to the repository
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Pushing to our local repository
+- First, select the files that you wish to add to the commit. If you want to commit all the files that you've worked on, type in the command <span style = "color:yellow">**git add .**</span>
+- Then, type in <span style = "color:yellow">**git commit -m "*meaningful message here*"**</span> (Quotation marks are neccessary). This will commit the changes to your **local repository**;
+- Repeat this step for all the changes that you make. Once you've feel that the work you've did can be **safely** pushed to the remote repository, continue on to the next step.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Pushing to the remote repository
+- Simply type in <span style = "color:yellow">**git push origin *branch name***</span> to push the changes of your branch to the remote repository.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Running the site on your local machine
+- Make sure you're in the repo folder first. If not, use the commands that are written in the **Cloning the repository** step;
+- Type in the command <span style = "color:yellow">**php artisan serve**</span> to start the website on your local machine. The URL to reach it by default should be **http://127.0.0.1:8000**.

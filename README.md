@@ -21,9 +21,9 @@
 ## Pushing your work to the repository
 
 ### Pushing to our local repository
-- First, select the files that you wish to add to the commit. If you want to commit all the files that you've worked on, type in the command <span style = "color:yellow">**git add .**</span>
+- First, select the files that you wish to add to the commit. If you want to commit all the files that you've worked on, type in the command <span style = "color:yellow">**git add .**</span> (The dot is neccessary);
 - Then, type in <span style = "color:yellow">**git commit -m "*meaningful message here*"**</span> (Quotation marks are neccessary). This will commit the changes to your **local repository**;
-- Repeat this step for all the changes that you make. Once you've feel that the work you've did can be **safely** pushed to the remote repository, continue on to the next step.
+- Repeat these two steps for all the changes that you make. Once you've feel that the work you've did can be **safely** pushed to the remote repository, continue on to the next step.
 
 ### Pushing to the remote repository
 - Simply type in <span style = "color:yellow">**git push origin *branch name***</span> to push the changes of your branch to the remote repository.

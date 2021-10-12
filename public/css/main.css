@@ -25,40 +25,25 @@ a.title {
     cursor: pointer;
 }
 
-.circle {
-    width: 200px;
-    height: 200px;
-    background: pink;
-    border-radius: 50%;
-}
-
-.circle .tick {
-    width: 10px;
-    height: 10px;
-    background: #000;
+.container {
+    --d: 7em; /* mygtuko dydis */
+    --w: 5em;
+    --rel: 0.5; /* "apskritimo" dydis */
+    --r: calc(.5*(1 + var(--rel))*var(--d)/var(--tan)); /* apskritimo spindulys */
+    --s: calc(2*var(--r) + var(--d)); /* konteinerio dydis */
+    position: relative;
+    width: var(--s); height: var(--s);
+  }
+  
+.container a {
     position: absolute;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left: -5px;
-    margin-top: -5px;
-  }
-
-  .circle .tick:nth-child(1) {
-    transform: rotate(0deg) translate(100px);
-  }
-  .circle .tick:nth-child(2) {
-    transform: rotate(60deg) translate(100px);
-  }
-  .circle .tick:nth-child(3) {
-    transform: rotate(120deg) translate(100px);
-  }
-  .circle .tick:nth-child(4) {
-    transform: rotate(180deg) translate(100px);
-  }
-  .circle .tick:nth-child(5) {
-    transform: rotate(270deg) translate(100px);
-  }
-  .circle .tick:nth-child(6) {
-    transform: rotate(360deg) translate(100px);
-  }
+    top: 50%; 
+    left: 130%;
+    margin: calc(-.5*var(--d));
+    width: var(--d); height: var(--d);
+    --az: calc(var(--i)*1turn/var(--m));
+    transform: 
+        rotate(var(--az)) 
+        translate(var(--r))
+        rotate(calc(-1*var(--az)))
+}

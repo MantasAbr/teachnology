@@ -10,40 +10,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-            <link href = "/css/partials/_title.scss" rel="stylesheet">
+            <link href = "/css/styles.css" rel="stylesheet">
 
 
     </head>
     <body class="antialiased">
-            <div>
-                <h1 class="splash">TEACHNOLOGY</h1>
-                    <!--<a class="title" href="{{ url('logIn') }}">Prisijungti</a>
-                    <a class="title" href="{{ url('profile') }}">Profilis</a>
-                    <a class="title" href="{{ url('testsList') }}">Testų sąrašas</a>
-                    <a class="title" href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
-                    <a class="title" href="{{ url('statistics') }}">Statistika</a>
-                    <a class="title" href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
-            </div>
+        <img src="/img/logo_side_text.png"/>
 
-            <div class="circle-container" style="--m: 6; --tan: 0.41">
-                <!-- Čia logo galės per vidurį būt <img><img>-->
-                <a  class="title" style="--i: 1" href="{{ url('profile') }}">Profilis</a>
-                <a  class="title" style="--i: 2" href="{{ url('testsList') }}">Testų sąrašas</a>
-                <a  class="title" style="--i: 3" href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
-                <a  class="title" style="--i: 4" href="{{ url('statistics') }}">Statistika</a>
-                <a  class="title" style="--i: 5" href="{{ url('currency') }}">Pirkti valiutą/Premium</a>
-                <a  class="title" style="--i: 6" href="{{ url('currency') }}">Pirkti valiutą/Premium</a>
-            </div>
+        <div class="button_container">
+            <!-- Čia logo galės per vidurį būt <img><img>-->
+            <a href="{{ url('logIn') }}">Prisijungti</a>
+            <a href="{{ url('profile') }}">Profilis</a>
+            <a href="{{ url('testsList') }}">Testų sąrašas</a>
+            <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
+            <a href="{{ url('statistics') }}">Statistika</a>
+            <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
+        </div>   
 
-            <div style="margin-top: 10%;"></div>
-
-            <div class="container">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <!-- Nekenčiu front-end'o kai jis nesigauna
+        <div class="container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> -->
     </body>
 </html>

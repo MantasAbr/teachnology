@@ -10,8 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-            <link href = "/css/main.css" rel="stylesheet">
-            <link href = "/css/styles.css" rel="stylesheet">
+            <link href = "/css/partials/_title.scss" rel="stylesheet">
 
 
     </head>
@@ -26,7 +25,7 @@
                     <a class="title" href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
             </div>
 
-            <div class="container" style="--m: 6; --tan: 0.41">
+            <div class="circle-container" style="--m: 6; --tan: 0.41">
                 <!-- Čia logo galės per vidurį būt <img><img>-->
                 <a  class="title" style="--i: 1" href="{{ url('profile') }}">Profilis</a>
                 <a  class="title" style="--i: 2" href="{{ url('testsList') }}">Testų sąrašas</a>
@@ -36,5 +35,15 @@
                 <a  class="title" style="--i: 6" href="{{ url('currency') }}">Pirkti valiutą/Premium</a>
             </div>
 
+            <div style="margin-top: 10%;"></div>
+
+            <div class="container">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
     </body>
 </html>

@@ -39,8 +39,8 @@ Route::get('/myTestsList', function () {
     return view('myTestsList');
 });
 
-Route::get('/logIn', function () {
-    return view('logIn');
+Route::get('/login', function () {
+    return view('login');
 });
 
 Route::get('/statistics', function () {
@@ -54,3 +54,6 @@ Route::get('/followingList', function() {
 Route::get('/testEdit', function() {
     return view('testEdit');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

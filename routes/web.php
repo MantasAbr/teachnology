@@ -54,3 +54,7 @@ Route::get('/followingList', function() {
 Route::get('/testEdit', function() {
     return view('testEdit');
 });
+
+Route::get('/header', function() {
+    return view('header');
+});

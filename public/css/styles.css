@@ -1,3 +1,115 @@
+.header {
+  width: 100%;
+  height: 20%;
+  background-color: #E4EFE7;
+  position: relative;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+}
+
+.inner {
+  margin-top: 10%;
+}
+
+.header img {
+  height: 80%;
+  padding-left: 1%;
+  padding-top: 1%;
+  padding-right: 3%;
+  float: left;
+}
+
+.header nav {
+  bottom: 30%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.header li {
+  color: #FDFAF6;
+  background-color: #064420;
+  display: inline-block;
+  padding: 1% 4%;
+  margin: 2% 1%;
+  line-height: 1;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.header .list a {
+  text-decoration: none;
+  color: #FDFAF6;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.header .list a:hover {
+  color: gold;
+}
+
+.header .premium {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+.header .logOut i {
+  float: right;
+  margin-top: 1%;
+  margin-right: 1%;
+  color: black;
+}
+
+input {
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  width: 20%;
+  height: 20px;
+  padding: 10px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border: none;
+  border-bottom: 1px solid #064420;
+  background-color: #E4EFE7;
+  font-size: 16px;
+  margin-right: 30px;
+}
+
+input:focus {
+  outline: none;
+}
+
+select {
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  width: 20%;
+  height: 20px;
+  padding: 10px;
+  background-color: #E4EFE7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#E4EFE7), to(#E4EFE7));
+  background-image: linear-gradient(to bottom, #E4EFE7, #E4EFE7);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #131624;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: none;
+  border-bottom: 1px solid #064420;
+}
+
+option {
+  padding: 10px;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

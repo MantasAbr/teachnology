@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,7 +58,11 @@ Route::get('/testEdit', function() {
 });
 
 //AUTH-----------------------------------------------------
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('auth/google', 'App\Http\Controllers\Auth\GoogleController@redirectToGoogle');

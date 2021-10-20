@@ -59,9 +59,10 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Pamiršai slaptažodį????') }}
                                     </a>
                                 @endif
+                                <a href="{{url('auth/google')}}" style="margin-top: 20px;" class="btn btn-lg btn-success btn-block"><strong>Prisijungti per Google</strong></a>
                             </div>
                         </div>
                     </form>

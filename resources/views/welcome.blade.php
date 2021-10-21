@@ -23,13 +23,13 @@
 
         <div class="button_container">
             <!-- Čia logo galės per vidurį būt <img><img>-->
-            <a href="{{ url('logIn') }}">Prisijungti</a>
+            <a href="{{ url('login') }}">Prisijungti</a>
             <a href="{{ url('profile') }}">Profilis</a>
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
             <a href="{{ url('statistics') }}">Statistika</a>
             <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
-        </div>   
+        </div>
 
         <!-- Nekenčiu front-end'o kai jis nesigauna
         <div class="container">

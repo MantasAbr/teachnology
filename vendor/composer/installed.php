@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v8.6.3',
-        'version' => '8.6.3.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '251f38f309b69b43edde47ca3d0d8c2de1b59ab9',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -395,12 +395,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v8.6.3',
-            'version' => '8.6.3.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '251f38f309b69b43edde47ca3d0d8c2de1b59ab9',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -430,6 +430,15 @@
             'reference' => '6cfc678735f22ccedad761b8cae2bab14c3d8e5b',
             'dev_requirement' => false,
         ),
+        'laravel/socialite' => array(
+            'pretty_version' => 'v5.2.5',
+            'version' => '5.2.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/socialite',
+            'aliases' => array(),
+            'reference' => 'fd0f6a3dd963ca480b598649b54f92d81a43617f',
+            'dev_requirement' => false,
+        ),
         'laravel/tinker' => array(
             'pretty_version' => 'v2.6.2',
             'version' => '2.6.2.0',
@@ -437,6 +446,15 @@
             'install_path' => __DIR__ . '/../laravel/tinker',
             'aliases' => array(),
             'reference' => 'c808a7227f97ecfd9219fbf913bad842ea854ddc',
+            'dev_requirement' => false,
+        ),
+        'laravel/ui' => array(
+            'pretty_version' => 'v3.3.0',
+            'version' => '3.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/ui',
+            'aliases' => array(),
+            'reference' => '07d725813350c695c779382cbd6dac0ab8665537',
             'dev_requirement' => false,
         ),
         'league/commonmark' => array(
@@ -473,6 +491,15 @@
             'install_path' => __DIR__ . '/../league/mime-type-detection',
             'aliases' => array(),
             'reference' => 'b38b25d7b372e9fddb00335400467b223349fd7e',
+            'dev_requirement' => false,
+        ),
+        'league/oauth1-client' => array(
+            'pretty_version' => 'v1.10.0',
+            'version' => '1.10.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/oauth1-client',
+            'aliases' => array(),
+            'reference' => '88dd16b0cff68eb9167bfc849707d2c40ad91ddc',
             'dev_requirement' => false,
         ),
         'mockery/mockery' => array(
@@ -769,8 +796,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(

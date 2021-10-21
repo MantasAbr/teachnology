@@ -1,0 +1,49 @@
+input{
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box; 
+    width: 20%;
+    height: 20px;
+    padding: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border: none;
+    border-bottom: 1px solid $darkGreen;
+    background-color: $lightGreen;
+    font-size: 16px;
+    margin-right: 30px;
+    &:focus{
+        outline: none;
+    }
+}
+
+select{
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box; 
+    width: 20%;
+    height: 20px;
+    padding: 10px;
+    background-color: $lightGreen; 
+    background-image: linear-gradient(to bottom, $lightGreen, $lightGreen); 
+    background-position: center right;
+    background-repeat: no-repeat;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    color: $darkBlue;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    border-bottom: 1px solid $darkGreen;
+
+
+}
+option{
+    padding: 10px;
+} 

@@ -5,6 +5,7 @@
         "styles.scss",
         "partials/_breakpoints.scss",
         "partials/_colors.scss",
+        "partials/_header.scss",
         "partials/_body.scss",
         "partials/_title.scss",
         "partials/_inputs.scss"

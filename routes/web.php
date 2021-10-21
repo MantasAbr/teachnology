@@ -57,6 +57,10 @@ Route::get('/testEdit', function() {
     return view('testEdit');
 });
 
+Route::get('/header', function() {
+    return view('header');
+});
+
 //AUTH-----------------------------------------------------
 Auth::routes(['verify' => true]);
 

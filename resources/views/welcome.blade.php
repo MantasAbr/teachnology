@@ -1,3 +1,6 @@
+@extends('header')
+@section('content')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -14,6 +17,7 @@
 
 
     </head>
+
     <body class="antialiased">
         <img src="/img/logo_side_text.png"/>
 
@@ -37,4 +41,4 @@
             <div></div>
         </div> -->
     </body>
-</html>
+@endsection

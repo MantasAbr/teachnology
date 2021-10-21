@@ -1,3 +1,5 @@
+@extends('header')
+@section('content')
 <h1>
     Testų sąrašas
 </h1>
@@ -8,3 +10,4 @@
     </ul>
     <td><a href="{{ url('/') }}">Atgal</a></td>
 </div>
+@endsection

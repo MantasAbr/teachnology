@@ -1,3 +1,68 @@
+.header {
+  width: 100%;
+  height: 130px;
+  background-color: #E4EFE7;
+  position: relative;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  border-bottom: 2px solid #064420;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.inner {
+  margin-top: 10%;
+}
+
+.header img {
+  height: 80%;
+  padding-left: 1%;
+  padding-top: 1%;
+  padding-right: 3%;
+  float: left;
+}
+
+.header nav {
+  bottom: 30%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.header li {
+  color: #FDFAF6;
+  background-color: #064420;
+  display: inline-block;
+  padding: 1% 4%;
+  margin: 2% 1%;
+  line-height: 1;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.header .list a {
+  text-decoration: none;
+  color: #FDFAF6;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.header .list a:hover {
+  color: gold;
+}
+
+.header .premium {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+.header .logOut i {
+  float: right;
+  margin-top: 1%;
+  margin-right: 1%;
+  color: black;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6,9 +71,33 @@
 body {
   font-family: 'Nunito', sans-serif;
   background-color: #FDFAF6;
+  color: #131624;
+  margin: 0;
 }
+
+.antialiased {
+  margin-top: 20px;
+}
+
+.antialiased img {
+  padding: 20px;
+  background-color: #E4EFE7;
+  border-radius: 7px;
+  display: block;
+  margin: 0 auto 50px auto;
+  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 600px) {
+  .antialiased img {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
 /* Title page mygtukai */
-a {
+.button_container a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,16 +115,22 @@ a {
   cursor: pointer;
 }
 
-a:hover {
+.button_container a:hover {
   background-color: #cce0d1;
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
 }
 
-img {
-  width: 30%;
-  height: auto;
-  padding: 0px 0px 20px 15px;
+@media (max-width: 950px) {
+  .button_container a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .button_container a {
+    width: 60%;
+  }
 }
 
 .button_container {
@@ -104,7 +199,6 @@ img {
 .container div:nth-child(4) {
   -webkit-transform: rotate(0deg) translate(200px/2) rotate(0deg);
           transform: rotate(0deg) translate(200px/2) rotate(0deg);
-
 }
 
 input {
@@ -156,66 +250,4 @@ select {
 option {
   padding: 10px;
 }
-
-.header {
-  width: 100%;
-  height: 20%;
-  background-color: #E4EFE7;
-  position: relative;
-  position: fixed;
-  top: 0;
-  overflow: hidden;
-}
-
-.inner {
-  margin-top: 10%;
-}
-
-.header img {
-  height: 80%;
-  padding-left: 1%;
-  padding-top: 1%;
-  padding-right: 3%;
-  float: left;
-}
-
-.header nav {
-  bottom: 30%;
-  width: 100%;
-  text-decoration: none;
-}
-
-.header li {
-  color: #FDFAF6;
-  background-color: #064420;
-  display: inline-block;
-  padding: 1% 4%;
-  margin: 2% 1%;
-  line-height: 1;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-.header .list a {
-  text-decoration: none;
-  color: #FDFAF6;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-.header .list a:hover {
-  color: gold;
-}
-
-.header .premium {
-  color: darkgreen;
-  text-decoration: none;
-}
-
-.header .logOut i {
-  float: right;
-  margin-top: 1%;
-  margin-right: 1%;
-  color: black;
-
 /*# sourceMappingURL=styles.css.map */

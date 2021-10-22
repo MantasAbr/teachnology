@@ -1,6 +1,3 @@
-@extends('header')
-@section('content')
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,7 +20,7 @@
 
         <div class="button_container">
             <!-- Čia logo galės per vidurį būt <img><img>-->
-            <a href="{{ url('login') }}">Prisijungti</a>
+            <a class="title" href="{{ url('login') }}">Prisijungti</a>
             <a href="{{ url('profile') }}">Profilis</a>
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
@@ -41,4 +38,4 @@
             <div></div>
         </div> -->
     </body>
-@endsection
+

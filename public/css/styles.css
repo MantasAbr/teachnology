@@ -250,4 +250,56 @@ select {
 option {
   padding: 10px;
 }
+
+textarea {
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  min-width: 20%;
+  min-height: 40px;
+  padding: 10px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border: none;
+  border-bottom: 1px solid #064420;
+  background-color: #E4EFE7;
+  font-size: 16px;
+  margin-right: 30px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Nunito', sans-serif;
+}
+
+:-moz-placeholder {
+  font-family: 'Nunito', sans-serif;
+}
+
+::-moz-placeholder {
+  font-family: 'Nunito', sans-serif;
+}
+
+:-ms-input-placeholder {
+  font-family: 'Nunito', sans-serif;
+}
+
+button {
+  background-color: #E4EFE7;
+  padding: 10px 0px 10px 0px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #cce0d1;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
 /*# sourceMappingURL=styles.css.map */

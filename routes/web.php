@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +38,12 @@ Route::get('/test', function () {
 Route::get('/testCreate', function () {
     return view('testCreate');
 });
+//Sprendimų stuff
 
-Route::get('/myTestsList', function () {
-    return view('myTestsList');
-});
+Route::get('/myTestsList', 'App\Http\Controllers\PostController@index')->name('posts');
+Route::get('/myTestsList/show/{idTest}', 'App\Http\Controllers\PostController@show')->name('postshow');
+Route::delete('/myTestsList/delete/{idTest}', 'App\Http\Controllers\PostController@destroy')->name('postdestroy');
+Route::get('/myTestsList/edit/{idTest}', 'App\Http\Controllers\PostController@edit')->name('postedit');
 
 Route::get('/login', function () {
     return view('login');

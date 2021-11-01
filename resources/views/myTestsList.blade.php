@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <table class="table table-striped">
                 <thead>
-                <th>id</th>
+                <th>id1</th>
                 <th>Pavadinimas</th>
                 <th>Info</th>
                 <th>Kategorija</th>

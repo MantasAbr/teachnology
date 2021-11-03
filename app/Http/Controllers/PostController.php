@@ -46,21 +46,33 @@ class PostController extends Controller
 
         $this->validate($request, [
             'testName' => 'required',
-            'info' => 'required',
-            'Category_idCateogry' => 'required'
+            'info' => 'required'
 
         ]);
         $post = Post::findOrFail($id);
-        dd($id);
         $testName = $request->input('testName');
         $info = $request->input('info');
-        $Category_idCateogry = $request->input('Category_idCateogry');
         $post->testName = $testName;
         $post->info = $info;
-        $post->Category_idCateogry = $Category_idCateogry;
 
         $post->save();
-        dd($post);
         return redirect()->route('posts')->with('status','Testo informacija atnaujinta');
+    }
+    public function create()
+    {
+        return view('testCreate');
+    }
+    public function store(Request $request)
+    {
+        $post = new Post;
+        $post->testName = $request->get('testName');
+        $post->info = $request->get('info');
+        $post->Category_idCategory = $request->get('category');
+
+        $post->User_idUser = Auth::user()->id;
+        $post->save();
+
+        return redirect()->route('posts');
+
     }
 }

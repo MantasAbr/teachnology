@@ -29,9 +29,6 @@ Route::get('/profile', function () {
 Route::get('/testsList', function () {
     return view('testsList');
 });
-Route::get('/testInfo', function () {
-    return view('testInfo');
-});
 Route::get('/test', function () {
     return view('test');
 });
@@ -41,9 +38,11 @@ Route::get('/testCreate', function () {
 //Sprendimų stuff
 
 Route::get('/myTestsList', 'App\Http\Controllers\PostController@index')->name('posts');
-Route::get('/myTestsList/show/{idTest}', 'App\Http\Controllers\PostController@show')->name('postshow');
+Route::get('/myTestsList/testInfo/{idTest}', 'App\Http\Controllers\PostController@show')->name('postshow');
 Route::delete('/myTestsList/delete/{idTest}', 'App\Http\Controllers\PostController@destroy')->name('postdestroy');
-Route::get('/myTestsList/edit/{idTest}', 'App\Http\Controllers\PostController@edit')->name('postedit');
+
+Route::get('/myTestsList/testInfo/{idTest}/testEdit', 'App\Http\Controllers\PostController@edit')->name('postedit');
+Route::match(['put','patch'],'/myTestsList/testInfo/{idTest}/testEdit', 'App\Http\Controllers\PostController@update')->name('postupdate');
 
 Route::get('/login', function () {
     return view('login');
@@ -55,10 +54,6 @@ Route::get('/statistics', function () {
 
 Route::get('/followingList', function() {
     return view('followingList');
-});
-
-Route::get('/testEdit', function() {
-    return view('testEdit');
 });
 
 Route::get('/header', function() {

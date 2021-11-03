@@ -9,16 +9,9 @@
         <div class="col-md-8">
             <table class="table table-striped">
                 <thead>
-                <th>id1</th>
-                <th>Pavadinimas</th>
-                <th>Info</th>
+                <th>Testo pavadinimas</th>
                 <th>Kategorija</th>
-                <th>Reitingas</th>
-                <th>Kartų spręsta</th>
-                <th>color</th>
-                <th>Kartų įvertinta</th>
                 <th>Show post</th>
-                <th>Post editor</th>
                 <th></th>
                 <th></th>
                 </thead>
@@ -26,30 +19,16 @@
                 @foreach($posts as $post)
                     @if(Auth::user()->username == $post->username)
                         <tr>
-                            <td>{{ $post->idTest }}</td>
                             <td>{{ $post->testName }}</td>
-                            <td>{{ $post->info }}</td>
-                            <td>{{ $post->Category_idCategory }}</td>
-                            <td>{{ $post->ratingSum }}</td>
-                            <td>{{ $post->completedCount }}</td>
-                            <td>{{ $post->ratingCount }}</td>
-                            <td>{{ $post->User_idUser }}</td>
+                            @if($post->Category_idCategory == 1)
+                                <td>Elementary school</td>
+                            @endif
+                            @if($post->Category_idCategory == 2)
+                            <td>Middle school</td>
+                            @endif
                             <td>
                                 <a href="{{ route('postshow', $post->idTest) }}" class="btn btn-primary">Show post</a>
                             </td>
-                            <td>
-
-                                <a> {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
-                                'method'=>'POST']) !!}
-                                    @csrf
-                                    {{Form::hidden('_method','DELETE')}}
-
-                                    {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-                                    {!! Form::close() !!}
-                                </a>
-
-                            <td>
-                                <a href="{{ route('postedit', $post->idTest) }}" class="btn btn-warning">Edit</a>
                             </td>
                             @endif
 

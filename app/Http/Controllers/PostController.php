@@ -23,7 +23,13 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('show', compact('post'));
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+        return view('testInfo', compact('post'))->with('avarage', $avarage);
     }
     public function destroy($id)
     {
@@ -35,5 +41,26 @@ class PostController extends Controller
 
         $post = Post::find($id);
         return view('testEdit',compact('post')); //->with('messages','id');
+    }
+    public function update(Request $request,$id){
+
+        $this->validate($request, [
+            'testName' => 'required',
+            'info' => 'required',
+            'Category_idCateogry' => 'required'
+
+        ]);
+        $post = Post::findOrFail($id);
+        dd($id);
+        $testName = $request->input('testName');
+        $info = $request->input('info');
+        $Category_idCateogry = $request->input('Category_idCateogry');
+        $post->testName = $testName;
+        $post->info = $info;
+        $post->Category_idCateogry = $Category_idCateogry;
+
+        $post->save();
+        dd($post);
+        return redirect()->route('posts')->with('status','Testo informacija atnaujinta');
     }
 }

@@ -21,7 +21,7 @@
                             <!-- <input placeholder="Testo lygis"  type="text" name="category" class="form-control" required/> -->
                             <select name="category" placeholder="Testo lygis">
                                 @foreach($category as $cat)
-                                    <option value="{{$cat->name}}">{{$cat->name}}</option>
+                                    <option value="{{$cat->idCategory}}">{{$cat->name}}</option>
                                 @endforeach
                             </select>
                         </div>

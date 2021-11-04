@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
+use App\Models\Category;
 use Auth;
 use Session;
 
@@ -60,7 +61,9 @@ class PostController extends Controller
     }
     public function create()
     {
-        return view('testCreate');
+        $category =  Category::all();
+        //dd($category);
+        return view('testCreate', compact('category'));
     }
     public function store(Request $request)
     {

@@ -11,10 +11,6 @@
           box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.inner {
-  margin-top: 10%;
-}
-
 .header img {
   height: 80%;
   padding-left: 1%;
@@ -73,6 +69,7 @@ body {
   background-color: #FDFAF6;
   color: #131624;
   margin: 0;
+  margin-top: 150px;
 }
 
 .antialiased {
@@ -301,5 +298,101 @@ button:hover {
   background-color: #cce0d1;
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
+}
+
+.container-center {
+  width: 40%;
+  margin: auto;
+  border: 1px solid #064420;
+  border-radius: 7px;
+  padding: 0px 20px 10px 20px;
+  -webkit-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+@media (max-width: 1070px) {
+  .container-center {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  .container-center {
+    width: 80%;
+  }
+}
+
+.container-center input {
+  width: 40%;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.container-center a {
+  float: right;
+}
+
+.container-center .form-group {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.container-center .form-group:first-of-type {
+  width: 70%;
+  float: left;
+}
+
+.container-center .form-group:first-of-type input {
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  .container-center .form-group:first-of-type {
+    width: 100%;
+    float: left;
+  }
+  .container-center .form-group:first-of-type input {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 100%;
+  }
+}
+
+.container-center .form-group:nth-of-type(2) {
+  width: 30%;
+  float: right;
+}
+
+.container-center .form-group:nth-of-type(2) select {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .container-center .form-group:nth-of-type(2) {
+    width: 100%;
+    float: left;
+  }
+  .container-center .form-group:nth-of-type(2) select {
+    width: 100%;
+  }
+}
+
+.container-center .form-group:nth-of-type(3) textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 0;
+}
+
+.container-center .form-group:last-of-type input {
+  margin: auto;
 }
 /*# sourceMappingURL=styles.css.map */

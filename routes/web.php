@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Answer;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\DB;
 /*
@@ -42,7 +43,7 @@ Route::get('/myTestsList/testInfo/{idTest}', 'App\Http\Controllers\PostControlle
 Route::delete('/myTestsList/delete/{idTest}', 'App\Http\Controllers\PostController@destroy')->name('postdestroy');
 
 Route::get('/testCreate', 'App\Http\Controllers\PostController@create')->name('testcreate');
-Route::post('/myTestsList/store', 'App\Http\Controllers\PostController@store')->name('poststore');
+Route::post('/testCreate/store', 'App\Http\Controllers\PostController@store')->name('poststore');
 
 Route::get('/myTestsList/testInfo/{idTest}/testEdit', 'App\Http\Controllers\PostController@edit')->name('postedit');
 Route::match(['put','patch'],'{idTest}/testEdit', 'App\Http\Controllers\PostController@update')->name('postupdate');

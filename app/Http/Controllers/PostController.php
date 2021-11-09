@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
+use App\Models\Answer;
+use App\Models\Question;
 use App\Models\Category;
 use Auth;
 use Session;
+use Validator;
 
 class PostController extends Controller
 {
@@ -56,6 +59,7 @@ class PostController extends Controller
         $post->testName = $testName;
         $post->info = $info;
 
+
         $post->save();
         return redirect()->route('posts')->with('status','Testo informacija atnaujinta');
     }
@@ -71,9 +75,38 @@ class PostController extends Controller
         $post->testName = $request->get('testName');
         $post->info = $request->get('info');
         $post->Category_idCategory = $request->get('category');
-
         $post->User_idUser = Auth::user()->id;
         $post->save();
+
+        //klausimų pridėjimas
+
+            $rules = array(
+                'question.*' => 'required',
+                'weight.*' => 'required'
+            );
+            $error = Validator::make($request->all(), $rules);
+            if ($error->fails()) {
+                return response()->json([
+                    'error' => $error->errors()->all()
+                ]);
+            }
+
+            $question = $request->question;
+            $weight = $request->weight;
+           // dd($weight);
+
+            for ($count = 0; $count < count($question); $count++) {
+                $data = array(
+                    'question' => $question[$count],
+                    'weight' => $weight[$count],
+                    'Test_idTest' => $post->idTest
+                );
+                $insert_data[] = $data;
+            }
+
+
+            Question::insert($insert_data);
+
 
         return redirect()->route('posts');
 

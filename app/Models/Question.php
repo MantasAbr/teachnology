@@ -12,6 +12,6 @@ class Question extends Model
     public $primaryKey = 'idQuestion';
 
     protected $fillable = [
-        'question', 'Test_idTest', 'weight', 'count'
+        'question', 'Test_idTest', 'weight'
     ];
 }

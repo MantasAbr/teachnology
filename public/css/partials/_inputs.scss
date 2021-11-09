@@ -13,6 +13,7 @@ input{
     background-color: $lightGreen;
     font-size: 16px;
     margin-right: 30px;
+    margin-bottom: 15px;
     &:focus{
         outline: none;
     }
@@ -75,4 +76,57 @@ textarea{
 }
 :-ms-input-placeholder {
     font-family: 'Nunito', sans-serif;
+}
+.checkbox-container {
+    display: block;
+    width: 175px;
+    height: 25px;
+    position: relative;
+    padding-top: 2px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+       
+        &:checked ~ .checkmark:after {
+            display: block;
+        }
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: $lightGreen;
+        border-bottom: 1px solid $darkGreen;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        &:after {
+            left: 8px;
+            top: 3px;
+            width: 7px;
+            height: 13px;
+            border: solid $darkGreen;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+    &:hover input ~ .checkmark {
+        background-color: $darkerGreen;
+    }
 }

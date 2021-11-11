@@ -12,7 +12,7 @@
                 <!-- <div class="card-header">Sukurti testą</div> -->
                 <div class="card-body">
                     <form method="POST" action="{{route('poststore')}}"  id="dynamic_form" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <div class="form-group">
                             <label class="label">Testo pavadinimas: </label><br>
                             <input placeholder="Testo pavadinimas" type="text" name="testName" class="form-control" required/>
@@ -70,12 +70,12 @@
 
                                     html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer[]" class="form-control" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer[]" class="form-control" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer[]" class="form-control" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer[]" class="form-control" />Klausimas</td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" />Svoris</td>';
+                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer1[]" class="form-control" /></td>';
+                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct1[]" class="form-control" /></td>';
+                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer2[]" class="form-control" /></td>';
+                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct2[]" class="form-control" /></td>';
+                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer3[]" class="form-control" />Klausimas</td>';
+                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct3[]" class="form-control" />Svoris</td>';
                                     if(number > 1)
                                     {
                                        // html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
@@ -98,30 +98,22 @@
                                     $(this).closest("tr").remove();
                                 });
 
-                                $('#dynamic_form').on('submit', function(event){
-                                    $.ajax({
-                                        url:'{{ route("poststore") }}',
-                                        method:'post',
-                                        data:$(this).serialize(),
-                                        dataType:'json',
-                                        success:function(data)
-                                        {
-                                            if(data.error)
-                                            {
-                                                var error_html = '';
-                                                for(var count = 0; count < data.error.length; count++)
-                                                {
-                                                    error_html += '<p>'+data.error[count]+'</p>';
-                                                }
-                                                $('#result').html('<div class="alert alert-danger">'+error_html+'</div>');
-                                            }
-                                            else
-                                            {
-                                                dynamic_field(1);
-                                                $('#result').html('<div class="alert alert-success">'+data.success+'</div>');
-                                            }
+                                $('#dynamic_form').on('submit', function(){
+                                    var this_master = $(this);
+
+                                    this_master.find('input[type="checkbox"]').each( function () {
+                                        var checkbox_this = $(this);
+
+
+                                        if( checkbox_this.is(":checked") == true ) {
+                                            checkbox_this.attr('value','1');
+                                        } else {
+                                            checkbox_this.prop('checked',true);
+                                            //DONT' ITS JUST CHECK THE CHECKBOX TO SUBMIT FORM DATA
+                                            checkbox_this.attr('value','0');
                                         }
                                     })
+
                                 });
 
                             });

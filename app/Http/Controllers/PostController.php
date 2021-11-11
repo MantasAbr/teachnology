@@ -35,8 +35,16 @@ class PostController extends Controller
         }
         return view('testInfo', compact('post'))->with('avarage', $avarage);
     }
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+        $quest = Question::where([ 'test_idTest' => $id])->pluck('idQuestion');
+        //dd($quest);
+        $ans = Answer::where([ 'Question_idQuestion' => $quest[0]]);
+        dd($ans = $request->input('idAnswers'));
+        $ans->delete();
+        $questdel = Question::where([ 'test_idTest' => $id]);
+        //dd($questdel);
+        $questdel->delete();
         $post = Post::findOrFail($id);
         $post->delete();
         return redirect()->route('posts')->with('status','Pasirinktas testas ištrintas');
@@ -80,9 +88,18 @@ class PostController extends Controller
 
         //klausimų pridėjimas
 
+
             $rules = array(
                 'question.*' => 'required',
-                'weight.*' => 'required'
+                'weight.*' => 'required',
+                'answer.*' => 'required',
+                'is_Correct.*' => 'required',
+                'answer1.*' => 'required',
+                'is_Correct1.*' => 'required',
+                'answer2.*' => 'required',
+                'is_Correct2.*' => 'required',
+                'answer3.*' => 'required',
+                'is_Correct3.*' => 'required'
             );
             $error = Validator::make($request->all(), $rules);
             if ($error->fails()) {
@@ -96,6 +113,7 @@ class PostController extends Controller
            // dd($weight);
 
             for ($count = 0; $count < count($question); $count++) {
+                $testID[$count] = $post->idTest;
                 $data = array(
                     'question' => $question[$count],
                     'weight' => $weight[$count],
@@ -104,9 +122,75 @@ class PostController extends Controller
                 $insert_data[] = $data;
             }
 
-
+        //dd($testID);
             Question::insert($insert_data);
 
+            //Atsakymų pridėjiomas
+
+        $answer = $request->answer;
+        $is_Correct = $request->is_Correct;
+
+        $answer1 = $request->answer1;
+        $is_Correct1 = $request->is_Correct1;
+        $answer2 = $request->answer2;
+        $is_Correct2 = $request->is_Correct2;
+        $answer3 = $request->answer3;
+        $is_Correct3 = $request->is_Correct3;
+        //dd($is_Correct);
+        //dd($answer3);
+
+        for ($count = 0; $count < count($answer); $count++) {
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+                $data = array(
+                    'answer' => $answer[$count],
+                    'is_Correct' => $is_Correct[$count],
+                    'Question_idQuestion' => $questID[$count]
+                );
+
+
+            $insert_data1[] = $data;
+        }
+        for ($count = 0; $count < count($answer1); $count++) {
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+                $data = array(
+                    'answer' => $answer1[$count],
+                    'is_Correct' => $is_Correct1[$count],
+                    'Question_idQuestion' => $questID[$count]
+                );
+
+
+            $insert_data2[] = $data;
+        }
+        for ($count = 0; $count < count($answer2); $count++) {
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+
+                $data = array(
+                    'answer' => $answer2[$count],
+                    'is_Correct' => $is_Correct2[$count],
+                    'Question_idQuestion' => $questID[$count]
+                );
+
+
+            $insert_data3[] = $data;
+        }
+        for ($count = 0; $count < count($answer3); $count++) {
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+
+                $data = array(
+                    'answer' => $answer3[$count],
+                    'is_Correct' => $is_Correct3[$count],
+                    'Question_idQuestion' => $questID[$count]
+                );
+
+
+            $insert_data4[] = $data;
+        }
+
+
+        Answer::insert($insert_data1);
+        Answer::insert($insert_data2);
+        Answer::insert($insert_data3);
+        Answer::insert($insert_data4);
 
         return redirect()->route('posts');
 

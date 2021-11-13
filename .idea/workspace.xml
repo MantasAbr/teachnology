@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cfe1639-f680-4c58-bce6-99e1ded0e986" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +20,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/teachnology/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/teachnology/vendor/phpdocumentor/type-resolver" />
@@ -146,12 +146,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -170,6 +171,16 @@
       <workItem from="1633967786707" duration="288000" />
       <workItem from="1634559359976" duration="5422000" />
       <workItem from="1634761027578" duration="10114000" />
+      <workItem from="1635450439771" duration="937000" />
+      <workItem from="1635456303185" duration="3647000" />
+      <workItem from="1635782489846" duration="94000" />
+      <workItem from="1635959686464" duration="7290000" />
+      <workItem from="1636019600079" duration="155000" />
+      <workItem from="1636117895291" duration="4123000" />
+      <workItem from="1636457921469" duration="3262000" />
+      <workItem from="1636461204763" duration="10751000" />
+      <workItem from="1636631608068" duration="10769000" />
+      <workItem from="1636802333061" duration="270000" />
     </task>
     <servers />
   </component>

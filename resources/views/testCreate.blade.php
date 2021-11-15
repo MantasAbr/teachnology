@@ -75,19 +75,21 @@
                                     html += '<tr><td>2 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer1[]"  class="answer" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct1[]" class="form-control" /></td>';
                                     html += '<td></td>';
-                                    html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer answer-last" /></td>';
+                                    html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct2[]" class="form-control" /></td>';
+                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" /></td>';
+                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct3[]" class="form-control" /></td>';
                                     html += '<td></td>';
                                    
                                     if(number > 1)
                                     {
-                                       // html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
+                                        //html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
                                         $('tbody').append(html);
                                     }
                                     else
                                     {
                                         html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
-                                        $('tbody').html(html);
+                                        $('tbody').append(html);
                                     }
                                 }
 

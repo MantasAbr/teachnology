@@ -24,6 +24,11 @@ class PostController extends Controller
         $posts = Post::all();
         return view('myTestsList', compact('posts'));
     }
+    public function otherindex()
+    {
+        $otherposts = Post::all();
+        return view('testsList', compact('otherposts'));
+    }
     public function show($id)
     {
         $post = Post::find($id);
@@ -39,11 +44,11 @@ class PostController extends Controller
     {
         $quest = Question::where([ 'test_idTest' => $id])->pluck('idQuestion');
         //dd($quest);
-        $ans = Answer::where([ 'Question_idQuestion' => $quest[0]]);
-        dd($ans = $request->input('idAnswers'));
-        $ans->delete();
+        for ($count = 0; $count < count($quest); $count++) {
+        $ans = Answer::where([ 'Question_idQuestion' => $quest[$count]]);
+            $ans->delete();
+            }
         $questdel = Question::where([ 'test_idTest' => $id]);
-        //dd($questdel);
         $questdel->delete();
         $post = Post::findOrFail($id);
         $post->delete();
@@ -52,6 +57,8 @@ class PostController extends Controller
     public function edit($id){
 
         $post = Post::find($id);
+        //$question = Question::where([ 'test_idTest' => $id]);
+
         return view('testEdit',compact('post')); //->with('messages','id');
     }
     public function update(Request $request,$id){
@@ -194,5 +201,16 @@ class PostController extends Controller
 
         return redirect()->route('posts');
 
+    }
+    public function testSolution($id, Request $request){
+
+        $post = Post::find($id);
+        $questions = Question::where(['Test_idTest' => $id])->take(1)->get();
+
+        $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
+        $answers = Answer::where(['Question_idQuestion' => $questionsid[0]])->get(); // ga padaryti, kad vietoj nulio keistusi reikšmė
+
+
+        return view('test',compact('questions', 'answers'))->with('id', $id);
     }
 }

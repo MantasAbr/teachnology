@@ -22,7 +22,7 @@
             <!-- Čia logo galės per vidurį būt <img><img>-->
             <a class="title" href="{{ url('login') }}">Prisijungti</a>
             <a href="{{ url('profile') }}">Profilis</a>
-            <a href="{{ url('testsList') }}">Testų sąrašas</a>
+            <a href="{{ route('otherpostss') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
             <a href="{{ url('statistics') }}">Statistika</a>
             <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->

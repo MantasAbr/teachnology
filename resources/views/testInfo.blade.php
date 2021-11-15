@@ -39,7 +39,7 @@
     </div>
 </div>
 <td>
-    @if(Auth::user()->username == $post->username)
+    @if(Auth::user()->id == $post->User_idUser)
     <a> {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
                                 'method'=>'POST']) !!}
         @csrf
@@ -54,6 +54,6 @@
     @endif
     <td><a href="{{ url('testsList') }}">Atgal į testų sąrašą</a></td>
     <ul>
-        <li><a href="{{ url('test') }}">Pradėti testą</a></li>
+        <li><a href="{{ route('testdo', $post->idTest) }}">Pradėti testą</a></li>
     </ul>
 </div>

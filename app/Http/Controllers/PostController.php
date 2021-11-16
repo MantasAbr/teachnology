@@ -203,7 +203,6 @@ class PostController extends Controller
 
     }
     public function testSolution($id, Request $request){
-
         $post = Post::find($id);
         $questions = Question::where(['Test_idTest' => $id])->take(1)->get();
 

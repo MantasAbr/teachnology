@@ -7,13 +7,18 @@
 @foreach($questions as $quest)
 
     <div>
+        <p>Klausimas - <b>
         {{ $quest->question }}
     </div>
     @endforeach
+    <div>
+        <p>Atsakymo variantai</p>
+    </div>
     @foreach($answers as $quest)
 
         <div>
             {{ $quest->answer }}
+            <td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>
         </div>
     @endforeach
     <td><a href="{{ route('testdo', $id) }}">Sekantis</a></td>

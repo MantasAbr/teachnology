@@ -1,0 +1,37 @@
+.testListSplashContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+
+    .testListSplashText {
+        color: $darkGreen;
+        font-size: 28px;
+    }
+}
+
+.pageCointaner{
+    display: flex;
+    justify-self: center; //centruojam patį turinio containerį
+    align-self: center; //ditto
+    justify-content: left; //sumetam turinį containerio kairėje, kad splash'as gražiai susilygintu su žalio containerio kairiu kraštu
+    align-items: left; //ditto
+    flex-direction: column;
+    margin: auto;
+    padding-top: 20px;
+    width: 80%;
+}
+
+.testListContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    height: 800px;
+    width: 100%;
+    margin: auto;
+    background-color: $lightGreen;
+    border-radius: 7px;
+}
+
+.testListTable {
+    
+}

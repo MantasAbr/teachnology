@@ -1,46 +1,61 @@
 @extends('header')
 @section('content')
-<h1>
-    Testų sąrašas
-</h1>
-<div>
-    <h4>(Testo šalinimas administratoriui)</h4>
-    <div >
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <table class="table table-striped">
-                    <thead>
-                    <th>Testo pavadinimas</th>
-                    <th>Kategorija</th>
-                    <th>Show post</th>
-                    <th></th>
-                    <th></th>
-                    </thead>
-                    <tbody>
-                    @foreach($otherposts as $post)
-                        @if(Auth::user()->username == $post->username)
-                            <tr>
-                                <td>{{ $post->testName }}</td>
-                                @if($post->Category_idCategory == 1)
-                                    <td>Elementary school</td>
-                                @endif
-                                @if($post->Category_idCategory == 2)
-                                    <td>Middle school</td>
-                                @endif
-                                <td>
-                                    <a href="{{ route('postshow', $post->idTest) }}" class="btn btn-primary">Show post</a>
-                                </td>
-                                </td>
-                                @endif
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                                </td>
-                            </tr>
-                            @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <title>TeachNology</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href = "/css/styles.css" rel="stylesheet">
+    </head>
+<body>
+    <div class="pageCointaner">
+        <div class="testListSplashContainer">
+            <h4 class="testListSplashText">Testų sąrašas</h4>
+            
+            <!-- Atsiprašau už šitą nesamonę. Bandžiau įvairiai, bet negrįžo atgal kitaip -->
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
+        </div>
+
+        <div class="testListContainer">
+            <table>
+                <thead>
+                <th>Testo pavadinimas</th>
+                <th>Kategorija</th>
+                <th>Show post</th>
+                <th></th>
+                <th></th>
+                </thead>
+                <tbody>
+                @foreach($otherposts as $post)
+                    @if(Auth::user()->username == $post->username)
+                        <tr>
+                            <td>{{ $post->testName }}</td>
+                            @if($post->Category_idCategory == 1)
+                                <td>Elementary school</td>
+                            @endif
+                            @if($post->Category_idCategory == 2)
+                                <td>Middle school</td>
+                            @endif
+                            <td>
+                                <a href="{{ route('postshow', $post->idTest) }}" class="btn btn-primary">Show post</a>
+                            </td>
+                            </td>
+                            @endif
+
+                            </td>
+                        </tr>
+                        @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    <td><a href="{{ url('/') }}">Atgal</a></td>
-</div>
-@endsection
+    <div style="margin-top: 80px;"></div>
+    @endsection
+</body>

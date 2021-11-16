@@ -395,4 +395,58 @@ button:hover {
 .container-center .form-group:last-of-type input {
   margin: auto;
 }
+
+.testListSplashContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 10%;
+}
+
+.testListSplashContainer .testListSplashText {
+  color: #064420;
+  font-size: 28px;
+}
+
+.pageCointaner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  padding-top: 20px;
+  width: 80%;
+}
+
+.testListContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 800px;
+  width: 100%;
+  margin: auto;
+  background-color: #E4EFE7;
+  border-radius: 7px;
+}
 /*# sourceMappingURL=styles.css.map */

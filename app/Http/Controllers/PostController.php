@@ -202,14 +202,33 @@ class PostController extends Controller
         return redirect()->route('posts');
 
     }
-    public function testSolution($id, Request $request){
-        $post = Post::find($id);
+    public function testSolution($id, Request $request, $kelintas){
+        session_start();
+        $howmuch = Question::count();
         $questions = Question::where(['Test_idTest' => $id])->take(1)->get();
 
         $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
         $answers = Answer::where(['Question_idQuestion' => $questionsid[0]])->get(); // ga padaryti, kad vietoj nulio keistusi reikšmė
 
 
-        return view('test',compact('questions', 'answers'))->with('id', $id);
+        return view('test',compact('questions', 'answers'))->with('id', $id)->with('kelintas', $kelintas)->with('howmuch', $howmuch);
+    }
+    public function testSolutionV2($id, Request $request, $kelintas){
+
+        //Vaikščiojimas tarp klausimų
+        $kelintas++;
+        $howmuch = Question::count();
+        if($howmuch > $kelintas) {
+            $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
+            $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get();
+            $answers = Answer::where(['Question_idQuestion' => $questionsid[$kelintas]])->get(); // ga padaryti, kad vietoj nulio keistusi reikšmė
+        }
+        else{
+            $questions = 0;
+            $answers = 0;
+        }
+        //
+
+        return view('test',compact('questions', 'answers'))->with('id', $id)->with('kelintas', $kelintas)->with('howmuch', $howmuch);
     }
 }

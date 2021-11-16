@@ -54,6 +54,6 @@
     @endif
     <td><a href="{{ url('testsList') }}">Atgal į testų sąrašą</a></td>
     <ul>
-        <li><a href="{{ route('testdo', $post->idTest) }}">Pradėti testą</a></li>
+        <li><a href="{{ route('testdo', ['idTest' => $post->idTest, 'kelintas'=>$kelintas = 0]) }}">Pradėti testą</a></li>
     </ul>
 </div>

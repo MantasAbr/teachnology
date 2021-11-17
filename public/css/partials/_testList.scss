@@ -18,20 +18,77 @@
     flex-direction: column;
     margin: auto;
     padding-top: 20px;
-    width: 80%;
+    width: 70%;
 }
 
 .testListContainer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    height: 800px;
+    height: auto;
     width: 100%;
     margin: auto;
     background-color: $lightGreen;
     border-radius: 7px;
 }
 
+.testListButton {
+    background-color: $actionButton;
+    padding: 10px 0px 10px 0px;
+    border-radius: 7px;
+    min-width: 150px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: $actionButtonHover;
+        transition: .2s ease-in-out;
+    }
+
+}
+
 .testListTable {
+    border-collapse: collapse;
+    background-color: $lightGreen;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    thead {
+        height: 80px;
+    }
+
+    thead tr {
+        font-size: 22px;
+        color: $darkGreen;
+        //text-align: left;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }   
+
+    tbody tr {
+        border-bottom: thin solid $darkerGreen;
+    }
     
+    tbody tr:nth-of-type(odd) {
+        background-color: $darkerGreenNthRow;
+    }
+    
+
+    tr:last-child td:first-child { 
+        border-bottom-left-radius: 10px; 
+    }
+
+    tr:last-child td:last-child { 
+        border-bottom-right-radius: 10px; 
+    }   
+
+    tr:last-child {
+        border-bottom: none;
+    }
+
 }

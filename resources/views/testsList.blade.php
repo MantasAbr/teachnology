@@ -22,40 +22,40 @@
             <!-- Atsiprašau už šitą nesamonę. Bandžiau įvairiai, bet negrįžo atgal kitaip -->
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
+        
+        <table class="testListTable">
+            <thead>
+            <th>Testo pavadinimas</th>
+            <th>Kategorija</th>
+            <th>Veiksmai</th>
+            </thead>
+            <tbody>
+            @foreach($otherposts as $post)
+                @if(Auth::user()->username == $post->username)
+                    <tr>
+                        <td>{{ $post->testName }}</td>
+                        @if($post->Category_idCategory == 1)
+                            <td>Elementary school</td>
+                        @endif
+                        @if($post->Category_idCategory == 2)
+                            <td>Middle school</td>
+                        @endif
+                        <td>
+                            <a href="{{ route('postshow', $post->idTest) }}">
+                                <button class="testListButton">Pasirinkti</button>
+                            </a>
+                        </td>
+                        </td>
+                        @endif
 
-        <div class="testListContainer">
-            <table>
-                <thead>
-                <th>Testo pavadinimas</th>
-                <th>Kategorija</th>
-                <th>Show post</th>
-                <th></th>
-                <th></th>
-                </thead>
-                <tbody>
-                @foreach($otherposts as $post)
-                    @if(Auth::user()->username == $post->username)
-                        <tr>
-                            <td>{{ $post->testName }}</td>
-                            @if($post->Category_idCategory == 1)
-                                <td>Elementary school</td>
-                            @endif
-                            @if($post->Category_idCategory == 2)
-                                <td>Middle school</td>
-                            @endif
-                            <td>
-                                <a href="{{ route('postshow', $post->idTest) }}" class="btn btn-primary">Show post</a>
-                            </td>
-                            </td>
-                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+            </tbody>
+        </table> 
 
-                            </td>
-                        </tr>
-                        @endforeach
-                </tbody>
-            </table>
-        </div>
     </div>
     <div style="margin-top: 80px;"></div>
     @endsection
 </body>
+</html>

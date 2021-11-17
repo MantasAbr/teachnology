@@ -44,7 +44,7 @@
 }
 
 .header .list a:hover {
-  color: gold;
+  color: #f6ed6d;
 }
 
 .header .premium {
@@ -286,7 +286,7 @@ textarea:focus {
 
 button {
   background-color: #E4EFE7;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
   border-radius: 7px;
   min-width: 150px;
   border: none;
@@ -430,7 +430,7 @@ button:hover {
           flex-direction: column;
   margin: auto;
   padding-top: 20px;
-  width: 80%;
+  width: 70%;
 }
 
 .testListContainer {
@@ -443,10 +443,70 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 800px;
+  height: auto;
   width: 100%;
   margin: auto;
   background-color: #E4EFE7;
   border-radius: 7px;
+}
+
+.testListButton {
+  background-color: #ff925f;
+  padding: 10px 0px 10px 0px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.testListButton:hover {
+  background-color: #F86624;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.testListTable {
+  border-collapse: collapse;
+  background-color: #E4EFE7;
+  width: 100%;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.testListTable thead {
+  height: 80px;
+}
+
+.testListTable thead tr {
+  font-size: 22px;
+  color: #064420;
+}
+
+.testListTable th, .testListTable td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.testListTable tbody tr {
+  border-bottom: thin solid #cce0d1;
+}
+
+.testListTable tbody tr:nth-of-type(odd) {
+  background-color: #ecf8ef;
+}
+
+.testListTable tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.testListTable tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.testListTable tr:last-child {
+  border-bottom: none;
 }
 /*# sourceMappingURL=styles.css.map */

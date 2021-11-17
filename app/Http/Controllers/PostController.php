@@ -215,6 +215,7 @@ class PostController extends Controller
     }
     public function testSolutionV2($id, Request $request, $kelintas){
 
+
         //Vaikščiojimas tarp klausimų
         $kelintas++;
         $howmuch = Question::count();
@@ -230,5 +231,42 @@ class PostController extends Controller
         //
 
         return view('test',compact('questions', 'answers'))->with('id', $id)->with('kelintas', $kelintas)->with('howmuch', $howmuch);
+    }
+    public function testAnswers($id, Request $request, $kelintas){
+
+        //Atsakymų paėmimas
+        $rules = array(
+            'is_Correct.*' => 'required',
+
+        );
+        $error = Validator::make($request->all(), $rules);
+        if ($error->fails()) {
+            return response()->json([
+                'error' => $error->errors()->all()
+            ]);
+        }
+        $is_Correct = $request->is_Correct;
+       // dd($is_Correct);
+        $answerID = array_keys($is_Correct, "1");
+
+        //dd($answerID[1]);
+
+
+        $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion'); //paima klausimo id
+        $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get(); //paima klausima
+        $answers = Answer::where(['Question_idQuestion' => $questionsid[$kelintas]])->get(); // paima atsakymo variantus
+
+        $bad = 0;
+        for ($count = 0; $count < count($is_Correct); $count++) {
+            $corAns = Answer::find($answerID[$count]);
+            if($corAns->is_Correct == 1){
+             $goodid[$count] = $corAns->idAnswers;
+            }
+            else{
+                $goodid[$count] = 0;
+                $bad= 1;
+            }
+        }
+        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('id', $id)->with('kelintas', $kelintas);
     }
 }

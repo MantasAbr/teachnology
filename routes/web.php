@@ -49,6 +49,7 @@ Route::match(['put','patch'],'{idTest}/testEdit', 'App\Http\Controllers\PostCont
 
 Route::get('/testsList/testInfo/{idTest}/test/{kelintas}', 'App\Http\Controllers\PostController@testSolution')->name('testdo');
 Route::post('/testsList/testInfo/{idTest}/test/{kelintas}', 'App\Http\Controllers\PostController@testSolutionV2')->name('testdov2');
+Route::post('/testsList/testInfo/{idTest}/test/{kelintas}/answer', 'App\Http\Controllers\PostController@testAnswers')->name('testansw');
 
 
 

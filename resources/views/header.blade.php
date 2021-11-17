@@ -10,17 +10,40 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/styles.css" rel="stylesheet" type="text/css">
     </head>
-    <body> 
+    <body>
         <div class="header">
         <img src="img/logo2.png">
-        <a class="logOut" href="/logOut"><i class="fa fa-sign-out fa-2x"></i></a>  
-        <nav>   
+
+        @if (!Auth::guest())
+            <a class="logOut" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            @else
+            <a class="logOut" href="{{ url('login') }}">
+                <i class="fa fa-sign-in fa-2x" ></i>
+            </a>
+        @endif
+
+        <nav>
         <ul>
             <li class="list"><a  href="/testsList">Testai</a></li>
             <li class="list"><a href="/statistics">Statistika</a></li>
             <li class="list"><a href="/myTestsList">Mano testai</a></li>
-            <li class="list"><a href="/profile">Profilis</a></li>
-            <a class="premium" href="/premium">Nusipirkti Premium</a>             
+
+            {{-- <li class="list"><a href="/profile">Profilis</a></li> --}}
+            <a class="premium" href="/premium">Nusipirkti Premium</a>
+
+            @if (!Auth::guest())
+                 @foreach ($userProfile as $userProf)
+                    @if (Auth::user()->id == $userProf->id)
+                        <a style="float: right; margin-right: 20px;">{{$userProf->email}}</a>
+                    @endif
+                @endforeach 
+            @endif  
         </ul>
         </nav>
 </div>

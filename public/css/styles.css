@@ -12,10 +12,6 @@
           box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.inner {
-  margin-top: 10%;
-}
-
 .header img {
   height: 80%;
   padding-left: 1%;
@@ -74,6 +70,7 @@ body {
   background-color: #FDFAF6;
   color: #131624;
   margin: 0;
+  margin-top: 150px;
 }
 
 .antialiased {
@@ -257,7 +254,7 @@ textarea {
   box-sizing: content-box;
   -webkit-box-sizing: content-box;
   min-width: 20%;
-  min-height: 40px;
+  min-height: 45px;
   padding: 10px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -286,6 +283,64 @@ textarea:focus {
 
 :-ms-input-placeholder {
   font-family: 'Nunito', sans-serif;
+}
+
+.checkbox-container {
+  display: block;
+  width: 175px;
+  height: 25px;
+  position: relative;
+  padding-top: 2px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: -1;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #E4EFE7;
+  border-bottom: 1px solid #064420;
+}
+
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 7px;
+  height: 13px;
+  border: solid #064420;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #cce0d1;
 }
 
 button {
@@ -517,5 +572,195 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
+.container-center {
+  width: 40%;
+  margin: auto;
+  border: 1px solid #064420;
+  border-radius: 7px;
+  padding: 0px 20px 10px 20px;
+  -webkit-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+@media (max-width: 1070px) {
+  .container-center {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  .container-center {
+    width: 80%;
+  }
+}
+
+.container-center input {
+  width: 40%;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.container-center a {
+  float: right;
+}
+
+.container-center .form-group {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.container-center .form-group:first-of-type {
+  width: 70%;
+  float: left;
+}
+
+.container-center .form-group:first-of-type input {
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  .container-center .form-group:first-of-type {
+    width: 100%;
+    float: left;
+  }
+  .container-center .form-group:first-of-type input {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 100%;
+  }
+}
+
+.container-center .form-group:nth-of-type(2) {
+  width: 30%;
+  float: right;
+}
+
+.container-center .form-group:nth-of-type(2) select {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .container-center .form-group:nth-of-type(2) {
+    width: 100%;
+    float: left;
+  }
+  .container-center .form-group:nth-of-type(2) select {
+    width: 100%;
+  }
+}
+
+.container-center .form-group:nth-of-type(3) textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 0;
+}
+
+.container-center .form-group:last-of-type input {
+  margin: auto;
+}
+
+.container-center-test {
+  width: 50%;
+}
+
+@media (max-width: 900px) {
+  .container-center-test {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-center-test {
+    width: 80%;
+  }
+}
+
+.container-center-test .form-group-back {
+  width: 100%;
+}
+
+.container-center-test .form-group-back a {
+  width: 100%;
+  text-align: right;
+}
+
+.container-center-test table {
+  width: 100%;
+}
+
+.container-center-test .test-name {
+  padding-right: 4px;
+}
+
+.container-center-test textarea {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.container-center-test input {
+  display: block;
+}
+
+.container-center-test input[type=number] {
+  width: 60px;
+}
+
+.container-center-test .question {
+  width: 90%;
+}
+
+.container-center-test .submit {
+  margin: auto;
+}
+
+.container-center-test .addQuestion.addQuestion {
+  min-width: unset;
+  width: 40px;
+}
+
+.container-center-test .addQuestion.addQuestion .fa-plus {
+  color: #064420;
+}
+
+.container-center-test .answer {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 41px;
+  margin-bottom: 5px;
+}
+
+.container-center-test .answer-last {
+  margin-bottom: 30px;
+}
+
+.container-center-test tr .questionInput {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 41px;
+  margin-bottom: 5px;
+}
+
+.container-center-test tr td:first-of-type {
+  width: 50%;
+}
+
+.container-center-test tr td:nth-of-type(2) {
+  width: 0%;
+}
+
+.container-center-test tr td:last-of-type {
+  width: 8%;
 }
 /*# sourceMappingURL=styles.css.map */

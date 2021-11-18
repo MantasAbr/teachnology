@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Answer;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,19 +27,23 @@ Route::get('/', function () {
 Route::get('/testsList', function () {
     return view('testsList');
 });
-Route::get('/testInfo', function () {
-    return view('testInfo');
-});
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/testCreate', function () {
-    return view('testCreate');
-});
 
-Route::get('/myTestsList', function () {
-    return view('myTestsList');
-});
+//Sprendimų stuff
+
+Route::get('/myTestsList', 'App\Http\Controllers\PostController@index')->name('posts');
+Route::get('/myTestsList/testInfo/{idTest}', 'App\Http\Controllers\PostController@show')->name('postshow');
+Route::delete('/myTestsList/delete/{idTest}', 'App\Http\Controllers\PostController@destroy')->name('postdestroy');
+
+Route::get('/testCreate', 'App\Http\Controllers\PostController@create')->name('testcreate');
+Route::post('/testCreate/store', 'App\Http\Controllers\PostController@store')->name('poststore');
+
+Route::get('/myTestsList/testInfo/{idTest}/testEdit', 'App\Http\Controllers\PostController@edit')->name('postedit');
+Route::match(['put','patch'],'{idTest}/testEdit', 'App\Http\Controllers\PostController@update')->name('postupdate');
+
+
 
 Route::get('/login', function () {
     return view('login');
@@ -46,10 +55,6 @@ Route::get('/statistics', function () {
 
 Route::get('/followingList', function() {
     return view('followingList');
-});
-
-Route::get('/testEdit', function() {
-    return view('testEdit');
 });
 
 Route::get('/header', function() {

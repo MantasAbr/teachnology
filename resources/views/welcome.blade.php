@@ -21,7 +21,15 @@
         <div class="button_container">
             <!-- Čia logo galės per vidurį būt <img><img>-->
             <a class="title" href="{{ url('login') }}">Prisijungti</a>
-            <a href="{{ url('profile') }}">Profilis</a>
+           <!-- šito reikia valiutos modalui, tačiau neleidžia įeit į puslapį, jei neprisijungęs  -->
+           {{-- @foreach($userProfile as $userProf) --}}
+           {{-- @if(Auth::user()->id == $userProf->id) --}}
+            {{--  <a href="{{route('profileshow', $userProf->id) }}">Profilis</a> --}}
+
+            {{-- @endif --}}
+                {{--@endforeach --}}
+
+            
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
             <a href="{{ url('statistics') }}">Statistika</a>

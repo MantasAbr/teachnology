@@ -309,6 +309,10 @@ button:hover {
   display: none;
 }
 
+.modal2 {
+  display: none;
+}
+
 .modal-container {
   position: absolute;
   display: -webkit-box;
@@ -401,5 +405,117 @@ button:hover {
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
   border-color: #064420;
+}
+
+.modal-container .tab {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+.modal-container .crypto {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal-container .crypto input {
+  margin: 15px;
+  padding-top: 35px;
+  font-size: 40px;
+}
+
+.modal-container .dropdown {
+  padding-left: 100px;
+}
+
+.modal-container .dropdown dd, .modal-container .dropdown dt, .modal-container .dropdown ul {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container .dropdown dd {
+  position: relative;
+}
+
+.modal-container .dropdown a, .modal-container .dropdown a:visited {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+.modal-container .dropdown a:hover {
+  color: #cce0d1;
+}
+
+.modal-container .dropdown dt a {
+  background: #E4EFE7 url("http://www.jankoatwarpspeed.com/wp-content/uploads/examples/reinventing-drop-down/arrow.png") no-repeat scroll right center;
+  display: block;
+  padding-right: 20px;
+  width: 150px;
+  height: 35px;
+}
+
+.modal-container .dropdown dt a:hover {
+  color: black;
+  background: #cce0d1 url("http://www.jankoatwarpspeed.com/wp-content/uploads/examples/reinventing-drop-down/arrow.png") no-repeat scroll right center;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.modal-container .dropdown dt a span {
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+}
+
+.modal-container .dropdown dd ul {
+  background: #E4EFE7 none repeat scroll 0 0;
+  display: none;
+  left: 0px;
+  padding: 5px 0px;
+  position: absolute;
+  top: 2px;
+  width: auto;
+  min-width: 170px;
+  list-style: none;
+}
+
+.modal-container .dropdown span.value {
+  display: none;
+}
+
+.modal-container .dropdown dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.modal-container .dropdown dd ul li a:hover {
+  background-color: #cce0d1;
+  color: black;
+}
+
+.modal-container .dropdown img.cryptoimg {
+  border: none;
+  vertical-align: middle;
+  margin-left: 10px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.modal-container .flagvisibility {
+  display: none;
+}
+
+.modal-container img.thc {
+  border: none;
+  margin-left: 300px;
+  height: 35px;
+  margin-right: 10px;
+  margin-top: -40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -14,7 +14,7 @@
     </head>
     <body> 
         <div class="header">
-            <img src="img/logo2.png">
+            <img src="img/logo_w_text.png">
             <a class="logOut" href="/logOut"><i class="fa fa-sign-out fa-2x"></i></a>  
             <nav>   
                 <ul>
@@ -25,10 +25,6 @@
                     <button class="premium">Nusipirkti Premium</button>             
                 </ul>
             </nav>
-        </div>
-
-        <div class="inner">
-                @yield('content')
         </div>
 
         <div id="modal" class="modal">
@@ -68,6 +64,10 @@
                 $("#modal").toggleClass('modal');
             });
         </script>
+
+        <div class="inner">
+                @yield('content')
+        </div>
 
     </body>
 </html>

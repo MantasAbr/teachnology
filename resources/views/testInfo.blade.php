@@ -1,59 +1,71 @@
-<h1>
-    Pasirinkto testo informacija
-</h1>
-<div>
-    <h4>(Testo komentarų peržiūra, rašymas, redagavimas)</h4>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>
-                            <p>Testo pavadinimas - <b>{{ $post->testName }}</b></p>
-                        </h3>
-                        <p>Testo informacija - <b>{{ $post->info }}</b></p>
-                        @if($post->Category_idCategory == 1)
-                        <p>Testo lygis - <b>Elementary school</b></p>
-                        @endif
-                        @if($post->Category_idCategory == 2)
-                            <p>Testo lygis - <b>Middle school</b></p>
-                        @endif
-                        @if($post->ratingSum == null)
-                            <p>Testo įvertinimas - <b>Testo dar niekas nesprendė</b></p>
-                        @endif
-                        @if($post->ratingSum != null)
-                        <p>Testo įvertinimas - <b>{{ $avarage  }}</b></p>
-                        @endif
-                        @if($post->completedCount == null)
-                        <p>Išspręsta kartų - <b>Testo dar niekas nesprendė</b></p>
-                        @endif
-                        @if($post->completedCount != null)
-                            <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
-                        @endif
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                    </div>
-                    </form>
-                </div>
-            </div>
+        <title>TeachNology</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href = "/css/styles.css" rel="stylesheet">
+    </head>
+    
+<body style="margin-top: 0px;">
+
+<div class="pageContainer">
+    <div class="selectedTestSplashContainer">
+        <h4 class="selectedTestSplashText">Pasirinkto testo informacija</h4>
+
+        
+        <div style="display: flex; flex-direction: row;">
+        @if(Auth::user()->id == $post->User_idUser)
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;"> 
+                {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
+                                        'method'=>'POST']) !!}
+                @csrf
+                {{Form::hidden('_method','DELETE')}}
+
+                {{Form::submit('Ištrinti', ['class'=>'deleteButton'])}}
+                {!! Form::close() !!}
+                <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('postedit', $post->idTest) }}"><button style="cursor: pointer;">Redaguoti</button></a>
+            @endif
+            </a>
+
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('testsList') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
     </div>
-</div>
-<td>
-    @if(Auth::user()->id == $post->User_idUser)
-    <a> {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
-                                'method'=>'POST']) !!}
-        @csrf
-        {{Form::hidden('_method','DELETE')}}
 
-        {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-        {!! Form::close() !!}
-    </a>
+    <div class="testInfoContainer">
+        <p class="name"><b>{{ $post->testName }}</b></p>
+        <div class="hairline"></div>
+        <p>Lygis - <b>Elementary school</b></p>
+        @if($post->Category_idCategory == 2)
+            <p>Lygis - <b>Middle school</b></p>
+        @endif
+        @if($post->ratingSum == null)
+            <p>Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė<span></b></p>
+        @endif
+        @if($post->ratingSum != null)
+        <p>Įvertinimas - <b>{{ $avarage  }}</b></p>
+        @endif
+        @if($post->completedCount == null)
+        <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė<span></b></p>
+        @endif
+        @if($post->completedCount != null)
+            <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
+        @endif
+        <div class="hairline"></div>
+        <p class="infoHeader">Informacija</p>
+            <p class="info"><b>{{ $post->info }}</b><p>
+        @if($post->Category_idCategory == 1)
+        @endif
 
-<td>
-    <ul><a href="{{ route('postedit', $post->idTest) }}" class="btn btn-warning">Edit</a></ul>
-    @endif
-    <td><a href="{{ url('testsList') }}">Atgal į testų sąrašą</a></td>
-    <ul>
-        <li><a href="{{ route('testdo', $post->idTest) }}">Pradėti testą</a></li>
-    </ul>
+        <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('testdo', $post->idTest) }}"><button class="testProceedButton">Pradėti testą</button></a>
+
+    </div>
 </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   width: 100%;
   height: 130px;
@@ -357,6 +358,220 @@ button:hover {
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
 }
+
+/* Modalo slėpimas/parodymas */
+.modal {
+  display: none;
+}
+
+.modal2 {
+  display: none;
+}
+
+.modal-container {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(54, 54, 61, 0.8);
+}
+
+.modal-container .modal-box {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40%;
+  height: 60%;
+  border-radius: 7px;
+  background-color: #E4EFE7;
+}
+
+.modal-container .exit {
+  float: right;
+}
+
+.modal-container .splash {
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+.modal-container .modal-header-box {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.modal-container .hairline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: solid 1px black;
+  width: 95%;
+  margin-left: 20px;
+  margin-right: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container .payment-select-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 60;
+}
+
+.modal-container .payment-select-container .payment-method {
+  padding: 0px 10px 0px 10px;
+  width: 220px;
+  height: auto;
+  border: solid 1px #cce0d1;
+  border-radius: 7px;
+}
+
+.modal-container .payment-select-container .payment-method:hover {
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  border-color: #064420;
+}
+
+.modal-container .tab {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+.modal-container .crypto {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal-container .crypto input {
+  margin: 15px;
+  padding-top: 35px;
+  font-size: 40px;
+}
+
+.modal-container .dropdown {
+  padding-left: 100px;
+}
+
+.modal-container .dropdown dd, .modal-container .dropdown dt, .modal-container .dropdown ul {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container .dropdown dd {
+  position: relative;
+}
+
+.modal-container .dropdown a, .modal-container .dropdown a:visited {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+.modal-container .dropdown a:hover {
+  color: #cce0d1;
+}
+
+.modal-container .dropdown dt a {
+  background: #E4EFE7 url("http://www.jankoatwarpspeed.com/wp-content/uploads/examples/reinventing-drop-down/arrow.png") no-repeat scroll right center;
+  display: block;
+  padding-right: 20px;
+  width: 150px;
+  height: 35px;
+}
+
+.modal-container .dropdown dt a:hover {
+  color: black;
+  background: #cce0d1 url("http://www.jankoatwarpspeed.com/wp-content/uploads/examples/reinventing-drop-down/arrow.png") no-repeat scroll right center;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.modal-container .dropdown dt a span {
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+}
+
+.modal-container .dropdown dd ul {
+  background: #E4EFE7 none repeat scroll 0 0;
+  display: none;
+  left: 0px;
+  padding: 5px 0px;
+  position: absolute;
+  top: 2px;
+  width: auto;
+  min-width: 170px;
+  list-style: none;
+}
+
+.modal-container .dropdown span.value {
+  display: none;
+}
+
+.modal-container .dropdown dd ul li a {
+  padding: 5px;
+  display: block;
+}
+
+.modal-container .dropdown dd ul li a:hover {
+  background-color: #cce0d1;
+  color: black;
+}
+
+.modal-container .dropdown img.cryptoimg {
+  border: none;
+  vertical-align: middle;
+  margin-left: 10px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.modal-container .flagvisibility {
+  display: none;
+}
+
+.modal-container img.thc {
+  border: none;
+  margin-left: 300px;
+  height: 35px;
+  margin-right: 10px;
+  margin-top: -40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 
 .container-center {
   width: 40%;

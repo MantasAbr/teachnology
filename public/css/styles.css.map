@@ -10,6 +10,7 @@
         "partials/_title.scss",
         "partials/_inputs.scss",
         "partials/_buttons.scss",
+        "partials/_modal.scss"
         "partials/_test.scss"
     ],
     "names": [],

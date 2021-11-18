@@ -63,7 +63,7 @@
         @if($post->Category_idCategory == 1)
         @endif
 
-        <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('testdo', $post->idTest) }}"><button class="testProceedButton">Pradėti testą</button></a>
+        <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('testdo', ['idTest' => $post->idTest, 'kelintas'=>$kelintas = 0]) }}"><button class="testProceedButton">Pradėti testą</button></a>
 
     </div>
 </div>

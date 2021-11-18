@@ -37,13 +37,7 @@
                             </div>
 
                                     
-                                <div class="remember-me">
-
-                                    <label class="checkbox-container">Prisiminti mane
-                                        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
+                              
 
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

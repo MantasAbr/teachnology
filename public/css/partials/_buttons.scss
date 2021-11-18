@@ -1,13 +1,14 @@
 button{
     background-color: $lightGreen;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
     border-radius: 7px;
     min-width: 150px;
     border: none;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin: 0px 10px 10px 10px;
+    transition: .2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     &:hover {
         background-color: #cce0d1;
-        transition: .2s ease-in-out;
     }
 }

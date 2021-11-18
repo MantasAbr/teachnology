@@ -6,7 +6,7 @@
 <div class="container-center container-center-test">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            
                 <h3 style="text-align: center;">
                     Naujo testo kūrimas
                 </h3>
@@ -130,11 +130,8 @@
                             <input type="submit"  name="save" id="save" class="btn btn-success" > --->
                             <a href="{{ route('posts') }}" class="back">Grįžti</a>
                         </div>
-
-
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

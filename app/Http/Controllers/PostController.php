@@ -147,7 +147,7 @@ class PostController extends Controller
         //dd($answer3);
 
         for ($count = 0; $count < count($answer); $count++) {
-            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->pluck('idQuestion');
                 $data = array(
                     'answer' => $answer[$count],
                     'is_Correct' => $is_Correct[$count],
@@ -158,7 +158,7 @@ class PostController extends Controller
             $insert_data1[] = $data;
         }
         for ($count = 0; $count < count($answer1); $count++) {
-            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->pluck('idQuestion');
                 $data = array(
                     'answer' => $answer1[$count],
                     'is_Correct' => $is_Correct1[$count],
@@ -169,7 +169,7 @@ class PostController extends Controller
             $insert_data2[] = $data;
         }
         for ($count = 0; $count < count($answer2); $count++) {
-            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->pluck('idQuestion');
 
                 $data = array(
                     'answer' => $answer2[$count],
@@ -181,7 +181,7 @@ class PostController extends Controller
             $insert_data3[] = $data;
         }
         for ($count = 0; $count < count($answer3); $count++) {
-            $questID = Question::where([ 'test_idTest' => $testID[$count]])->first()->pluck('idQuestion');
+            $questID = Question::where([ 'test_idTest' => $testID[$count]])->pluck('idQuestion');
 
                 $data = array(
                     'answer' => $answer3[$count],
@@ -202,14 +202,108 @@ class PostController extends Controller
         return redirect()->route('posts');
 
     }
-    public function testSolution($id, Request $request){
-        $post = Post::find($id);
+    public function testSolution($id, Request $request, $kelintas){
+        session_start();
+        $score = 0;
+        $correct = 0;
+        $howmuch = Question::count();
         $questions = Question::where(['Test_idTest' => $id])->take(1)->get();
 
         $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
         $answers = Answer::where(['Question_idQuestion' => $questionsid[0]])->get(); // ga padaryti, kad vietoj nulio keistusi reikšmė
 
+        $questionsWeight = Question::where(['idQuestion' => $questionsid[$kelintas]])->pluck('weight');; //paima klausimo svorį
 
-        return view('test',compact('questions', 'answers'))->with('id', $id);
+
+        return view('test',compact('questions', 'answers'))->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('howmuch', $howmuch)->with('questionsWeight', $questionsWeight);
+    }
+    public function testSolutionV2($id, Request $request, $kelintas){
+
+        $score = (double) $request->get('score');
+        $correct = (int) $request->get('correct');
+        //dd($score);
+        //Vaikščiojimas tarp klausimų
+        $kelintas++;
+        $howmuch = Question::count();
+        $questionsWeightSum = Question::where(['Test_idTest' => $id])->sum('weight');
+        if($howmuch > $kelintas) {
+            $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
+            $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get();
+            $answers = Answer::where(['Question_idQuestion' => $questionsid[$kelintas]])->get(); // ga padaryti, kad vietoj nulio keistusi reikšmė
+            $questionsWeight = Question::where(['idQuestion' => $questionsid[$kelintas]])->pluck('weight');; //paima klausimo svorį
+        }
+        else{
+            $questions = 0;
+            $answers = 0;
+            $questionsWeight = 0;
+        }
+        //
+        $mark = $score / $questionsWeightSum * 10;
+
+        return view('test',compact('questions', 'answers'))->with('mark', $mark)->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('howmuch', $howmuch)->with('questionsWeight', $questionsWeight);
+    }
+    public function testAnswers($id, Request $request, $kelintas){
+
+        //stuff
+        $score = (double) $request->get('score');
+        $correct = (int) $request->get('correct');
+        //dd($score);
+
+        //Atsakymų paėmimas
+        $rules = array(
+            'is_Correct.*' => 'required',
+
+        );
+        $error = Validator::make($request->all(), $rules);
+        if ($error->fails()) {
+            return response()->json([
+                'error' => $error->errors()->all()
+            ]);
+        }
+        $is_Correct = $request->is_Correct;
+       // dd($is_Correct);
+        $answerID = array_keys($is_Correct, "1");
+
+        //dd($answerID[1]);
+
+
+        $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion'); //paima klausimo id
+        $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get(); //paima klausima
+        $questionsWeight = Question::where(['idQuestion' => $questionsid[$kelintas]])->pluck('weight');; //paima klausimo svorį
+        $answers = Answer::where(['Question_idQuestion' => $questionsid[$kelintas]])->get(); // paima atsakymo variantus
+
+        $bad = 0;
+
+        //Jeigu vartotojas bent vieną suklystą gauna bad= 1, bet jeigu vieną pataiko ir daugiau nieko gauna bad=0
+        $ansgooduser = 0;
+        for ($count = 0; $count < count($is_Correct); $count++) {
+            $corAns = Answer::find($answerID[$count]);
+            if($corAns->is_Correct == 1){
+                $ansgooduser++;
+             $goodid[$count] = $corAns->idAnswers;
+            }
+            else{
+                $goodid[$count] = 0;
+                $bad= 1;
+            }
+        }
+
+        //Sutvarkymas, kad būtų 100% correct stuff
+        $ansgood= 0;
+        for ($count = 0; $count < count($answers); $count++) {
+            $corAns = Answer::where(['Question_idQuestion' => $questions->pluck('idQuestion')])->pluck('is_Correct');
+            if($corAns[$count] == 1){
+                $ansgood++;
+            }
+        }
+        if($ansgood != $ansgooduser){
+            $bad = 1;
+        }
+        //dd($ansgood);
+        if($bad == 0 && $ansgood == $ansgooduser){
+           $score = $score + $questionsWeight[0];
+           $correct++;
+        }
+        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('bad', $bad)->with('questionsWeight', $questionsWeight);
     }
 }

@@ -1,0 +1,158 @@
+.container-center{
+    width: 40%;
+    margin: auto;
+    border: 1px solid #064420;
+    border-radius: 7px;
+    padding: 0px 20px 10px 20px;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    
+    @include breakpoint(1070px){
+        width: 70%;
+    }
+    // @include breakpoint(991px){
+    //     width: 70%;
+    // }
+    @include breakpoint(700px){
+        width: 80%;
+    }
+    input{
+        width: 40%;
+      //  margin: auto;
+        margin-bottom: 20px;
+        
+        display: block;
+    }
+    
+    a{
+        float: right;
+    }
+    .form-group{
+        display: block;
+        float: left;
+        width: 100%;
+        &:first-of-type{
+            width: 70%;
+            float: left;
+            input{
+                width: 80%;
+            }
+            @include breakpoint(600px){
+                width: 100%;
+                float: left;
+                
+                input{
+                    width: 100%;
+                    box-sizing: border-box;
+                    height: 100%;
+                }
+            }
+        }
+        &:nth-of-type(2){
+            width: 30%;
+            float: right;
+            select{
+                width: 100%;
+                height: 100%;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+            }
+            @include breakpoint(600px){
+                width: 100%;
+                float: left;
+                select{
+                    width: 100%;
+                }
+            }
+        }
+        &:nth-of-type(3){
+            textarea{
+                width: 100%;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+        }
+        &:last-of-type{
+            input{
+                margin: auto;
+            }
+        }
+    }
+    &-test{
+        width: 50%;
+        @include breakpoint(900px){
+            width: 70%;
+        }
+        @include breakpoint(600px){
+            width: 80%;
+        }
+        .form-group-back{
+                width: 100%;
+                a{
+                    width: 100%;
+                    text-align: right;
+                }
+        }
+        table{
+            width: 100%;
+        }
+        .test-name{
+            padding-right: 4px;
+        }        
+        textarea{
+            min-width: 100%;
+            max-width: 100%;
+        }
+        input{
+            display: block;
+            &[type=number]{
+                width: 60px;
+            }
+        }
+        .question{
+            width: 90%;
+            
+        }
+        .submit{
+            margin: auto;
+        }
+        .addQuestion.addQuestion{
+            min-width: unset;
+            width: 40px;
+            .fa-plus{
+                color: $darkGreen;
+            }
+        }
+        .answer{
+            width: 100%;
+            box-sizing: border-box;
+            height: 41px;
+            margin-bottom: 5px;
+            &-last{
+                margin-bottom: 30px;
+            }
+        }
+        tr{
+            .questionInput{
+                width: 100%;
+                box-sizing: border-box;
+                height: 41px;
+                margin-bottom: 5px;
+            }
+            td{
+                &:first-of-type{
+                    width: 50%;
+                }
+                &:nth-of-type(2){
+                    width: 0%;
+                }
+                &:last-of-type{
+                    width: 8%;
+                }
+            }
+        }
+        
+    }
+   
+}

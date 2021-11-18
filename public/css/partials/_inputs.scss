@@ -52,7 +52,7 @@ textarea{
     box-sizing:content-box;
     -webkit-box-sizing:content-box; 
     min-width: 20%;
-    min-height: 40px;
+    min-height: 45px;
     padding: 10px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -89,6 +89,7 @@ textarea{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: -1;
 
     input {
         position: absolute;

@@ -38,12 +38,9 @@
             <a class="premium" href="/premium">Nusipirkti Premium</a>
 
             @if (!Auth::guest())
-                 @foreach ($userProfile as $userProf)
-                    @if (Auth::user()->id == $userProf->id)
-                        <a style="float: right; margin-right: 20px;">{{$userProf->email}}</a>
-                    @endif
-                @endforeach 
-            @endif  
+
+                        <a style="float: right; margin-right: 20px;">{{Auth::user()->email}}</a>
+            @endif
         </ul>
         </nav>
 </div>

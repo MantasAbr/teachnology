@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', 'App\Http\Controllers\ProfileController@index')->name('userProfile');
 
-Route::get('/header', 'App\Http\Controllers\HeaderController@index')->name('userProfileS');
+//Route::get('/header', 'App\Http\Controllers\HeaderController@index')->name('userProfileS');
 
 Route::get('/profile/{id}', 'App\Http\Controllers\ProfileController@show')->name('profileshow');
 Route::get('/profile', function () {

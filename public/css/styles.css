@@ -49,7 +49,7 @@
 }
 
 .header .list a:hover {
-  color: gold;
+  color: #f6ed6d;
 }
 
 .header .premium {
@@ -350,19 +350,22 @@ textarea:focus {
 
 button {
   background-color: #E4EFE7;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
   border-radius: 7px;
   min-width: 150px;
   border: none;
   font-size: 16px;
+  margin: 0px 10px 10px 10px;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   margin-bottom: 10px;
   cursor: pointer;
 }
 
 button:hover {
   background-color: #cce0d1;
-  -webkit-transition: .2s ease-in-out;
-  transition: .2s ease-in-out;
 }
 
 .a-button {
@@ -771,6 +774,264 @@ button:hover {
   margin: auto;
 }
 
+
+.testListSplashContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 10%;
+}
+
+.testListSplashContainer .testListSplashText {
+  color: #064420;
+  font-size: 28px;
+}
+
+.pageCointaner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  padding-top: 20px;
+  width: 70%;
+}
+
+.testListContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: auto;
+  width: 100%;
+  margin: auto;
+  background-color: #E4EFE7;
+  border-radius: 7px;
+}
+
+.testListButton {
+  background-color: #ff925f;
+  padding: 10px 0px 10px 0px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.testListButton:hover {
+  background-color: #F86624;
+}
+
+.testListTable {
+  border-collapse: collapse;
+  background-color: #E4EFE7;
+  width: 100%;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.testListTable thead {
+  height: 80px;
+}
+
+.testListTable thead tr {
+  font-size: 22px;
+  color: #064420;
+}
+
+.testListTable th, .testListTable td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.testListTable tbody tr {
+  border-bottom: thin solid #cce0d1;
+}
+
+.testListTable tbody tr:nth-of-type(odd) {
+  background-color: #ecf8ef;
+}
+
+.testListTable tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.testListTable tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.testListTable tr:last-child {
+  border-bottom: none;
+}
+
+.pageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  padding-top: 20px;
+  width: 70%;
+}
+
+.selectedTestSplashContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 10%;
+}
+
+.selectedTestSplashContainer .selectedTestSplashText {
+  color: #064420;
+  font-size: 28px;
+}
+
+.testInfoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 44%;
+  height: auto;
+  padding: 10px 20px;
+  background-color: #cce0d1;
+  border-radius: 7px;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.testInfoContainer p {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0px 0px;
+  font-size: 18px;
+}
+
+.testInfoContainer .infoHeader {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.testInfoContainer .info {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0px 20px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: #064420 solid thin;
+  background-color: #E4EFE7;
+}
+
+.testInfoContainer .name {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.hairline {
+  border-bottom: #064420 solid thin;
+}
+
+.deleteButton {
+  background-color: #E4EFE7;
+  padding: 10px 0px 10px 0px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin: 0px 10px 10px 10px;
+  cursor: pointer;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.deleteButton:hover {
+  background-color: #C41818;
+  color: #f8e0e0;
+}
+
+.testProceedButton {
+  background-color: #064420;
+  color: white;
+  padding: 10px 50px 10px 50px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.testProceedButton:hover {
+  background-color: #F86624;
+}
 .container-center-test {
   width: 50%;
 }

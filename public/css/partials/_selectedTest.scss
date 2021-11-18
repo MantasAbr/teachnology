@@ -1,0 +1,105 @@
+.pageContainer{
+    display: flex;
+    justify-self: center; //centruojam patį turinio containerį
+    align-self: center; //ditto
+    justify-content: left; //sumetam turinį containerio kairėje, kad splash'as gražiai susilygintu su žalio containerio kairiu kraštu
+    align-items: left; //ditto
+    flex-direction: column;
+    margin: auto;
+    padding-top: 20px;
+    width: 70%;
+}
+
+.selectedTestSplashContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+
+    .selectedTestSplashText {
+        color: $darkGreen;
+        font-size: 28px;
+    }
+}
+
+.testInfoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+    height: auto;
+    padding: 10px 20px;
+    background-color: $darkerGreen;
+    border-radius: 7px;
+    justify-self: center;
+    align-self: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    p{
+        justify-self: center;
+        align-self: center;
+        padding: 0px 0px;
+        font-size: 18px;
+    }
+
+    .infoHeader {
+        justify-self: center;
+        align-self: center;
+        font-size: 22px;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+
+    .info {
+        justify-self: center;
+        align-self: center;
+        padding: 0px 20px;
+        font-size: 18px;
+        border-radius: 7px;
+        border: $darkGreen solid thin;
+        background-color: $lightGreen;
+    }
+
+    .name {
+        justify-self: center;
+        align-self: center;
+        font-size: 28px;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+}
+
+.hairline {
+    border-bottom: $darkGreen solid thin;
+}
+
+.deleteButton {
+    background-color: $lightGreen;
+    padding: 10px 0px 10px 0px;
+    border-radius: 7px;
+    min-width: 150px;
+    border: none;
+    font-size: 16px;
+    margin: 0px 10px 10px 10px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    &:hover {
+        background-color: $red;
+        color: rgb(248, 224, 224);   
+    }
+}
+
+.testProceedButton {
+    background-color: $darkGreen;
+    color: white;
+    padding: 10px 50px 10px 50px;
+    border-radius: 7px;
+    min-width: 150px;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    &:hover {
+        background-color: $actionButtonHover;      
+    }
+}

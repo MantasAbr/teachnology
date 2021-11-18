@@ -33,7 +33,18 @@
 
                 </tbody>
             @endforeach
+                @if($bad == 1)
+                    <tr>
+                    <td> Jūs negavote taškų</td>
+                    </tr>
+                @else
+                    <tr>
+                    <td>Jūs gavote <?php echo $questionsWeight ?> taškus</td>
+                    </tr>
+                @endif
                 <td>
+                    <input type="hidden" name="score" value = {{$score}} />
+                    <input type="hidden" name="correct" value = {{$correct}} />
                 <input type="submit"  name="save" id="save" class="btn btn-success" value ="Sekantis" />
                 </td>
         </form>

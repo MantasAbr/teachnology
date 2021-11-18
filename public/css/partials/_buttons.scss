@@ -8,6 +8,25 @@ button{
     margin: 0px 10px 10px 10px;
     transition: .2s ease-in-out;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #cce0d1;
+    }
+}
+
+.a-button{
+    display: inline-block;
+    background-color: #E4EFE7;
+    padding: 10px 0px 10px 0px;
+    border-radius: 7px;
+    min-width: 150px;
+    text-decoration: none;
+    color: #131624;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
     &:hover {
         background-color: #cce0d1;
     }

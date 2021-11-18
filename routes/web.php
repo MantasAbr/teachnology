@@ -79,3 +79,10 @@ Route::get('/email/verify', function () {
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('auth/google', 'App\Http\Controllers\Auth\GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'App\Http\Controllers\Auth\GoogleController@handleGoogleCallback');
+
+
+Route::get('/', 'App\Http\Controllers\ProfileController@index')->name('userProfile');
+
+Route::get('/profile/{id}', 'App\Http\Controllers\ProfileController@show')->name('profileshow');
+
+Route::post('/profile/{id}/currency', 'App\Http\Controllers\CryptoController@store')->name('addCur');

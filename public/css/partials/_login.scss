@@ -1,0 +1,127 @@
+.card, 
+.card-login{
+    margin-top: 150px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid #064420;
+    border-radius: 7px;
+    padding: 0px 20px 10px 20px;
+    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    
+    &-header{
+        border-bottom: 2px solid $darkGreen;
+        margin-bottom: 20px;
+    }
+    input{
+        box-sizing: border-box;
+        width: 100%;
+        height: 41px;
+    }
+    .col-md-6{
+        text-align: left;
+        width: 55%;
+        margin: auto;
+    }
+    .name{
+        width: 49%;
+        float: left;
+    }
+    #name-first{
+        margin-right: 2%;
+    }
+    .right{
+        text-align: right;
+    }
+    .remember-me{
+        width: 55%;
+        margin: auto;
+        input{
+            width: 0;
+        }
+    }
+    .google{
+        padding-right:20px;
+        margin-top: 10px;
+        &:before{
+            content: '';
+            background:url("/img/Google.png");
+            background-size:cover;
+                position:absolute;
+            width:20px;
+            height:20px;
+            margin-left: 100px;
+        }
+    }
+}
+
+.card{
+    @include breakpoint(1260px){
+        width: 60%;
+    }
+    @include breakpoint(965px){
+        width: 70%;
+    }
+    @include breakpoint(595px){
+        width: 80%;
+    }
+    
+    input{
+        @include breakpoint(700px){
+            font-size: 14px;
+            height: 35px;
+        }
+    }
+    .col-md-6{
+        @include breakpoint(1260px){
+            width: 60%;
+        }
+        @include breakpoint(965px){
+            width: 70%;
+        }
+        @include breakpoint(700px){
+            font-size: 14px;
+        }
+        @include breakpoint(595px){
+            width: 80%;
+        }
+        @include breakpoint(420px){
+            width: 90%;
+        }
+    }
+    .name{
+        @include breakpoint(715px){
+            width: 100%;
+        }
+    }
+}
+
+.card-login{
+    @include breakpoint(1260px){
+        width: 60%;
+    }
+    @include breakpoint(965px){
+        width: 70%;
+    }
+    @include breakpoint(595px){
+        width: 80%;
+    }
+    @include breakpoint(500px){
+        .col-md-6,
+        .remember-me{
+            width: 65%;
+        }
+    }
+    .col-md-6{
+        @include breakpoint(700px){
+            font-size: 14px;
+        }
+    }
+    input{
+        @include breakpoint(700px){
+            font-size: 14px;
+            height: 35px;
+        }
+    }
+}

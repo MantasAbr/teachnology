@@ -2,18 +2,19 @@
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<div class="container-center">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<div class="container-center container-center-test">
     <div class="row justify-content-center">
-    <h1 style="text-align: center;">
-    Naujo testo kūrimas
-</h1>
         <div class="col-md-8">
             <div class="card">
+                <h3 style="text-align: center;">
+                    Naujo testo kūrimas
+                </h3>
                 <!-- <div class="card-header">Sukurti testą</div> -->
                 <div class="card-body">
                     <form method="POST" action="{{route('poststore')}}"  id="dynamic_form" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group test-name">
                             <label class="label">Testo pavadinimas: </label><br>
                             <input placeholder="Testo pavadinimas" type="text" name="testName" class="form-control" required/>
                         </div>
@@ -38,19 +39,19 @@
                                 <!---<form method="post" id="dynamic_form">--->
                                     <span id="result"></span>
                                     <table class="table table-bordered table-striped" id="user_table">
-                                        <thead>
+                                        {{-- <thead>
                                         <tr>
-                                            <th width="35%">Klausimas</th>
-                                            <th width="35%">Svoris</th>
-                                            <th width="30%">Veiksmas</th>
+                                            <th>Klausimas</th>
+                                            <th>Svoris</th>
+                                            <th></th>
                                         </tr>
-                                        </thead>
+                                        </thead> --}}
                                         <tbody>
 
                                         </tbody>
                                     </table>
 
-                        <input type="submit"  name="save" id="save" class="btn btn-success" value ="Save" />
+                        <input type="submit"  name="save" id="save" class="submit" value ="Kurti testą" />
 
                     </form>
 
@@ -64,27 +65,31 @@
                                 function dynamic_field(number)
                                 {
                                     html = '<tr>';
-                                    html += "Klausimas";
-                                    html += '<td><input type="text" name="question[]" class="form-control" />Atsakymas</td>';
-                                    html += '<td><input type="text" name="weight[]" class="form-control" />Tesingumas</td>';
-
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer[]" class="form-control" /></td>';
+                                    
+                                    html += '<td>Klausimas<input type="text" class="questionInput" name="question[]" placeholder="Klausimas"/></td>';
+                                    html += '<td>Svoris<input type="number" step=0.01 min=0.1 placeholder="Svoris" name="weight[]" class="form-control" style="margin-bottom: 5px;" /></td>';
+                                    html += '<td></td>';
+                                    html += '<tr><td>1 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer[]" class="answer" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer1[]" class="form-control" /></td>';
+                                    html += '<td></td>';
+                                    html += '<tr><td>2 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer1[]"  class="answer" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct1[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer2[]" class="form-control" /></td>';
+                                    html += '<td></td>';
+                                    html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" /></td>';
                                     html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct2[]" class="form-control" /></td>';
-                                    html += '<tr><td><input type="text" placeholder="Atsakymas" name="answer3[]" class="form-control" />Klausimas</td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct3[]" class="form-control" />Svoris</td>';
+                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" /></td>';
+                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct3[]" class="form-control" /></td>';
+                                    html += '<td></td>';
+                                   
                                     if(number > 1)
                                     {
-                                       // html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
+                                        //html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
                                         $('tbody').append(html);
                                     }
                                     else
                                     {
-                                        html += '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
-                                        $('tbody').html(html);
+                                        html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
+                                        $('tbody').append(html);
                                     }
                                 }
 
@@ -120,10 +125,10 @@
                         </script>
                         <!-------------- -------------------------------------------------->
 
-                        <div class="form-group">
+                        <div class="form-group-back">
                            <!---
                             <input type="submit"  name="save" id="save" class="btn btn-success" > --->
-                            <a href="{{ route('posts') }}" class="btn btn-primary">Grįžti</a>
+                            <a href="{{ route('posts') }}" class="back">Grįžti</a>
                         </div>
 
 

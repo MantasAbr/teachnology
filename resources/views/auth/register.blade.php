@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h3>Registracija</h3>
+                    <h1>Registracija</h1>
                 </div>
 
                 <div class="card-body">
@@ -64,7 +64,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Pakartotas naudotojo slaptažodis">
                             </div>
 
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary darkGreen">
                                    Registruotis
                                 </button>
 
@@ -72,7 +72,7 @@
                                 @guest
                                     @if (Route::has('login'))
                                     Jau turite paskyrą?
-                                        <a  href="{{ url('login') }}">Prisijunkite</a>
+                                        <a class="a-button" href="{{ url('login') }}">Prisijunkite</a>
                                     @endif
                                 @endguest
                             </div>

@@ -3,13 +3,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<div style="width: 50%; margin: auto; text-align: right;">
+    <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/myTestsList') }}"><button style="cursor: pointer;">Atgal</button></a>
+</div>
 <div class="container-center container-center-test">
+    
     <div class="row justify-content-center">
+        
         <div class="col-md-8">
-            
-                <h3 style="text-align: center;">
+
+                <h1 style="text-align: center;">
                     Naujo testo kūrimas
-                </h3>
+                </h1>
                 <!-- <div class="card-header">Sukurti testą</div> -->
                 <div class="card-body">
                     <form method="POST" action="{{route('poststore')}}"  id="dynamic_form" enctype="multipart/form-data">
@@ -77,8 +83,8 @@
                                     html += '<td></td>';
                                     html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" /></td>';
                                     html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct2[]" id="remember"><span class="checkmark"></span></label></td>';
-                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer" /></td>';
-                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct3[]" id="remember"><span class="checkmark"></span></label></td>';
+                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" /></td>';
+                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct3[]" id="remember"><span class="checkmark checkmark-last"></span></label></td>';
                                     html += '<td></td>';
                                    
                                     if(number > 1)
@@ -125,11 +131,7 @@
                         </script>
                         <!-------------- -------------------------------------------------->
 
-                        <div class="form-group-back">
-                           <!---
-                            <input type="submit"  name="save" id="save" class="btn btn-success" > --->
-                            <a href="{{ route('posts') }}" class="back">Grįžti</a>
-                        </div>
+                       
                 </div>
             </div>
     </div>

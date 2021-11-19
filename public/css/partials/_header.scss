@@ -1,6 +1,6 @@
 .header {
 	width: 100%;
-	height: 130px;
+	height: 100px;
 	background-color: $lightGreen;
 	position: relative;
 	position: fixed;
@@ -8,7 +8,9 @@
 	overflow: hidden;
     border-bottom: 2px solid $darkGreen;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
-    z-index: 1;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .inner{
@@ -16,11 +18,10 @@
 }
 
 .header img{
-    height: 80%;
-    padding-left: 1%;
-    padding-top: 1%;
-    padding-right: 3%;
     float: left;
+    margin: 5px;
+    height: 90%;
+    margin-right: 50px;
 }	
 .header nav{
 	
@@ -33,12 +34,23 @@
     color: $White;
     background-color: $darkGreen;
     display: inline-block;
-    padding: 1% 4%;
-    margin: 2% 1%;
     line-height: 1;
     text-decoration: none;
     border-bottom: none;
-            
+    border-radius: 7px;
+
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    margin-right: 10px;
+
+    &:last-of-type{
+        background-color: unset;
+        padding-top: unset;
+    }
+    
 }
 .header .list a {
    
@@ -52,8 +64,14 @@
     
 .header .premium  {
     color: darkgreen;
+    font-size: 20px;
+    font-weight: 500;
+    width: 190px;
+    height: 40px;
+    margin-left: 0;
     text-decoration: none;
-        }    
+    padding: 0;
+}    
 
 .header .logOut i {
     float: right;

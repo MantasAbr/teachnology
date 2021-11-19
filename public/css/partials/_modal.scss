@@ -19,10 +19,12 @@
 
 	.modal-box{
 		flex-direction: column;
-		width: 40%;
-		height: 60%;
+		width: 620px;
+		height: 450px;
 		border-radius: 7px;
 		background-color: $lightGreen;
+		z-index: 1;
+		margin-top: 150px;
 	}
 	.exit{
 		float: right;

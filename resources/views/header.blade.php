@@ -38,7 +38,7 @@
 
             {{-- <li class="list"><a href="/profile">Profilis</a></li> --}}
            <!-- <a class="premium" href="/premium">Nusipirkti Premium</a>  Kaip buvo -->
-            <a class="premium"><button class="premium">Nusipirkti Premium</button></a> <!-- Fix'as -->
+           <li class="list"><a class="premium"><button class="premium">Nusipirkti Premium</button></a></li> <!-- Fix'as -->
 
             @if (!Auth::guest())
 

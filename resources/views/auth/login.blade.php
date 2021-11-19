@@ -5,7 +5,7 @@
         <div class="col-md-8">
             <div class="card-login">
                 <div class="card-header">
-                    <h3>Prisijungimas</h3>
+                    <h1>Prisijungimas</h1>
                 </div>
 
                 <div class="card-body">
@@ -40,14 +40,16 @@
                               
 
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary darkGreen">
                                     Prisijungti
                                 </button><br>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Pamiršote slaptažodį?') }}
+                                    <a class="a-button" href="{{ route('password.request') }}">
+                                        {{ __('Priminti slaptažodį') }}
                                     </a>
+
+
                                 @endif<br>
                                 <a class="a-button google" href="{{url('auth/google')}}"  >Prisijungti su</a>
                             </div>
@@ -55,7 +57,7 @@
                                 @guest
                                 @if (Route::has('login'))
                                 Neturite paskyros?
-                                    <a href="{{ route('register') }}">Registruotis</a>
+                                    <a class="a-button" href="{{ route('register') }}">Registruotis</a>
                                 @endif
                             @endguest
                             </div>

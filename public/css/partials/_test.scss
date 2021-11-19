@@ -81,6 +81,7 @@
     }
     &-test{
         width: 50%;
+        margin-bottom: 30px;
         @include breakpoint(900px){
             width: 70%;
         }
@@ -115,7 +116,6 @@
         }
         .submit{
             margin: auto;
-            margin-top: 30px;
             transition: .2s ease-in-out;
             cursor: pointer;
             &:hover{
@@ -134,7 +134,9 @@
             box-sizing: border-box;
             height: 41px;
             margin-bottom: 5px;
-           
+            &-last{
+                margin-bottom: 30px;
+            }
         }
         tr{
             .questionInput{

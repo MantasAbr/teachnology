@@ -46,13 +46,13 @@
             <p>Lygis - <b>Middle school</b></p>
         @endif
         @if($post->ratingSum == null)
-            <p>Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė<span></b></p>
+            <p>Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
         @endif
         @if($post->ratingSum != null)
         <p>Įvertinimas - <b>{{ $avarage  }}</b></p>
         @endif
         @if($post->completedCount == null)
-        <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė<span></b></p>
+        <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
         @endif
         @if($post->completedCount != null)
             <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>

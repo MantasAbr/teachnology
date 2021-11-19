@@ -32,20 +32,7 @@
     border-radius: 7px;
 }
 
-.testListButton {
-    background-color: $actionButton;
-    padding: 10px 0px 10px 0px;
-    border-radius: 7px;
-    min-width: 150px;
-    border: none;
-    font-size: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: .2s ease-in-out;
-    &:hover {
-        background-color: $actionButtonHover;      
-    }
-}
+
 
 .testListTable {
     border-collapse: collapse;

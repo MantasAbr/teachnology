@@ -104,6 +104,9 @@ textarea{
             position: absolute;
             display: none;
         }
+        &-last{
+            top: -13px;
+        }
     
         &:after {
             left: 9px;
@@ -137,3 +140,17 @@ textarea{
         background-color: $darkerGreen;
     }
 }
+
+
+::placeholder {
+    color: rgb(175, 174, 174);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(175, 174, 174);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(175, 174, 174);
+  }

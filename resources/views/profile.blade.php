@@ -1,13 +1,14 @@
 @extends('header')
 @section('content')
 
-<div class="container-center">
-    <div class="container">
+<div style="width: 40%; margin: auto; text-align: right;">
+    <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
+</div>
+<div style="text-align: center;" class="container-center">
+    
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
                     <div class="card-body">
-                        <div class="form-group">
+                        <div style="width: 100%;" class="form-group">
                             @csrf
                             <label class="label">Naudotojo vardas </label><br>
                             <td>{{ $usersProfile->name}}</td><br>  
@@ -15,30 +16,20 @@
                             <label class="label">El. paštas </label><br>
                             <td>{{ $usersProfile->email}}</td><br>
                             <br>
-                            <label class="label">Slaptažodis </label><br>
+                            <button>Redaguoti</button>
+                            <br><br>
+                            <button href="#valiuta" class="valiuta">Įsigyti valiutą</button> 
+                            {{-- <label class="label">Slaptažodis </label><br>
                             <td>{{ $usersProfile->password}}</td><br>
                             <br>
                             <label class="label">Pakartoti slaptažodį </label><br>
-                            <td>{{ $usersProfile->password}}</td><br>
+                            <td>{{ $usersProfile->password}}</td><br> --}}
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
-    </div>
 </div>
         
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-
-<div>
-    <h4>(Redaguoti)</h4>
-    <ul>
-        <li><a href="{{ url('followingList') }}">Sekamų naudotojų sąrašas</a></li>
-    </ul>  
-    <td><a href="{{ url('/') }}">Atgal</a></td>
-    <div class="valiuta">
-    <button href="#valiuta" class="valiuta">Įsigyti valiutą</button> 
-</div>
     
 </div>
 <div id="valiuta" class="modal">

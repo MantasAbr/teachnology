@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Category;
+use App\Models\User;
 use Auth;
 use Session;
 use Validator;
@@ -22,7 +23,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('myTestsList', compact('posts'));
+        $userProfile = User::all();
+        return view('myTestsList', compact('posts', 'userProfile'));
     }
     public function otherindex()
     {

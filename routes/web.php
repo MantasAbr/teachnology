@@ -20,14 +20,21 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ProfileController@index')->name('userProfile');
 
+//Route::get('/header', 'App\Http\Controllers\HeaderController@index')->name('userProfileS');
+
+Route::get('/profile/{id}', 'App\Http\Controllers\ProfileController@show')->name('profileshow');
 Route::get('/profile', function () {
     $variable = 'Naudotojo profilis';
     return view('profile', compact('variable'));
 });
+
+// Route::get('/testsList', function () {
+//     return view('testsList');
+// });
+
+Route::get('/testsList', 'App\Http\Controllers\TestsController@index')->name('userProfile');
 
 Route::get('/test', function () {
     return view('test');
@@ -57,17 +64,12 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/statistics', function () {
-    return view('statistics');
-});
+Route::get('/statistics','App\Http\Controllers\TestsController@index')->name('userProfile');
 
 Route::get('/followingList', function() {
     return view('followingList');
 });
 
-Route::get('/header', function() {
-    return view('header');
-});
 
 //AUTH-----------------------------------------------------
 Auth::routes(['verify' => true]);

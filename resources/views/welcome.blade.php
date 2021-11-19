@@ -20,19 +20,30 @@
 
         <div class="button_container">
             <!-- Čia logo galės per vidurį būt <img><img>-->
-            <a class="title" href="{{ url('login') }}">Prisijungti</a>
-           <!-- šito reikia valiutos modalui, tačiau neleidžia įeit į puslapį, jei neprisijungęs  -->
-           {{-- @foreach($userProfile as $userProf) --}}
-           {{-- @if(Auth::user()->id == $userProf->id) --}}
-            {{--  <a href="{{route('profileshow', $userProf->id) }}">Profilis</a> --}}
 
-            {{-- @endif --}}
-                {{--@endforeach --}}
-
+            @if (!Auth::guest())
+                @foreach ($userProfile as $userProf)
+                    @if (Auth::user()->id == $userProf->id)
+                        <a href="{{ route('profileshow', $userProf->id) }}">Profilis</a>
+                    @endif
+                @endforeach
+            @else
+                <a class="title" href="{{ url('login') }}">Prisijungti</a>
+            @endif
             
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
             <a href="{{ url('statistics') }}">Statistika</a>
+
+            @if (!Auth::guest())
+                <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    Atsijungti
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @endif
             <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
         </div>
         

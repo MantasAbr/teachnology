@@ -12,21 +12,40 @@
         <link href="/css/styles.css" rel="stylesheet">
 
     </head>
-    <body> 
-        <div class="header">
-            <img src="img/logo_w_text.png">
-            <a class="logOut" href="/logOut"><i class="fa fa-sign-out fa-2x"></i></a>  
-            <nav>   
-                <ul>
-                    <li class="list"><a  href="/testsList">Testai</a></li>
-                    <li class="list"><a href="/statistics">Statistika</a></li>
-                    <li class="list"><a href="/myTestsList">Mano testai</a></li>
-                    <li class="list"><a href="/profile">Profilis</a></li>
-                    <button class="premium">Nusipirkti Premium</button>             
-                </ul>
-            </nav>
-        </div>
+    <body>
+    <div class="header">
+        <img src="img/logo2.png">
 
+        @if (!Auth::guest())
+            <a class="logOut" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            @else
+            <a class="logOut" href="{{ url('login') }}">
+                <i class="fa fa-sign-in fa-2x" ></i>
+            </a>
+        @endif
+
+        <nav>
+        <ul>
+            <li class="list"><a  href="/testsList">Testai</a></li>
+            <li class="list"><a href="/statistics">Statistika</a></li>
+            <li class="list"><a href="/myTestsList">Mano testai</a></li>
+
+            {{-- <li class="list"><a href="/profile">Profilis</a></li> --}}
+            <a class="premium" href="/premium">Nusipirkti Premium</a>
+
+            @if (!Auth::guest())
+
+                        <a style="float: right; margin-right: 20px;">{{Auth::user()->email}}</a>
+            @endif
+        </ul>
+        </nav>
+    </div>
         <div id="modal" class="modal">
             <div class="modal-container">
                 <div class="modal-box">

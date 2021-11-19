@@ -46,15 +46,5 @@
             @endif
             <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
         </div>
-
-        <!-- Nekenčiu front-end'o kai jis nesigauna
-        <div class="container">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div> -->
+        
     </body>
-

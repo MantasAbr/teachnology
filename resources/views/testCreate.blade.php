@@ -51,7 +51,7 @@
                                         </tbody>
                                     </table>
 
-                        <input type="submit"  name="save" id="save" class="submit" value ="Kurti testą" />
+                        <input type="submit" name="save" id="save" class="submit" value ="Kurti testą" />
 
                     </form>
 
@@ -70,15 +70,15 @@
                                     html += '<td>Svoris<input type="number" step=0.01 min=0.1 placeholder="Svoris" name="weight[]" class="form-control" style="margin-bottom: 5px;" /></td>';
                                     html += '<td></td>';
                                     html += '<tr><td>1 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer[]" class="answer" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct[]" class="form-control" /></td>';
+                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct[]" id="remember"><span class="checkmark"></span></label></td>';
                                     html += '<td></td>';
                                     html += '<tr><td>2 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer1[]"  class="answer" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct1[]" class="form-control" /></td>';
+                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct1[]" id="remember"><span class="checkmark"></span></label></td>';
                                     html += '<td></td>';
                                     html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct2[]" class="form-control" /></td>';
-                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" /></td>';
-                                    html += '<td><input type="checkbox" placeholder="Ar teisingas" name="is_Correct3[]" class="form-control" /></td>';
+                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct2[]" id="remember"><span class="checkmark"></span></label></td>';
+                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer" /></td>';
+                                    html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct3[]" id="remember"><span class="checkmark"></span></label></td>';
                                     html += '<td></td>';
                                    
                                     if(number > 1)

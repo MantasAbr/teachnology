@@ -10,6 +10,7 @@
   border-bottom: 2px solid #064420;
   -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1;
 }
 
 .inner {
@@ -292,8 +293,7 @@ textarea:focus {
 
 .checkbox-container {
   display: block;
-  width: 175px;
-  height: 25px;
+  height: 100%;
   position: relative;
   padding-top: 2px;
   margin-bottom: 12px;
@@ -302,19 +302,7 @@ textarea:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  z-index: -1;
-}
-
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkbox-container input:checked ~ .checkmark:after {
-  display: block;
+  z-index: 0;
 }
 
 .checkbox-container .checkmark {
@@ -334,14 +322,30 @@ textarea:focus {
 }
 
 .checkbox-container .checkmark:after {
-  left: 8px;
-  top: 3px;
-  width: 7px;
-  height: 13px;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
   border: solid #064420;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #E4EFE7;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .checkbox-container:hover input ~ .checkmark {
@@ -534,6 +538,14 @@ button:hover {
 
 .container-center-test .submit {
   margin: auto;
+  margin-top: 30px;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+.container-center-test .submit:hover {
+  background-color: #cce0d1;
 }
 
 .container-center-test .addQuestion.addQuestion {
@@ -551,10 +563,6 @@ button:hover {
           box-sizing: border-box;
   height: 41px;
   margin-bottom: 5px;
-}
-
-.container-center-test .answer-last {
-  margin-bottom: 30px;
 }
 
 .container-center-test tr .questionInput {

@@ -77,10 +77,10 @@ textarea{
 :-ms-input-placeholder {
     font-family: 'Nunito', sans-serif;
 }
+
 .checkbox-container {
     display: block;
-    width: 175px;
-    height: 25px;
+    height: 100%;
     position: relative;
     padding-top: 2px;
     margin-bottom: 12px;
@@ -89,19 +89,8 @@ textarea{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    z-index: -1;
+    z-index: 0;
 
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-       
-        &:checked ~ .checkmark:after {
-            display: block;
-        }
-    }
     .checkmark {
         position: absolute;
         top: 0;
@@ -115,11 +104,12 @@ textarea{
             position: absolute;
             display: none;
         }
+    
         &:after {
-            left: 8px;
-            top: 3px;
-            width: 7px;
-            height: 13px;
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
             border: solid $darkGreen;
             border-width: 0 3px 3px 0;
             -webkit-transform: rotate(45deg);
@@ -127,6 +117,22 @@ textarea{
             transform: rotate(45deg);
         }
     }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+            background-color: $lightGreen;
+        }
+        &:checked ~ .checkmark:after {
+            display: block;
+        }
+    }
+
     &:hover input ~ .checkmark {
         background-color: $darkerGreen;
     }

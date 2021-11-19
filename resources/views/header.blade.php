@@ -37,7 +37,8 @@
             <li class="list"><a href="/myTestsList">Mano testai</a></li>
 
             {{-- <li class="list"><a href="/profile">Profilis</a></li> --}}
-            <a class="premium" href="/premium">Nusipirkti Premium</a>
+           <!-- <a class="premium" href="/premium">Nusipirkti Premium</a>  Kaip buvo -->
+            <a class="premium"><button class="premium">Nusipirkti Premium</button></a> <!-- Fix'as -->
 
             @if (!Auth::guest())
 
@@ -63,15 +64,16 @@
                     </ul>
 
                     <div class="payment-select-container">
-                        <a href="buying_premium"><img src="/img/payment/swed.png" class="payment-method"></img></a>
+                        <a href="https://www.swedbank.lt/private"><img src="/img/payment/swed.png" class="payment-method"></img></a>
                         <div style="padding-left:20px"></div>
-                        <a href="buying_premium"><img src="/img/payment/dnb.png" class="payment-method"></img></a>
+                        <a href="https://www.luminor.lt/lt"><img src="/img/payment/dnb.png" class="payment-method"></img></a>
                     </div>
                     <div style="padding-top:15px"></div>
                     <div class="payment-select-container">
-                        <a href="buying_premium"><img src="/img/payment/seb.png" class="payment-method"></img></a>
+                        <a href="https://www.seb.lt/"><img src="/img/payment/seb.png" class="payment-method"></img></a>
                         <div style="padding-left:20px"></div>
-                        <a href="buying_premium"><img src="/img/payment/thc.png" class="payment-method"></img></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
+                        <!-- TODO routinti i profili -->
+                        <a href="/profile/"><img src="/img/payment/thc.png" class="payment-method"></img></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
                     </div>
 
                 </div>     

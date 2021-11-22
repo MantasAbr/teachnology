@@ -18,11 +18,11 @@
     <div class="pageCointaner">
         <div class="testListSplashContainer">
             <h4 class="testListSplashText">Testų sąrašas</h4>
-            
+
             <!-- Atsiprašau už šitą nesamonę. Bandžiau įvairiai, bet negrįžo atgal kitaip -->
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
-        
+
         <table class="testListTable">
             <thead>
             <th>Testo pavadinimas</th>
@@ -31,7 +31,7 @@
             </thead>
             <tbody>
             @foreach($otherposts as $post)
-                @if(Auth::user()->username == $post->username)
+                @if(Auth::user()->id != $post->User_idUser)
                     <tr>
                         <td>{{ $post->testName }}</td>
                         @if($post->Category_idCategory == 1)
@@ -52,7 +52,7 @@
                     </tr>
                     @endforeach
             </tbody>
-        </table> 
+        </table>
 
     </div>
     <div style="margin-top: 80px;"></div>

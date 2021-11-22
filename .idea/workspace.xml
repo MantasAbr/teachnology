@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="3cfe1639-f680-4c58-bce6-99e1ded0e986" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HeaderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HeaderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/GoogleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/myTestsList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/myTestsList.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/testCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testCreate.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/testFeedback.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testFeedback.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/testInfo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testInfo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/testsList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testsList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +195,7 @@
       <workItem from="1636913033264" duration="1047000" />
       <workItem from="1636964842971" duration="7378000" />
       <workItem from="1637181638036" duration="9073000" />
+      <workItem from="1637600281216" duration="16157000" />
     </task>
     <servers />
   </component>

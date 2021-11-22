@@ -1,10 +1,19 @@
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TeachNology</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/styles.css" rel="stylesheet">
 
-<h1>
-    Testo spendimo baigimo puslapis
-</h1>
+</head>
+<body>
+
 <div>
-    <h4>(Komentaro palikimas??)</h4>
     @if($howmuch > $kelintas)
 @foreach($questions as $quest)
 
@@ -22,23 +31,67 @@
     </div>
     <form method="POST" action="{{ route('testansw', ['idTest' => $id, 'kelintas'=>$kelintas]) }}"  id="dynamic_form" enctype="multipart/form-data">
         @csrf
+        <tbody>
     @foreach($answers as $quest)
-
         <div>
             {{ $quest->answer }}
             <td><input type="checkbox" name="is_Correct[{{$quest->idAnswers}}]" class="form-control" value="1" /></td>
             <input type="hidden" name="score" value = {{$score}} />
             <input type="hidden" name="correct" value = {{$correct}} />
         </div>
+
     @endforeach
+        </tbody>
         <input type="submit"  name="save" id="save" class="btn btn-success" value ="Patikrinti" />
     </form>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type=text/javascript>
+    var checkboxes = $("input[type='checkbox']"),
+        submitButt = $("input[type='submit']");
+    submitButt.attr("disabled", !checkboxes.is(":checked"));
+    checkboxes.click(function() {
+        submitButt.attr("disabled", !checkboxes.is(":checked"));
+    });
+</script>
     @else
+        <h1>
+            Testo spendimo baigimo puslapis
+        </h1>
     <div> <h4>(Testo įvertinimas)</h4></div>
         <div>  Jūsų pažymys: <?php echo $mark ?></div>
-    <td><a href="{{ url('testsList') }}">Baigti testą</a></td>
+
+        <li class="list"><a class="premium"><button class="premium">Įvertinti testą</button></a></li> <!-- Fix'as -->
+        <div id="modal" class="modal">
+            <div class="modal-container">
+                <div class="modal-box">
+                    <div class="modal-header-box">
+                        <button class="exit">X</button>
+                        <h3 class="splash"><i style="color: orange;">Testo įvertinimas</i></h3>
+                    </div>
+                    <div class="hairline"></div>
+                    <form action="{{ route('testdn',['id' => $id, 'mark'=>$mark])}}"  id="dynamic_form" enctype="multipart/form-data">
+                        @csrf
+                    <select name="stars" placeholder="Testo lygis">
+                        @for($i = 1; $i < 6; $i++)
+                            <option value="{{$i}}">{{$i}}</option>
+                        @endfor
+                    </select>
+                        <input type="submit" name="save" id="save" class="submit" value ="Įvertinti" />
+
+                </div>
+            </div>
+        </div>
+
+        <script type=text/javascript>
+            $("button").click(function(){
+                $("#modal").toggleClass('modal');
+            });
+        </script>
+    <td><a href="{{ route('testdn',['id' => $id, 'mark'=>$mark]) }}">Išeiti</a></td>
 </div>
 @endif
+</body>
+</html>
+
 
 

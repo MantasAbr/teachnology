@@ -45,7 +45,11 @@
                 <td>
                     <input type="hidden" name="score" value = {{$score}} />
                     <input type="hidden" name="correct" value = {{$correct}} />
+                    @if($howmuch > $kelintas + 1)
                 <input type="submit"  name="save" id="save" class="btn btn-success" value ="Sekantis" />
+                    @else
+                        <input type="submit"  name="save" id="save" class="btn btn-success" value ="Baigti testą" />
+                        @endif
                 </td>
         </form>
         </table>

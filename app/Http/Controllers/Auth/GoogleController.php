@@ -33,7 +33,7 @@ class GoogleController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
             if ($finduser) {
                 Auth::login($finduser);
-                return redirect('/home');
+                return redirect('/');
             }
             else {
                 $newUser = User::create([
@@ -46,7 +46,7 @@ class GoogleController extends Controller
                 $newUser->email_verified_at = date('Y-m-d H:i:s');
                 $newUser->save();
                 Auth::login($newUser);
-                return redirect('/home');
+                return redirect('/');
             }
         }catch (Exception $e){
             return redirect('auth/google');

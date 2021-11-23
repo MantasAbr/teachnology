@@ -39,7 +39,7 @@
                     </tr>
                 @else
                     <tr>
-                    <td>Jūs gavote <?php echo $questionsWeight ?> taškus</td>
+                    <td>Jūs gavote <?php echo substr($questionsWeight, 1, -1);?> tašk.</td>
                     </tr>
                 @endif
                 <td>

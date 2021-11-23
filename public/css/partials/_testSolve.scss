@@ -1,0 +1,81 @@
+.questionPageContainer {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    align-items: left;
+    justify-content: left;
+    margin: auto;
+    margin-top: -50px;
+    width: 50%;
+    height: auto;
+    border-radius: 7px;
+    background: $darkerGreen;
+    flex-direction: column;
+    padding: 20px;
+
+    .questionPageContainerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .questionNumber {
+        color: orange;
+        font-size: 28px;
+        padding-right: 10px;
+    }
+
+    .questionText {
+        font-size: 32px;
+        font-weight: bolder;
+        margin-bottom: 30px;
+        align-self: center;
+    }
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+
+    .questionRow {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+}
+
+.checkbox {
+    height: 20px;
+    width: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    width: 50%;
+}
+
+.checkAnswerButton{
+    background-color: $lightGreen;
+    padding: 10px 10px 10px 10px;
+    border-radius: 7px;
+    min-width: 150px;
+    border: none;
+    font-size: 16px;
+    margin: 0px 10px 10px 10px;
+    transition: .2s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+    margin-top: 20px;
+
+    &:hover {
+        background-color: $darkGreen;
+        color: white;
+    }
+}

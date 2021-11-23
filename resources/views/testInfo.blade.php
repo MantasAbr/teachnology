@@ -50,7 +50,7 @@
         @endif
 
         @if($post->ratingSum != null)
-        <p>Įvertinimas - <b>{{ $avarage  }}</b></p>
+        <p>Įvertinimas - <b><?php echo round($avarage, 1) ?></b></p>
         @endif
         @if($post->ratingSum == null)
             <p>Kiek kartų įvertinta - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>

@@ -1313,4 +1313,128 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
 }
+
+.questionPageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  margin: auto;
+  margin-top: -50px;
+  width: 50%;
+  height: auto;
+  border-radius: 7px;
+  background: #cce0d1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+}
+
+.questionPageContainer .questionPageContainerHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.questionPageContainer .questionNumber {
+  color: orange;
+  font-size: 28px;
+  padding-right: 10px;
+}
+
+.questionPageContainer .questionText {
+  font-size: 32px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.questionContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.questionContainer .questionRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.checkbox {
+  height: 20px;
+  width: 20px;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  width: 50%;
+}
+
+.checkAnswerButton {
+  background-color: #E4EFE7;
+  padding: 10px 10px 10px 10px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin: 0px 10px 10px 10px;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin: auto;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 20px;
+}
+
+.checkAnswerButton:hover {
+  background-color: #064420;
+  color: white;
+}
 /*# sourceMappingURL=styles.css.map */

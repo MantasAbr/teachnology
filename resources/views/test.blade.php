@@ -5,6 +5,7 @@
     <title>TeachNology</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,44 +16,49 @@
 
 <div>
     @if($howmuch > $kelintas)
-@foreach($questions as $quest)
+    @foreach($questions as $quest)
 
-    <div>
-        <p>Klausimas - <b>
-        {{ $quest->question }}
-    </div>
-            <div>
-                <p>Klausimo vertė - <b>
-                {{ $questionsWeight }}
-            </div>
-    @endforeach
-    <div>
-        <p>Atsakymo variantai</p>
-    </div>
-    <form method="POST" action="{{ route('testansw', ['idTest' => $id, 'kelintas'=>$kelintas]) }}"  id="dynamic_form" enctype="multipart/form-data">
-        @csrf
-        <tbody>
-    @foreach($answers as $quest)
-        <div>
-            {{ $quest->answer }}
-            <td><input type="checkbox" name="is_Correct[{{$quest->idAnswers}}]" class="form-control" value="1" /></td>
-            <input type="hidden" name="score" value = {{$score}} />
-            <input type="hidden" name="correct" value = {{$correct}} />
+    <div class="questionPageContainer">
+        <div class="questionPageContainerHeader">
+            <p><span class="questionNumber">{{ $kelintas + 1}} Klausimas </span></p>
+            <p style="margin-top: auto; margin-bottom: auto; padding-top: 2px;">
+            <b style="color: #064420;">Vertė: 
+            <span style="color: orange;"><?php echo substr($questionsWeight, 1, -1);?> tašk.</span></b></p>
         </div>
 
+        <div class="hairline"></div>
+
+        <p class="questionText">{{ $quest->question }}</p>
+
     @endforeach
-        </tbody>
-        <input type="submit"  name="save" id="save" class="btn btn-success" value ="Patikrinti" />
-    </form>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type=text/javascript>
-    var checkboxes = $("input[type='checkbox']"),
-        submitButt = $("input[type='submit']");
-    submitButt.attr("disabled", !checkboxes.is(":checked"));
-    checkboxes.click(function() {
-        submitButt.attr("disabled", !checkboxes.is(":checked"));
-    });
-</script>
+        <form class="form" method="POST" action="{{ route('testansw', ['idTest' => $id, 'kelintas'=>$kelintas]) }}"  id="dynamic_form" enctype="multipart/form-data">
+            @csrf
+            <table>
+                @foreach($answers as $quest)
+                <tbody class="questionContainer">
+                    <tr class="questionRow">
+                        <td>{{ $quest->answer }}</td>
+                        <td><input type="checkbox" class="checkbox" name="is_Correct[{{$quest->idAnswers}}]" value="1" /></td>
+                    </tr>
+                    <input type="hidden" name="score" value = {{$score}} />
+                    <input type="hidden" name="correct" value = {{$correct}} />
+                </tbody>
+                @endforeach
+            </table>
+            <input type="submit" name="save" id="save" class="checkAnswerButton" value ="Patikrinti" />
+        </form>
+
+        
+        <script type=text/javascript>
+            var checkboxes = $("input[type='checkbox']"),
+                submitButt = $("input[type='submit']");
+            submitButt.attr("disabled", !checkboxes.is(":checked"));
+            checkboxes.click(function() {
+                submitButt.attr("disabled", !checkboxes.is(":checked"));
+            });
+        </script>
+    </div>
+
     @else
         <h1>
             Testo spendimo baigimo puslapis
@@ -60,7 +66,7 @@
     <div> <h4>(Testo įvertinimas)</h4></div>
         <div>  Jūsų pažymys: <?php echo $mark ?></div>
 
-        <li class="list"><a class="premium"><button class="premium">Įvertinti testą</button></a></li> <!-- Fix'as -->
+        <li class="list"><a class="premium"><button class="premium">Įvertinti testą</button></a></li>
         <div id="modal" class="modal">
             <div class="modal-container">
                 <div class="modal-box">

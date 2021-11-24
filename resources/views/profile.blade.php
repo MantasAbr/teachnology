@@ -26,7 +26,7 @@
                     <div class="card-body">
 
                         <div class="valiuta">
-                            <button style="float: left;" href="#valiuta" class="valiuta">Įsigyti valiutą</button> 
+                            <button style="float: left;" href="#valiuta" class="valiuta" onclick="modal()">Įsigyti valiutą</button> 
                         </div>
                         <div style="width: 100%;" class="form-group">
                             @csrf      
@@ -101,18 +101,17 @@
     
 </div>
 <div id="valiuta" class="modal">
-<form method="post" action="{{route('addCur', $usersProfile->id)}}" >
      @csrf 
     <div class="modal-container">
         <div class="modal-box">
             <div class="modal-header-box">
-                <button class="exit">X</button>
+                <button class="exit" onclick="modal()">X</button>
                 <h3 class="splash">Valiutos pirkimas</h3>
             </div>
             <div class="hairline"></div>
                 <div class="crypto">
                     <a>Pasirinkite norimą sumą ir valiutą kurią norite konvertuoti į mūsų valiutą</a>
-                    
+                    <form method="post" action="{{route('addCur', $usersProfile->id)}}" >
                     <input type="number" min="0" name="kiekis"  value="" Required></td>
                     
                 </div>
@@ -141,11 +140,9 @@
 </div>
 
 <script type=text/javascript>
-          $(".valiuta button").click(function(){
-                $("#valiuta").toggleClass('modal');
-            });
-
-            
+            function modal(){
+                $('#valiuta').toggleClass('modal');
+            }
 
             $(".dropdown img.flag").addClass("flagvisibility");
         $(".dropdown dt a").click(function() {

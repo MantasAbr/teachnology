@@ -39,9 +39,9 @@
         <form  method="POST" action="{{ route('testdov2', ['idTest' => $id, 'kelintas'=>$kelintas]) }}"  id="dynamic_form" enctype="multipart/form-data">
             @csrf
             @foreach($answers as $quest)
-                @foreach($goodid as $ansID)
                     <tr>
-                        <td>   {{ $quest->answer }}</td>                
+                        <td>   {{ $quest->answer }}</td>   
+                        @foreach($goodid as $ansID)             
                         @if($ansID == $quest->idAnswers)
                             <td><span style="color: #064420;"class="material-icons">done</span></td>
                         @endif

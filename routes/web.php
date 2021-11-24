@@ -30,9 +30,10 @@ Route::get('/profile', function () {
     return view('profile', compact('variable'));
 });
 
-// Route::get('/testsList', function () {
-//     return view('testsList');
-// });
+Route::post('/profile/store', 'App\Http\Controllers\ProfileController@update')->name('UpdateProfile'); //Naudotojo profilio redagavimas
+Route::post('/profile', 'App\Http\Controllers\ProfileController@updatePass')->name('UpdatePassword'); //Naudotojo slaptažodžio redagavimas
+
+Route::get('/password/{id}', 'App\Http\Controllers\ProfileController@password')->name('password'); //Naudotojo slaptažodžio redagavimo forma
 
 Route::get('/testsList', 'App\Http\Controllers\TestsController@index')->name('userProfile');
 

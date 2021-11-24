@@ -14,7 +14,7 @@
     </head>
     <body>
     <div class="header">
-        <img src="img/logo2.png">
+        <img src="/img/logo2.png">
 
         @if (!Auth::guest())
             <a class="logOut" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -35,8 +35,9 @@
             <li class="list"><a  href="/testsList">Testai</a></li>
             <li class="list"><a href="/statistics">Statistika</a></li>
             <li class="list"><a href="/myTestsList">Mano testai</a></li>
-
-            {{-- <li class="list"><a href="/profile">Profilis</a></li> --}}
+            @if (!Auth::guest())
+            <li class="list"><a href="/profile/{{Auth::user()->id}}">Profilis</a></li>
+            @endif
            <!-- <a class="premium" href="/premium">Nusipirkti Premium</a>  Kaip buvo -->
            <li class="list"><a class="premium"><button class="premium">Nusipirkti Premium</button></a></li> <!-- Fix'as -->
 

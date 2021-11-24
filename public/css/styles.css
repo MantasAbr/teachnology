@@ -858,11 +858,16 @@ button:hover {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0px 20px;
   font-size: 18px;
   border-radius: 7px;
   border: #064420 solid thin;
   background-color: #E4EFE7;
+  width: 80%;
+  height: 50%;
 }
 
 .testInfoContainer .name {
@@ -1338,6 +1343,8 @@ button:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 20px;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .questionPageContainer .questionPageContainerHeader {
@@ -1436,5 +1443,66 @@ button:hover {
 .checkAnswerButton:hover {
   background-color: #064420;
   color: white;
+}
+
+.answerListTable {
+  border-collapse: collapse;
+  width: 80%;
+  border-radius: 7px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.answerListTable thead {
+  height: 80px;
+}
+
+.answerListTable thead tr {
+  font-size: 22px;
+  color: #064420;
+}
+
+.answerListTable th, .answerListTable td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.answerListTable tbody tr {
+  border-bottom: thin solid #cce0d1;
+}
+
+.answerListTable tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.answerListTable tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.answerListTable tr:last-child {
+  border-bottom: none;
+}
+
+.answerFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.answerFooter p {
+  font-weight: bold;
+  font-size: 20px;
+  color: #064420;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -20,7 +20,7 @@
 
     <div class="questionPageContainer">
         <div class="questionPageContainerHeader">
-            <p><span class="questionNumber">{{ $kelintas + 1}} Klausimas </span></p>
+            <p><span class="questionNumber">{{ $kelintas + 1}} klausimas </span></p>
             <p style="margin-top: auto; margin-bottom: auto; padding-top: 2px;">
             <b style="color: #064420;">Vertė: 
             <span style="color: orange;"><?php echo substr($questionsWeight, 1, -1);?> tašk.</span></b></p>

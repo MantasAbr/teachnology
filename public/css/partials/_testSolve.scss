@@ -12,6 +12,7 @@
     background: $darkerGreen;
     flex-direction: column;
     padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
     .questionPageContainerHeader {
         display: flex;
@@ -77,5 +78,58 @@
     &:hover {
         background-color: $darkGreen;
         color: white;
+    }
+}
+
+.answerListTable {
+    border-collapse: collapse;
+    width: 80%;
+    border-radius: 7px;
+    justify-self: center;
+    align-self: center;
+
+    thead {
+        height: 80px;
+    }
+
+    thead tr {
+        font-size: 22px;
+        color: $darkGreen;
+        //text-align: left;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    } 
+
+    tbody tr {
+        border-bottom: thin solid $darkerGreen;
+    }
+
+    tr:last-child td:first-child { 
+        border-bottom-left-radius: 10px; 
+    }
+
+    tr:last-child td:last-child { 
+        border-bottom-right-radius: 10px; 
+    }   
+
+    tr:last-child {
+        border-bottom: none;
+    }
+}
+
+.answerFooter {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+
+    p{
+        font-weight: bold;
+        font-size: 20px;
+        color: $darkGreen;
     }
 }

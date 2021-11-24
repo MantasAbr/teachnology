@@ -1178,6 +1178,26 @@ button:hover {
           align-items: center;
 }
 
+.modal-container input {
+  background-color: #E4EFE7;
+  padding: 10px 10px 10px 10px;
+  border-radius: 7px;
+  min-width: 150px;
+  border: none;
+  font-size: 16px;
+  margin: 0px 10px 10px 10px;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.modal-container input:hover {
+  background-color: #cce0d1;
+}
+
 .modal-container .payment-select-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1504,5 +1524,65 @@ button:hover {
   font-weight: bold;
   font-size: 20px;
   color: #064420;
+}
+
+.endingHeaderText {
+  color: orange;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.gradeInfo {
+  text-align: center;
+  padding: 10% 0%;
+  font-size: 32px;
+}
+
+.testCompletionButtonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+}
+
+.modalOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px 0px;
+  width: 620px;
+}
+
+.modal-box-rating {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 620px;
+  height: 300px;
+  border-radius: 7px;
+  background-color: #E4EFE7;
+  z-index: 1;
+  margin-top: 150px;
 }
 /*# sourceMappingURL=styles.css.map */

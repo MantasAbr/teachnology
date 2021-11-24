@@ -133,3 +133,43 @@
         color: $darkGreen;
     }
 }
+
+.endingHeaderText {
+    color: orange;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.gradeInfo {
+    text-align: center;
+    padding: 10% 0%;
+    font-size: 32px;
+}
+
+.testCompletionButtonContainer {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-self: center;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.modalOptions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 40px 0px;
+    width: 620px;
+}
+
+.modal-box-rating{
+    flex-direction: column;
+    width: 620px;
+    height: 300px;
+    border-radius: 7px;
+    background-color: $lightGreen;
+    z-index: 1;
+    margin-top: 150px;
+}

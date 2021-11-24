@@ -60,44 +60,62 @@
     </div>
 
     @else
-        <h1>
-            Testo spendimo baigimo puslapis
-        </h1>
-    <div> <h4>(Testo įvertinimas)</h4></div>
-        <div>  Jūsų pažymys: <?php echo $mark ?></div>
+    <div class="questionPageContainer">
+        <p class="endingHeaderText">Testo sprendimo baigimo puslapis</p>
+        <div class="hairline"></div>
 
-        <li class="list"><a class="premium"><button class="premium">Įvertinti testą</button></a></li>
-        <div id="modal" class="modal">
-            <div class="modal-container">
-                <div class="modal-box">
-                    <div class="modal-header-box">
-                        <button class="exit">X</button>
-                        <h3 class="splash"><i style="color: orange;">Testo įvertinimas</i></h3>
-                    </div>
-                    <div class="hairline"></div>
-                    <form action="{{ route('testdn',['id' => $id, 'mark'=>$mark])}}"  id="dynamic_form" enctype="multipart/form-data">
-                        @csrf
-                    <select name="stars" placeholder="Testo lygis">
-                        @for($i = 1; $i < 6; $i++)
-                            <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                    </select>
-                        <input type="submit" name="save" id="save" class="submit" value ="Įvertinti" />
-
-                </div>
-            </div>
+        <div class="gradeInfo">
+            <span style="color: #064420;">Jūsų pažymys:</span>
+            @if ($mark < 4)
+                <span style="color: red;"><?php echo round($mark, 2)?><span style="color: #064420;">. Nepasisekė... Bandykite dar kartą.</span></span>
+            @endif
+            @if ($mark >= 4 && $mark < 8)
+                <span style="color: orange;"><?php echo round($mark, 2)?></span>
+            @endif
+            @if ($mark >= 8 && $mark != 10)
+                <span style="color: #064420;"><?php echo round($mark, 2)?></span>
+            @endif
+            @if ($mark == 10)
+                <span style="color: #064420;"><?php echo round($mark, 2)?>. <span style="color: orange;">Šaunu!</span></span>
+            @endif
         </div>
 
-        <script type=text/javascript>
-            $("button").click(function(){
-                $("#modal").toggleClass('modal');
-            });
-        </script>
-    <td><a href="{{ route('testdn',['id' => $id, 'mark'=>$mark]) }}">Išeiti</a></td>
+        <div class="testCompletionButtonContainer">
+            <a class="premium"><button class="premium" id="open">Įvertinti testą</button></a>
+            <a class="premium" href="{{ route('testdn',['id' => $id, 'mark'=>$mark]) }}"><button class="premium">Išeiti</button></a>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-container">
+            <div class="modal-box-rating" style="margin-top: -100px;">
+                <div class="modal-header-box">
+                    <a class="premium" href="{{ route('testdn',['id' => $id, 'mark'=>$mark]) }}"><button class="exit">X</button></a>
+                    <h3 class="splash">Testo įvertinimas</h3>
+                </div>
+                <div class="hairline"></div>
+                <form action="{{ route('testdn',['id' => $id, 'mark'=>$mark])}}"  id="dynamic_form" enctype="multipart/form-data">
+                    <div class="modalOptions">
+                        @csrf
+                        <select name="stars" placeholder="Testo lygis" style="width: 300px;">
+                            @for($i = 1; $i < 6; $i++)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                        <div style="padding-top: 50px;"></div>
+                        <input type="submit" name="save" id="save" class="submit" value ="Įvertinti" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type=text/javascript>
+        $("#open").click(function(){
+            $("#modal").toggleClass('modal');
+        });
+    </script>
 </div>
 @endif
 </body>
 </html>
-
-
-

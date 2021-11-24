@@ -22,4 +22,23 @@ class ProfileController extends Controller
         $usersProfile = User::find($id);
         return view('profile', compact('usersProfile'));
     }
+
+    
+    public function updateStatus($id, $status_code)
+    {
+        try{
+            $update_user = User::whereId($id)->update([
+                'is_blocked' => $status_code
+            ]);
+            if($update_user){
+                return redirect()->back()->with('success', 'Sėkmingai pakeitėte naudotojo statusą.');
+            }
+            return redirect()->back()->with('error', 'Blogai');
+
+        }
+        catch (\Throwable $th){
+            throw $th;
+        }
+
+    }
 }

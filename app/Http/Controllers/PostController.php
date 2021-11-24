@@ -10,6 +10,7 @@ use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Comment;
 use Auth;
 use Session;
 use Validator;
@@ -40,8 +41,52 @@ class PostController extends Controller
         else{
             $avarage = 0;
         }
-        return view('testInfo', compact('post'))->with('avarage', $avarage);
+
+        $data = Comment::where(['Test_idTest' => $id])->get();
+
+           
+       
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
     }
+
+    
+    public function updateComment(Request $request, $testid, $commentid)
+    {
+        $comment= $request->get('comment');
+
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+      
+        Comment::where('idComment', $commentid) -> update(['comment' => $comment]);
+
+$data = Comment::where(['Test_idTest' => $testid])->get();
+
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+    }
+
+    public function deleteComment($testid, $commentid)
+    {
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+        $comment = Comment::find($commentid)->delete();
+
+        $data = Comment::where(['Test_idTest' => $testid])->get();
+        
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+    }
+
     public function destroy(Request $request,$id)
     {
         $quest = Question::where([ 'test_idTest' => $id])->pluck('idQuestion');
@@ -63,6 +108,32 @@ class PostController extends Controller
 
         return view('testEdit',compact('post')); //->with('messages','id');
     }
+    public function addComment(Request $request, $testid, $userid){
+       
+        $comment = new Comment;
+        $comment->comment = $request->get('komentaras');
+        $comment->Test_idTest = $testid;
+        $comment->User_idUser = Auth::user()->id;
+        $comment->save();
+
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+        $data = Comment::where(['Test_idTest' => $testid])->get();
+
+           
+       
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+
+        //return redirect()->back();  
+
+    }
+   
     public function update(Request $request,$id){
 
         $this->validate($request, [

@@ -39,6 +39,9 @@ Route::get('/testsList', 'App\Http\Controllers\TestsController@index')->name('us
 Route::get('/test', function () {
     return view('test');
 });
+//Komentarai
+Route::post('/myTestsList/testInfo/{idTest}/{idUser}', 'App\Http\Controllers\PostController@addComment')->name('addComment');
+
 
 //Sprendimų stuff
 
@@ -58,7 +61,7 @@ Route::get('/testsList/testInfo/{idTest}/test/{kelintas}', 'App\Http\Controllers
 Route::post('/testsList/testInfo/{idTest}/test/{kelintas}', 'App\Http\Controllers\PostController@testSolutionV2')->name('testdov2');
 Route::post('/testsList/testInfo/{idTest}/test/{kelintas}/answer', 'App\Http\Controllers\PostController@testAnswers')->name('testansw');
 
-
+//Route::post('/testInfo/testInfo/{idTest}', 'App\Http\Controllers\PostController@comment')->name('addComment');
 
 Route::get('/login', function () {
     return view('login');
@@ -87,4 +90,24 @@ Route::get('/', 'App\Http\Controllers\ProfileController@index')->name('userProfi
 
 Route::get('/profile/{id}', 'App\Http\Controllers\ProfileController@show')->name('profileshow');
 
+Route::get('/profile/{userid}', 'App\Http\Controllers\AdminController@showUser')->name('showUser');
+
+
 Route::post('/profile/{id}/currency', 'App\Http\Controllers\CryptoController@store')->name('addCur');
+
+Route::get('/admin/{id}', 'App\Http\Controllers\AdminController@show')->name('adminshow');
+
+
+
+
+Route::post('/myTestsList/testInfo/{idTest}/{idComment}/edit', 'App\Http\Controllers\PostController@updateComment')->name('updateComment');
+
+Route::get('/myTestsList/testInfo/{idTest}/{idComment}/delete', 'App\Http\Controllers\PostController@deleteComment')->name('deleteComment');
+
+
+
+Route::middleware('auth')->group(function(){
+    Route::resource('home', App\Http\Controllers\HomeController::class);
+    Route::get('/profile/{id}/{status_code}', 'App\Http\Controllers\ProfileController@updateStatus')->name('status');
+
+});

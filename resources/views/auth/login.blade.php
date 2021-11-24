@@ -9,6 +9,10 @@
                 </div>
 
                 <div class="card-body">
+                @if (session('error'))
+                <a>{{session('error') }}</a>
+                @endif
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -72,50 +72,20 @@
   
         <form  method="post" action="{{ route('addComment', ['idTest' =>  $post->idTest, 'idUser' => Auth::user()->id] ) }}">
         @csrf 
-		<h1>Rašyti komentarą</h1><br>
+		<h1>Redaguoti komentarą</h1><br>
         <label>Komentaras:  </label>
-        <textarea type="text" name="komentaras"  Required></textarea>	
+        <input  type="text" name="komentaras"  value="{{$comment -> comment}}" Required></textarea>	
         <br>
-        <button class="btn btn-primary" style="margin-left:120px; border: solid 1px;">Siųsti</button>
+        <button class="btn btn-primary" style="margin-left:120px; border: solid 1px;">Išsaugoti</button>
         </form> 
-       
-        <table>
-    
-        <tr>
-            <td>Komentaras</td>
-         
-            
-        </tr>
-        @foreach($comments as $comment)
-        <tr>
-        <form method="POST" action="{{ route('updateComment',  ['idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}">
-            @csrf
-            <td>
-                <textarea id="{{$comment['idComment']}}" name="comment" autofocus placeholder="Komentaras" disabled>{{$comment['comment']}}</textarea>
-            </td>
-            @if (Auth::user()->id == $comment->User_idUser)
-            <td><button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none;"> Saugoti </button> </td>
-            @endif
-        </form>   
 
-            @if (Auth::user()->id == $comment->User_idUser)
-            <td> <button id="Edit{{$comment['idComment']}}" onclick="EditComment({{$comment['idComment']}})"> Redaguoti </button> </td>
-            <td>
-             <a href="{{ route('deleteComment',  [ 'idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}"><button style="cursor: pointer;">Ištrinti</button></a>
-            </td>
-            @endif
-        </tr>
-        @endforeach
-    </table>        
+       
+
+
+
+        
     </div>
 			
 </div>
 </body>
-<script>
-    function EditComment($id){
-        document.getElementById($id).disabled = false;
-        document.getElementById('Edit'+$id).style.display= "none";
-        document.getElementById('Save'+$id).style.display = "initial";
-    }
-</script>
 </html>

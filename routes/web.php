@@ -34,11 +34,10 @@ Route::get('/profile', function () {
 //     return view('testsList');
 // });
 
+
+//idk what it is
 Route::get('/testsList', 'App\Http\Controllers\TestsController@index')->name('userProfile');
 
-Route::get('/test', function () {
-    return view('test');
-});
 
 //Vartotojų ir kūrėjo testų rodymas
 
@@ -67,12 +66,10 @@ Route::post('/testsList/testInfo/{idTest}/test/{kelintas}/answer', 'App\Http\Con
 Route::get('/login', function () {
     return view('login');
 });
+//Statistika
+Route::get('/statistics','App\Http\Controllers\StatsController@index')->name('statsstuff');
 
-Route::get('/statistics','App\Http\Controllers\TestsController@index')->name('userProfile');
 
-Route::get('/followingList', function() {
-    return view('followingList');
-});
 
 
 //AUTH-----------------------------------------------------

@@ -34,13 +34,15 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $name = $post->user->name;
+        $surname = $post->user->surname;
         if($post->ratingSum != null) {
             $avarage = $post->ratingSum / $post->ratingCount;
         }
         else{
             $avarage = 0;
         }
-        return view('testInfo', compact('post'))->with('avarage', $avarage);
+        return view('testInfo', compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
     public function destroy(Request $request,$id)
     {
@@ -226,8 +228,11 @@ class PostController extends Controller
         //dd($score);
         //Vaikščiojimas tarp klausimų
         $kelintas++;
-        $howmuch = Question::count();
+
+        //$howmuch = Question::count();
         $questionsWeightSum = Question::where(['Test_idTest' => $id])->sum('weight');
+        $howmuch = Question::where(['Test_idTest' => $id])->count();
+        //dd($kelintas);
         if($howmuch > $kelintas) {
             $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
             $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get();
@@ -249,6 +254,7 @@ class PostController extends Controller
         //stuff
         $score = (double) $request->get('score');
         $correct = (int) $request->get('correct');
+        $howmuch = Question::where(['Test_idTest' => $id])->count();
         //dd($score);
 
         //Atsakymų paėmimas
@@ -306,6 +312,29 @@ class PostController extends Controller
            $score = $score + $questionsWeight[0];
            $correct++;
         }
-        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('bad', $bad)->with('questionsWeight', $questionsWeight);
+        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('howmuch',$howmuch)->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('bad', $bad)->with('questionsWeight', $questionsWeight);
+    }
+    public function testDone($id, $mark, Request $request){
+
+        //Posto stuff
+        $test = Post::find($id);
+        $test->completedCount++;
+        //dd($request->get('stars'));
+        if($request->get('stars') != null) {
+            $test->ratingSum = $test->ratingSum + $request->get('stars');
+            $test->ratingCount++;
+        }
+        $test->save();
+
+        //Userio stuff
+        $userInf = User::find(Auth::user()->id);
+        $userInf->testCount++;
+        $userInf->testMarkSum= $userInf->testMarkSum +$mark;
+        if($mark >= 5){
+            $userInf->currency++;
+        }
+        $userInf->save();
+        //dd($userInf);
+        return redirect()->route('otherpostss')->with('status','Pasirinktas testas ištrintas');
     }
 }

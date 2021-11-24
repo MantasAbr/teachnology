@@ -12,17 +12,17 @@
         <!-- Styles -->
         <link href = "/css/styles.css" rel="stylesheet">
     </head>
-    
+
 <body style="margin-top: 0px;">
 
 <div class="pageContainer">
     <div class="selectedTestSplashContainer">
         <h4 class="selectedTestSplashText">Pasirinkto testo informacija</h4>
 
-        
+
         <div style="display: flex; flex-direction: row;">
         @if(Auth::user()->id == $post->User_idUser)
-            <a style="height: 40px; margin-top:auto; margin-bottom: auto;"> 
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;">
                 {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
                                         'method'=>'POST']) !!}
                 @csrf
@@ -48,8 +48,14 @@
         @if($post->ratingSum == null)
             <p>Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
         @endif
+
         @if($post->ratingSum != null)
-        <p>Įvertinimas - <b>{{ $avarage  }}</b></p>
+        <p>Įvertinimas - <b><?php echo round($avarage, 2) ?></b></p>
+        @endif
+        @if($post->ratingSum == null)
+            <p>Kiek kartų įvertinta - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
+        @else
+            <p>Kiek kartų įvertinta  - <b>{{ $post->ratingCount }}</b></p>
         @endif
         @if($post->completedCount == null)
         <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
@@ -57,6 +63,7 @@
         @if($post->completedCount != null)
             <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
         @endif
+        <p>Testo kūrėjas  - <b>{{ $name }}</b> <b>{{$surname }}</b></p>
         <div class="hairline"></div>
         <p class="infoHeader">Informacija</p>
             <p class="info"><b>{{ $post->info }}</b><p>

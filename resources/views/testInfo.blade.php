@@ -11,7 +11,9 @@
 
         <!-- Styles -->
         <link href = "/css/styles.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
 	
     </head>
     
@@ -60,7 +62,7 @@
             <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
         @endif
         <div class="hairline"></div>
-        <p class="infoHeader">Informacija</p>
+        <p class="infoHeader">Aprašymas</p>
             <p class="info"><b>{{ $post->info }}</b><p>
         @if($post->Category_idCategory == 1)
         @endif
@@ -72,17 +74,17 @@
   
         <form  method="post" action="{{ route('addComment', ['idTest' =>  $post->idTest, 'idUser' => Auth::user()->id] ) }}">
         @csrf 
-		<h1>Rašyti komentarą</h1><br>
-        <label>Komentaras:  </label>
-        <textarea type="text" name="komentaras"  Required></textarea>	
+		<h1>Rašyti komentarą</h1>
+        <label>Komentaras:  </label><br>
+        <textarea type="text" class="textarea" name="komentaras" placeholder="Įrašykite komentarą" Required></textarea>	
         <br>
-        <button class="btn btn-primary" style="margin-left:120px; border: solid 1px;">Siųsti</button>
+        <button class="btn btn-primary" style="margin-top: 20px">Siųsti</button>
         </form> 
        
         <table>
     
         <tr>
-            <td>Komentaras</td>
+            <td>Komentarai</td>
          
             
         </tr>
@@ -91,19 +93,27 @@
         <form method="POST" action="{{ route('updateComment',  ['idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}">
             @csrf
             <td>
-                <textarea id="{{$comment['idComment']}}" name="comment" autofocus placeholder="Komentaras" disabled>{{$comment['comment']}}</textarea>
-            </td>
-            @if (Auth::user()->id == $comment->User_idUser)
-            <td><button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none;"> Saugoti </button> </td>
-            @endif
-        </form>   
+                <div style="text-align: center;">
+                    
+                    @if (Auth::user()->id == $comment->User_idUser) 
+                        <span class="delete-comm"><a href="{{ route('deleteComment',  [ 'idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}"><i class="fas fa-trash-alt"></i></a></span>
+                        <span class="edit-comm"><a id="Edit{{$comment['idComment']}}" onclick="EditComment({{$comment['idComment']}})"><i class="fas fa-pen"></i></a></span>
+                    
+                        {{-- <span class="save-comm"><a ><i class="fas fa-save"></i></a></span> --}}
+                    @endif
+                   
+                    <textarea class="textarea" id="{{$comment['idComment']}}" name="comment" autofocus placeholder="Komentaras" disabled>{{$comment['comment']}}</textarea>
+                    @if (Auth::user()->id == $comment->User_idUser) 
 
-            @if (Auth::user()->id == $comment->User_idUser)
-            <td> <button id="Edit{{$comment['idComment']}}" onclick="EditComment({{$comment['idComment']}})"> Redaguoti </button> </td>
-            <td>
-             <a href="{{ route('deleteComment',  [ 'idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}"><button style="cursor: pointer;">Ištrinti</button></a>
+                    <button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none; margin-top: 5px; margin-bottom: 0;"> Saugoti </button>
+                    @endif
+
+                </div>
             </td>
-            @endif
+            {{-- @if (Auth::user()->id == $comment->User_idUser)
+            <td><button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none;"> Saugoti </button> </td>
+            @endif --}}
+        </form>   
         </tr>
         @endforeach
     </table>        

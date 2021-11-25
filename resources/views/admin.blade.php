@@ -26,7 +26,7 @@
              @if(Auth::user()->role == 1)
                 @if($user->is_blocked == 1)
                     <a href="{{ route('status', ['id' => $user->id, 'status_code'=>0]) }}" class="btn">
-                        <button>Blokuoti</button>
+                        <button style="color: red;"><strong>Blokuoti</strong></button>
                     </a>
                 @else
                     <a href="{{ route('status', ['id' => $user->id, 'status_code'=>1]) }}" class="btn">

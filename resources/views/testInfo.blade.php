@@ -41,28 +41,38 @@
     <div class="testInfoContainer">
         <p class="name"><b>{{ $post->testName }}</b></p>
         <div class="hairline"></div>
+
         <p>Lygis - <b>Elementary school</b></p>
         @if($post->Category_idCategory == 2)
             <p>Lygis - <b>Middle school</b></p>
         @endif
-        @if($post->ratingSum == null)
-            <p>Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
-        @endif
 
-        @if($post->ratingSum != null)
-        <p>Įvertinimas - <b><?php echo round($avarage, 2) ?></b></p>
-        @endif
-        @if($post->ratingSum == null)
-            <p>Kiek kartų įvertinta - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
-        @else
-            <p>Kiek kartų įvertinta  - <b>{{ $post->ratingCount }}</b></p>
-        @endif
-        @if($post->completedCount == null)
-        <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
-        @endif
-        @if($post->completedCount != null)
-            <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
-        @endif
+        <div style="text-align: left;">
+            @if($post->ratingSum == null)
+                <p style="margin-bottom: 0px;">Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
+            @endif
+
+            @if($post->ratingSum != null)
+        
+            <div>
+                <p style="float: left; margin-bottom: 0px;">Įvertinimas - <b><?php/* echo round($avarage, 2) */?></b></p>
+                <div class="Stars" style="--rating: {{ round($avarage, 2)}};" aria-label="Rating is 2.3 out of 5">
+                </div>
+            </div>
+       
+            @endif
+            @if($post->ratingSum == null)
+                <p style="float: left; width: 100%;">Kiek kartų įvertinta - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
+            @else
+                <p style="float: left; width: 100%;">Kiek kartų įvertinta  - <b>{{ $post->ratingCount }}</b></p>
+            @endif
+            @if($post->completedCount == null)
+            <p>Išspręsta kartų - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
+            @endif
+            @if($post->completedCount != null)
+                <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
+            @endif
+        </div>
         <p>Testo kūrėjas  - <b>{{ $name }}</b> <b>{{$surname }}</b></p>
         <div class="hairline"></div>
         <p class="infoHeader">Informacija</p>

@@ -8,8 +8,11 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">  
 
 </head>
 <body>
@@ -99,7 +102,7 @@
                         @csrf
                         <select name="stars" placeholder="Testo lygis" style="width: 300px;">
                             @for($i = 1; $i < 6; $i++)
-                                <option value="{{$i}}">{{$i}}</option>
+                                <option value="{{$i}}">{{$i}} <p>&#9733;</p></option>
                             @endfor
                         </select>
                         <div style="padding-top: 50px;"></div>

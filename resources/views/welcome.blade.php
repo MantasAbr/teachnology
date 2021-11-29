@@ -26,6 +26,9 @@
                     @if (Auth::user()->id == $userProf->id)
                         <a href="{{ route('profileshow', $userProf->id) }}">Profilis</a>
                     @endif
+                    @if (Auth::user()->id == $userProf->id && $userProf->role == 1)
+                        <a href="{{ route('adminshow', $userProf->id) }}">Naudotojų sąrašas</a>
+                    @endif
                 @endforeach
             @else
                 <a class="title" href="{{ url('login') }}">Prisijungti</a>

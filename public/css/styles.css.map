@@ -15,6 +15,7 @@
         "partials/_selectedTest.scss",
         "partials/_login.scss",
         "partials/_modal.scss",
+        "partials/_admin.scss"
         "partials/_testSolve.scss",
         "partials/_statistics.scss"
     ],

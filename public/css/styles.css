@@ -1617,4 +1617,59 @@ select option {
   z-index: 1;
   margin-top: 150px;
 }
+
+.statisticsTable h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.statisticsTable h3:not(:first-of-type) {
+  margin-top: 40px;
+}
+
+.statisticsTable th {
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .statisticsTable th {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .statisticsTable {
+    width: 100%;
+    margin-top: 0;
+  }
+  .statisticsTable .testListSplashContainer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .statisticsTable .testListSplashContainer .testListSplashText {
+    font-size: 20px;
+  }
+}
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  padding: 10px;
+  padding-top: 0;
+}
+
+@media (max-width: 700px) {
+  .grid-container {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+.grid-item {
+  padding: 20px;
+  padding-top: 0;
+  text-align: center;
+}
 /*# sourceMappingURL=styles.css.map */

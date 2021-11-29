@@ -61,11 +61,14 @@
     .info {
         justify-self: center;
         align-self: center;
+        justify-content: center;
         padding: 0px 20px;
         font-size: 18px;
         border-radius: 7px;
         border: $darkGreen solid thin;
         background-color: $lightGreen;
+        width: 80%;
+        height: 50%;
     }
 
     .name {

@@ -12,8 +12,8 @@ class TestsController extends Controller
 {
     public function index()
     {
-       $userProfile = User::all(); // i kintamaji padedami visi user lenteles duomenys   
-        //dd($userProfile); 
+       $userProfile = User::all(); // i kintamaji padedami visi user lenteles duomenys
+        //dd($userProfile);
     return view('testsList', compact('userProfile')); // db duomenys profilio view'se
     }
 }

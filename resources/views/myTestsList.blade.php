@@ -24,10 +24,10 @@
 
             <!-- Atsiprašau už šitą nesamonę-->
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{route('testcreate')}}"><button style="cursor: pointer;">Sukurti naują testą</button></a>
-            <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('testStatistics') }}"><button style="cursor: pointer;">Pasirinkto testo statistika</button></a>                     
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('testStatistics') }}"><button style="cursor: pointer;">Pasirinkto testo statistika</button></a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
-        
+
         <table class="testListTable">
             <thead>
             <th>Testo pavadinimas</th>
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
             @foreach($posts as $post)
-                @if(Auth::user()->username == $post->username)
+                @if(Auth::user()->id == $post->User_idUser)
                     <tr>
                         <td>{{ $post->testName }}</td>
                         @if($post->Category_idCategory == 1)
@@ -57,7 +57,7 @@
                     </tr>
                     @endforeach
             </tbody>
-        </table> 
+        </table>
 
     </div>
 @endsection

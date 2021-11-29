@@ -26,14 +26,17 @@
                     @if (Auth::user()->id == $userProf->id)
                         <a href="{{ route('profileshow', $userProf->id) }}">Profilis</a>
                     @endif
+                    @if (Auth::user()->id == $userProf->id && $userProf->role == 1)
+                        <a href="{{ route('adminshow', $userProf->id) }}">Naudotojų sąrašas</a>
+                    @endif
                 @endforeach
             @else
                 <a class="title" href="{{ url('login') }}">Prisijungti</a>
             @endif
-            
+
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
             <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
-            <a href="{{ url('statistics') }}">Statistika</a>
+            <a href="{{ route('statsstuff') }}">Statistika</a>
 
             @if (!Auth::guest())
                 <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -46,5 +49,5 @@
             @endif
             <!-- Šito prieš prisijungiant nereiktų rodyt <a href="{{ url('currency') }}">Pirkti valiutą/Premium</a>-->
         </div>
-        
+
     </body>

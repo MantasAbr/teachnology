@@ -8,9 +8,9 @@
     <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/myTestsList') }}"><button style="cursor: pointer;">Atgal</button></a>
 </div>
 <div class="container-center container-center-test">
-    
+
     <div class="row justify-content-center">
-        
+
         <div class="col-md-8">
 
                 <h1 style="text-align: center;">
@@ -60,9 +60,10 @@
                         <input type="submit" name="save" id="save" class="submit" value ="Kurti testą" />
 
                     </form>
-
-                        <script>
+                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+                    <script type=text/javascript>
                             $(document).ready(function(){
+
 
                                 var count = 1;
 
@@ -71,37 +72,40 @@
                                 function dynamic_field(number)
                                 {
                                     html = '<tr>';
-                                    
-                                    html += '<td>Klausimas<input type="text" class="questionInput" name="question[]" placeholder="Klausimas"/></td>';
+
+                                    html += '<td>Klausimas<input type="text" class="questionInput" name="question[]" placeholder="Klausimas" required/></td>';
                                     html += '<td>Svoris<input type="number" step=0.01 min=0.1 placeholder="Svoris" name="weight[]" class="form-control" style="margin-bottom: 5px;" /></td>';
                                     html += '<td></td>';
-                                    html += '<tr><td>1 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer[]" class="answer" /></td>';
+                                    html += '<tr><td>1 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer[]" class="answer" required/></td>';
                                     html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct[]" id="remember"><span class="checkmark"></span></label></td>';
                                     html += '<td></td>';
-                                    html += '<tr><td>2 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer1[]"  class="answer" /></td>';
+                                    html += '<tr><td>2 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer1[]"  class="answer" required/></td>';
                                     html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct1[]" id="remember"><span class="checkmark"></span></label></td>';
                                     html += '<td></td>';
-                                    html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" /></td>';
+                                    html += '<tr><td>3 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer2[]"  class="answer" required/></td>';
                                     html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct2[]" id="remember"><span class="checkmark"></span></label></td>';
-                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" /></td>';
+                                    html += '<tr><td>4 atsakymo variantas<input type="text" placeholder="Atsakymas" name="answer3[]"  class="answer answer-last" required/></td>';
                                     html += '<td><label class="checkbox-container"><input type="checkbox" name="is_Correct3[]" id="remember"><span class="checkmark checkmark-last"></span></label></td>';
                                     html += '<td></td>';
-                                   
-                                    if(number > 1)
+
+                                   if(number > 1)
                                     {
                                         //html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
+                                        html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
                                         $('tbody').append(html);
                                     }
                                     else
                                     {
-                                        html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
-                                        $('tbody').append(html);
+                                            html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
+                                            $('tbody').append(html);
+
                                     }
                                 }
 
                                 $(document).on('click', '#add', function(){
                                     count++;
                                     dynamic_field(count);
+                                    $(this).closest("button").remove();
                                 });
 
                                 $(document).on('click', '.remove', function(){
@@ -126,12 +130,30 @@
                                     })
 
                                 });
+//-----------------------------------------------
+                                var checkboxes = $("input[type='checkbox']"),
+                                    submitButt = $("input[type='submit']");
+                                submitButt.attr("disabled", !checkboxes.is(":checked"));
+
+                                checkboxes.click(function() {
+                                    submitButt.attr("disabled", !checkboxes.is(":checked"));
+                                });
+//----------------------------------------------
+                              /*  var disableUser = !document.getElementById('save').checked;
+                                var x = document.getElementsByClassName("checkmark");
+                                for (var i = 0; i < x.length; i++) {
+                                    x[i].disabled = disableUser;
+                                }*/
+
 
                             });
                         </script>
                         <!-------------- -------------------------------------------------->
 
-                       
+
+
+                    </script>
+
                 </div>
             </div>
     </div>

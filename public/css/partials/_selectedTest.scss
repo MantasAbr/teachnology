@@ -18,7 +18,12 @@
     .selectedTestSplashText {
         color: $darkGreen;
         font-size: 28px;
+        @include breakpoint(740px)
+        {
+            font-size: 20px;
+        }
     }
+    
 }
 
 .testInfoContainer {
@@ -32,6 +37,11 @@
     justify-self: center;
     align-self: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+
+    @include breakpoint(900px){
+        width: 90%;
+    }
 
     p{
         justify-self: center;
@@ -51,11 +61,14 @@
     .info {
         justify-self: center;
         align-self: center;
+        justify-content: center;
         padding: 0px 20px;
         font-size: 18px;
         border-radius: 7px;
         border: $darkGreen solid thin;
         background-color: $lightGreen;
+        width: 80%;
+        height: 50%;
     }
 
     .name {
@@ -64,6 +77,58 @@
         font-size: 28px;
         font-weight: bold;
         padding-bottom: 10px;
+    }
+
+    h1{
+        margin: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        @include breakpoint(500px){
+            font-size: 20px;
+        }
+    }
+
+    .textarea{
+        max-width: 100%;
+        min-width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        margin-right: 0;
+        padding-right: 70px;
+        margin-bottom: 0;
+    }
+
+    form{
+        text-align: center;
+        label{
+            float: left;
+        }
+    }
+    .delete-comm{
+        top: 30px;
+        position: relative;
+        float: right;
+        left: -20px;
+
+        a{
+            text-decoration: none;
+            color: $darkGreen;
+            font-size: 20px;
+        }
+    }
+    .edit-comm{
+        top: 30px;
+        position: relative;
+        float: right;
+        left: -25px;
+        font-size: 20px;
+        color: $darkGreen;
+    }
+
+    table{
+        table-layout: fixed;
+        width: 100%;
     }
 }
 
@@ -91,7 +156,7 @@
 .testProceedButton {
     background-color: $darkGreen;
     color: white;
-    padding: 10px 50px 10px 50px;
+   // padding: 10px 50px 10px 50px;
     border-radius: 7px;
     min-width: 150px;
     border: none;

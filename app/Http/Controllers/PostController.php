@@ -10,6 +10,7 @@ use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Comment;
 use Auth;
 use Session;
 use Validator;
@@ -34,14 +35,58 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $name = $post->user->name;
+        $surname = $post->user->surname;
         if($post->ratingSum != null) {
             $avarage = $post->ratingSum / $post->ratingCount;
         }
         else{
             $avarage = 0;
         }
-        return view('testInfo', compact('post'))->with('avarage', $avarage);
+
+        $data = Comment::where(['Test_idTest' => $id])->get();         
+       
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
     }
+
+    
+    public function updateComment(Request $request, $testid, $commentid)
+    {
+        $comment= $request->get('comment');
+
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+      
+        Comment::where('idComment', $commentid) -> update(['comment' => $comment]);
+
+$data = Comment::where(['Test_idTest' => $testid])->get();
+
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+    }
+
+    public function deleteComment($testid, $commentid)
+    {
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+        $comment = Comment::find($commentid)->delete();
+
+        $data = Comment::where(['Test_idTest' => $testid])->get();
+
+        return view('testInfo', compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
+    }
+
     public function destroy(Request $request,$id)
     {
         $quest = Question::where([ 'test_idTest' => $id])->pluck('idQuestion');
@@ -63,6 +108,32 @@ class PostController extends Controller
 
         return view('testEdit',compact('post')); //->with('messages','id');
     }
+    public function addComment(Request $request, $testid, $userid){
+       
+        $comment = new Comment;
+        $comment->comment = $request->get('komentaras');
+        $comment->Test_idTest = $testid;
+        $comment->User_idUser = Auth::user()->id;
+        $comment->save();
+
+        $post = Post::find($testid);
+        if($post->ratingSum != null) {
+            $avarage = $post->ratingSum / $post->ratingCount;
+        }
+        else{
+            $avarage = 0;
+        }
+
+        $data = Comment::where(['Test_idTest' => $testid])->get();
+
+           
+       
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+
+        //return redirect()->back();  
+
+    }
+   
     public function update(Request $request,$id){
 
         $this->validate($request, [
@@ -226,8 +297,11 @@ class PostController extends Controller
         //dd($score);
         //Vaikščiojimas tarp klausimų
         $kelintas++;
-        $howmuch = Question::count();
+
+        //$howmuch = Question::count();
         $questionsWeightSum = Question::where(['Test_idTest' => $id])->sum('weight');
+        $howmuch = Question::where(['Test_idTest' => $id])->count();
+        //dd($kelintas);
         if($howmuch > $kelintas) {
             $questionsid = Question::where(['Test_idTest' => $id])->pluck('idQuestion');
             $questions = Question::where(['idQuestion' => $questionsid[$kelintas]])->get();
@@ -249,6 +323,7 @@ class PostController extends Controller
         //stuff
         $score = (double) $request->get('score');
         $correct = (int) $request->get('correct');
+        $howmuch = Question::where(['Test_idTest' => $id])->count();
         //dd($score);
 
         //Atsakymų paėmimas
@@ -306,6 +381,29 @@ class PostController extends Controller
            $score = $score + $questionsWeight[0];
            $correct++;
         }
-        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('bad', $bad)->with('questionsWeight', $questionsWeight);
+        return view('testFeedback',compact('questions', 'answers', 'goodid'))->with('howmuch',$howmuch)->with('score', $score)->with('correct', $correct)->with('id', $id)->with('kelintas', $kelintas)->with('bad', $bad)->with('questionsWeight', $questionsWeight);
+    }
+    public function testDone($id, $mark, Request $request){
+
+        //Posto stuff
+        $test = Post::find($id);
+        $test->completedCount++;
+        //dd($request->get('stars'));
+        if($request->get('stars') != null) {
+            $test->ratingSum = $test->ratingSum + $request->get('stars');
+            $test->ratingCount++;
+        }
+        $test->save();
+
+        //Userio stuff
+        $userInf = User::find(Auth::user()->id);
+        $userInf->testCount++;
+        $userInf->testMarkSum= $userInf->testMarkSum +$mark;
+        if($mark >= 5){
+            $userInf->currency++;
+        }
+        $userInf->save();
+        //dd($userInf);
+        return redirect()->route('otherpostss')->with('status','Pasirinktas testas ištrintas');
     }
 }

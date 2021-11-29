@@ -11,7 +11,6 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +21,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'surname',
         'email',
         'password',
-        'google_id'
+        'google_id',
+        'is_blocked',
+        'role',
     ];
 
     /**
@@ -43,4 +44,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function posts()
+    {
+        return $this->HasMany(Post::class);
+    }
 }

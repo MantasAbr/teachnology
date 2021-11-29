@@ -46,7 +46,8 @@ class PostController extends Controller
 
         $data = Comment::where(['Test_idTest' => $id])->get();         
        
-        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+      //  return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
 
     
@@ -65,9 +66,10 @@ class PostController extends Controller
       
         Comment::where('idComment', $commentid) -> update(['comment' => $comment]);
 
-$data = Comment::where(['Test_idTest' => $testid])->get();
+        $data = Comment::where(['Test_idTest' => $testid])->get();
 
         return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
+        
     }
 
     public function deleteComment($testid, $commentid)

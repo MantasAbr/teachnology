@@ -55,6 +55,8 @@ class PostController extends Controller
         $comment= $request->get('comment');
 
         $post = Post::find($testid);
+        $name = $post->user->name;
+        $surname = $post->user->surname;
         if($post->ratingSum != null) {
             $avarage = $post->ratingSum / $post->ratingCount;
         }
@@ -73,6 +75,8 @@ class PostController extends Controller
     public function deleteComment($testid, $commentid)
     {
         $post = Post::find($testid);
+        $name = $post->user->name;
+        $surname = $post->user->surname;
         if($post->ratingSum != null) {
             $avarage = $post->ratingSum / $post->ratingCount;
         }
@@ -84,7 +88,7 @@ class PostController extends Controller
 
         $data = Comment::where(['Test_idTest' => $testid])->get();
 
-        return view('testInfo', compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
 
     public function destroy(Request $request,$id)
@@ -115,8 +119,9 @@ class PostController extends Controller
         $comment->Test_idTest = $testid;
         $comment->User_idUser = Auth::user()->id;
         $comment->save();
-
         $post = Post::find($testid);
+        $name = $post->user->name;
+        $surname = $post->user->surname;
         if($post->ratingSum != null) {
             $avarage = $post->ratingSum / $post->ratingCount;
         }
@@ -126,12 +131,7 @@ class PostController extends Controller
 
         $data = Comment::where(['Test_idTest' => $testid])->get();
 
-           
-       
-        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage);
-
-        //return redirect()->back();  
-
+        return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
    
     public function update(Request $request,$id){

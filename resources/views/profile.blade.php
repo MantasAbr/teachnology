@@ -1,29 +1,97 @@
 @extends('header')
 @section('content')
 
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>TeachNology</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href = "/css/styles.css" rel="stylesheet">
+    </head>
+    <body>
 <div style="width: 40%; margin: auto; text-align: right;">
     <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
 </div>
-<div style="text-align: center;" class="container-center">
+<div style="text-align: center;" class="container-center profile">
     
         <div class="row justify-content-center">
                     <div class="card-body">
+
+                        <div class="valiuta">
+                            <button style="float: left;" href="#valiuta" class="valiuta" onclick="modal()">Įsigyti valiutą</button> 
+                        </div>
                         <div style="width: 100%;" class="form-group">
-                            @csrf
-                            <label class="label">Naudotojo vardas </label><br>
-                            <td>{{ $usersProfile->name}}</td><br>  
+                            @csrf      
+                            <h3 style="text-align: left; margin-top: 0px;">TeachNology valiutos kiekis: <strong>{{ $usersProfile->currency }}</strong></h3>    
+                        @if($usersProfile->google_id == null)
+                            <form method="POST" action="{{ route('UpdateProfile') }}">
+                                @csrf
+                                    <div class="col-md-6">
+                                        <div class="name" id="name-first">
+                                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Naudotojo vardas') }}</label><br>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $usersProfile->name}}" required autocomplete="name" autofocus placeholder="Naudotojo vardas" disabled>
+        
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        </div>
+                                    </div>
+                                    <br>
+        
+                                    <div class="col-md-6">
+                                        <div class="name">
+                                        <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Naudotojo pavardė') }}</label>
+                                        <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value=" {{ $usersProfile->surname}}" required autocomplete="surname" autofocus placeholder="Naudotojo pavardė" disabled>
+        
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <br>
+
+                                    <div class="col-md-6">
+                                        <div class="email">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('El. paštas') }}</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value=" {{ $usersProfile->email}}" required autocomplete="surname" autofocus placeholder="El. paštas" disabled>
+        
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                    <button id="Save" type="submit" class="btn btn-primary darkGreen hidden">
+                                        Saugoti
+                                    </button>
+                                </div>
+                            </form>
+
+                            <button id="Edit" onclick="EditProfile()" class="darkGreen">
+                                Redaguoti
+                            </button>
                             <br>
-                            <label class="label">El. paštas </label><br>
-                            <td>{{ $usersProfile->email}}</td><br>
-                            <br>
-                            <button>Redaguoti</button>
-                            <br><br>
-                            <button href="#valiuta" class="valiuta">Įsigyti valiutą</button> 
-                            {{-- <label class="label">Slaptažodis </label><br>
-                            <td>{{ $usersProfile->password}}</td><br>
-                            <br>
-                            <label class="label">Pakartoti slaptažodį </label><br>
-                            <td>{{ $usersProfile->password}}</td><br> --}}
+                            <a class="a-button" href="/password/{{Auth::user()->id}}">Keisti slaptažodį</a>
+
+                            @else
+                                <div style="text-align: left;">
+                                    <p>Naudotojo vardas: <strong>{{ $usersProfile->name }}</strong></p>
+                                    <p>Naudotojo pavardė: <strong>{{ $usersProfile->surname }}</strong></p>
+                                    <p>El. paštas: <strong>{{ $usersProfile->email }}</strong></p>
+                                </div>
+                            @endif
                         </div>
                       @if(Auth::user()->role == 1)
                         @if($usersProfile->is_blocked == 1)
@@ -47,18 +115,17 @@
     
 </div>
 <div id="valiuta" class="modal">
-<form method="post" action="{{route('addCur', $usersProfile->id)}}" >
      @csrf 
     <div class="modal-container">
         <div class="modal-box">
             <div class="modal-header-box">
-                <button class="exit">X</button>
+                <button class="exit" onclick="modal()">X</button>
                 <h3 class="splash">Valiutos pirkimas</h3>
             </div>
             <div class="hairline"></div>
                 <div class="crypto">
                     <a>Pasirinkite norimą sumą ir valiutą kurią norite konvertuoti į mūsų valiutą</a>
-                    
+                    <form method="post" action="{{route('addCur', $usersProfile->id)}}" >
                     <input type="number" min="0" name="kiekis"  value="" Required></td>
                     
                 </div>
@@ -87,11 +154,9 @@
 </div>
 
 <script type=text/javascript>
-          $(".valiuta button").click(function(){
-                $("#valiuta").toggleClass('modal');
-            });
-
-            
+            function modal(){
+                $('#valiuta').toggleClass('modal');
+            }
 
             $(".dropdown img.flag").addClass("flagvisibility");
         $(".dropdown dt a").click(function() {
@@ -116,5 +181,16 @@
         });
     
         $(".dropdown img.flag").toggleClass("flagvisibility");
+
+        function EditProfile() {
+            document.getElementById('name').disabled = false;
+            document.getElementById('surname').disabled = false;
+            document.getElementById('email').disabled = false;
+            document.getElementById('Edit').style.display = "none"; 
+            document.getElementById('Save').style.display = "initial";
+        }
         </script>
+
 @endsection
+</body>
+</html>

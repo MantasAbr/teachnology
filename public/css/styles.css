@@ -1442,6 +1442,66 @@ select option {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
+.profile button {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 700px) {
+  .profile input {
+    width: 60%;
+  }
+}
+
+@media (max-width: 400px) {
+  .profile input {
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .profile h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 630px) {
+  .profile a {
+    float: initial;
+  }
+}
+
+.password {
+  width: 50%;
+}
+
+.password .passwordUpdate input {
+  margin: auto;
+  width: 50%;
+}
+
+@media (max-width: 950px) {
+  .password .passwordUpdate input {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .password .passwordUpdate input {
+    width: 85%;
+  }
+}
+
+@media (max-width: 700px) {
+  .password {
+    width: 90%;
+  }
+}
+
 .container-center-admin {
   width: 50%;
   margin: auto;
@@ -1752,4 +1812,5 @@ select option {
   text-align: center;
 
 }
+
 /*# sourceMappingURL=styles.css.map */

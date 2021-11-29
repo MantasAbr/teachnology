@@ -101,9 +101,11 @@
                     <div class="modalOptions">
                         @csrf
                         <select name="stars" placeholder="Testo lygis" style="width: 300px;">
-                            @for($i = 1; $i < 6; $i++)
-                                <option value="{{$i}}">{{$i}} <p>&#9733;</p></option>
-                            @endfor
+                            <option value="1">&#9733;</option>
+                            <option value="2">&#9733;&#9733;</option>
+                            <option value="3">&#9733;&#9733;&#9733;</option>
+                            <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                            <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
                         </select>
                         <div style="padding-top: 50px;"></div>
                         <input type="submit" name="save" id="save" class="submit" value ="Įvertinti" />

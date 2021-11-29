@@ -701,6 +701,14 @@ button:hover {
   top: 6px;
 }
 
+select {
+  color: #FDDA0D;
+}
+
+select option {
+  color: #FDDA0D;
+}
+
 .testListSplashContainer {
   display: -webkit-box;
   display: -ms-flexbox;

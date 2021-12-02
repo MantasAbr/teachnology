@@ -814,11 +814,11 @@ button:hover {
   top: 6px;
 }
 
-select {
+.starss select {
   color: #FDDA0D;
 }
 
-select option {
+.starss select option {
   color: #FDDA0D;
 }
 
@@ -1579,6 +1579,51 @@ select option {
   display: flex;
 }
 
+.modal-container .sort-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 75%;
+}
+
+.modal-container .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+}
+
+.modal-container .choice {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.modal-container .radio {
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  min-width: 1px;
+  width: 20px;
+  padding: 0px;
+  vertical-align: text-bottom;
+  margin-top: 13px;
+}
+
 .hidden {
   display: none;
 }
@@ -1677,6 +1722,7 @@ select option {
   padding: 20px;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
 }
 
 .questionPageContainer .questionPageContainerHeader {
@@ -1728,6 +1774,10 @@ select option {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.questionContainer tr {
+  padding-bottom: 10px;
 }
 
 .checkbox {

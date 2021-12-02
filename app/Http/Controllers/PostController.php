@@ -29,7 +29,7 @@ class PostController extends Controller
     }
     public function otherindex()
     {
-        $otherposts = Post::where(['User_idUser'=> Auth::User()->id])->orderBy('created_at', 'desc')->paginate(10);
+        $otherposts = Post::where('User_idUser', '!=', Auth::User()->id)->orderBy('created_at', 'desc')->paginate(10);
         return view('testsList', compact('otherposts'));
     }
 

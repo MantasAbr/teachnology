@@ -118,6 +118,10 @@
                     
                         {{-- <span class="save-comm"><a ><i class="fas fa-save"></i></a></span> --}}
                     @endif
+                    @if (Auth::user()->id != $comment->User_idUser)
+                        <span class="delete-comm"><a style="color: #E4EFE7;">.</a></span>
+                        <span class="delete-comm"><a style="color: #E4EFE7;">.</a></span>
+                    @endif
                    
                     <textarea class="textarea" id="{{$comment['idComment']}}" name="comment" autofocus placeholder="Komentaras" disabled>{{$comment['comment']}}</textarea>
                     @if (Auth::user()->id == $comment->User_idUser) 

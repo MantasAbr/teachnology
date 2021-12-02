@@ -93,20 +93,6 @@
                                 </div>
                             @endif
                         </div>
-                      @if(Auth::user()->role == 1)
-                        @if($usersProfile->is_blocked == 1)
-                            <a href="{{ route('status', ['id' => $usersProfile->id, 'status_code'=>0]) }}" class="btn">
-                        <button>Blokuoti</button>
-                            </a>
-                            @else
-                            <a href="{{ route('status', ['id' => $usersProfile->id, 'status_code'=>1]) }}" class="btn">
-                        <button>Atblokuoti</button>
-                            </a>
-                        
-                            @endif
-                            @endif
-
-                            
                     </div>
         </div>
 </div>

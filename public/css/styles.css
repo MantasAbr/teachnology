@@ -1,5 +1,9 @@
 @charset "UTF-8";
-.header {
+.inner {
+  margin-top: 150px;
+}
+
+.topnav {
   width: 100%;
   height: 100px;
   background-color: #E4EFE7;
@@ -15,56 +19,27 @@
   font-weight: 700;
 }
 
-.inner {
-  margin-top: 150px;
+@media (max-width: 1000px) {
+  .topnav {
+    font-size: 18px;
+  }
 }
 
-.header img {
+.topnav img {
   float: left;
   margin: 5px;
-  height: 90%;
+  height: 90px;
   margin-right: 50px;
 }
 
-.header nav {
-  bottom: 30%;
-  width: 100%;
-  text-decoration: none;
+.topnav .logOut i {
+  float: right;
+  margin-top: 1%;
+  margin-right: 1%;
+  color: #064420;
 }
 
-.header li {
-  color: #FDFAF6;
-  background-color: #064420;
-  display: inline-block;
-  line-height: 1;
-  text-decoration: none;
-  border-bottom: none;
-  border-radius: 7px;
-  width: 130px;
-  height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  padding-top: 10px;
-  margin-right: 10px;
-}
-
-.header li:last-of-type {
-  background-color: unset;
-  padding-top: unset;
-}
-
-.header .list a {
-  text-decoration: none;
-  color: #FDFAF6;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-.header .list a:hover {
-  color: #f6ed6d;
-}
-
-.header .premium {
+.topnav .premium {
   color: darkgreen;
   font-size: 20px;
   font-weight: 500;
@@ -75,11 +50,149 @@
   padding: 0;
 }
 
-.header .logOut i {
+@media (max-width: 1000px) {
+  .topnav .premium {
+    font-size: 18px;
+    width: 160px;
+  }
+}
+
+.topnav a {
+  text-decoration: none;
+  color: #FDFAF6;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.topnav a:hover {
+  color: #f6ed6d;
+}
+
+.topnav .list {
+  background-color: #064420;
+  display: inline-block;
+  border-radius: 7px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin-left: 10px;
+}
+
+@media (max-width: 1000px) {
+  .topnav .list {
+    width: 110px;
+  }
+}
+
+.topnav .email {
   float: right;
-  margin-top: 1%;
-  margin-right: 1%;
+  margin-right: 20px;
   color: #064420;
+}
+
+.topnav .email:hover {
+  color: #064420;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav .inlinee {
+  float: right;
+  display: inline;
+}
+
+@media (max-width: 800px) {
+  .topnav .inlinee {
+    float: none;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .topnav img {
+    margin-right: 0;
+    height: 70px;
+  }
+  .topnav a,
+  .topnav .list {
+    display: none;
+    margin: auto;
+    width: 150px;
+  }
+  .topnav .logOut {
+    display: contents;
+  }
+  .topnav .logOut i {
+    margin-right: 60px;
+  }
+  .topnav .first {
+    display: block;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    color: #064420;
+    margin-right: 20px;
+    width: unset;
+    position: absolute;
+    right: 0;
+    top: 6px;
+  }
+  .topnav .email {
+    display: block;
+    margin-right: 103px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 890px) {
+  .topnav.responsive {
+    height: auto;
+  }
+  .topnav.responsive br {
+    display: none;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+    max-width: 550px;
+    margin-bottom: 10px;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 6px;
+  }
+  .topnav.responsive .logOut {
+    display: contents;
+  }
+  .topnav.responsive .logOut i {
+    margin-right: 60px;
+  }
+  .topnav.responsive .email {
+    position: relative;
+    top: -276px;
+    margin: auto;
+    width: 100%;
+  }
+  .topnav.responsive .premium {
+    width: 150px;
+    margin: auto;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .topnav.responsive .first {
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 450px) {
+  .topnav.responsive .email {
+    font-size: 12px;
+  }
 }
 
 * {
@@ -1077,6 +1190,21 @@ button:hover {
   text-align: right;
 }
 
+@media (max-width: 750px) {
+  .card .right,
+  .card-login .right {
+    text-align: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .card span,
+  .card-login span {
+    display: block;
+    margin-top: 10px;
+  }
+}
+
 .card .remember-me,
 .card-login .remember-me {
   width: 55%;
@@ -1176,6 +1304,15 @@ button:hover {
 @media (max-width: 965px) {
   .card-login {
     width: 70%;
+  }
+}
+
+@media (max-width: 750px) {
+  .card-login .buttons {
+    overflow: auto;
+  }
+  .card-login .google {
+    float: unset;
   }
 }
 
@@ -1489,6 +1626,10 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+.profile {
+  margin-bottom: 20px;
 }
 
 .profile button {

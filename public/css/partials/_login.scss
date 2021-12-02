@@ -33,6 +33,15 @@
     }
     .right{
         text-align: right;
+        @include breakpoint(750px){
+            text-align: center;
+        }
+    }
+    span{
+        @include breakpoint(750px){
+            display: block;
+            margin-top: 10px;
+        }
     }
     .remember-me{
         width: 55%;
@@ -104,6 +113,15 @@
     }
     @include breakpoint(965px){
         width: 70%;
+    }
+    @include breakpoint(750px){
+        .buttons{
+            overflow: auto;
+        }
+
+        .google{
+            float: unset;
+        }
     }
     @include breakpoint(595px){
         width: 80%;

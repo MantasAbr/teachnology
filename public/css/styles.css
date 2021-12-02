@@ -701,11 +701,11 @@ button:hover {
   top: 6px;
 }
 
-select {
+.starss select {
   color: #FDDA0D;
 }
 
-select option {
+.starss select option {
   color: #FDDA0D;
 }
 
@@ -1581,6 +1581,7 @@ select option {
   padding: 20px;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
 }
 
 .questionPageContainer .questionPageContainerHeader {
@@ -1632,6 +1633,10 @@ select option {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.questionContainer tr {
+  padding-bottom: 10px;
 }
 
 .checkbox {

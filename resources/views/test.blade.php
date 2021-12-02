@@ -41,7 +41,8 @@
                 <tbody class="questionContainer">
                     <tr class="questionRow">
                         <td>{{ $quest->answer }}</td>
-                        <td><input type="checkbox" class="checkbox" name="is_Correct[{{$quest->idAnswers}}]" value="1" /></td>
+                        <td><label class="checkbox-container"><input type="checkbox" name="is_Correct[{{$quest->idAnswers}}]"  value="1"><span class="checkmark"></span></label></td>
+
                     </tr>
                     <input type="hidden" name="score" value = {{$score}} />
                     <input type="hidden" name="correct" value = {{$correct}} />
@@ -69,18 +70,28 @@
 
         <div class="gradeInfo">
             <span style="color: #064420;">Jūsų pažymys:</span>
+            
             @if ($mark < 4)
                 <span style="color: red;"><?php echo round($mark, 2)?><span style="color: #064420;">. Nepasisekė... Bandykite dar kartą.</span></span>
-            @endif
+                <br>
+                <img style="margin-top: 10px; width: 300px;" src="/img/feedback/frog.gif"/> 
+                @endif
             @if ($mark >= 4 && $mark < 8)
                 <span style="color: orange;"><?php echo round($mark, 2)?></span>
+                <br>
+                <img style="margin-top: 10px" src="/img/feedback/8.gif" /> 
             @endif
             @if ($mark >= 8 && $mark != 10)
                 <span style="color: #064420;"><?php echo round($mark, 2)?></span>
+                <img style="margin-top: 10px; width: 300px;" src="/img/feedback/bravo-clap.gif" /> 
             @endif
             @if ($mark == 10)
                 <span style="color: #064420;"><?php echo round($mark, 2)?>. <span style="color: orange;">Šaunu!</span></span>
+                <br>
+                <img style="margin-top: 10px; width: 300px;" src="/img/feedback/clapping-applause.gif"/> 
+
             @endif
+            
         </div>
 
         <div class="testCompletionButtonContainer">
@@ -98,7 +109,7 @@
                 </div>
                 <div class="hairline"></div>
                 <form action="{{ route('testdn',['id' => $id, 'mark'=>$mark])}}"  id="dynamic_form" enctype="multipart/form-data">
-                    <div class="modalOptions">
+                    <div class="modalOptions starss">
                         @csrf
                         <select name="stars" placeholder="Testo lygis" style="width: 300px;">
                             <option value="1">&#9733;</option>

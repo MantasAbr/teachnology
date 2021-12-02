@@ -24,7 +24,6 @@
 
             <!-- Atsiprašau už šitą nesamonę-->
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{route('testcreate')}}"><button style="cursor: pointer;">Sukurti naują testą</button></a>
-            <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('testStatistics') }}"><button style="cursor: pointer;">Pasirinkto testo statistika</button></a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
 
@@ -59,6 +58,12 @@
             </tbody>
         </table>
 
+    </div>
+    {{-- Pagination --}}
+    <div class="d-flex justify-content-center" name="action" value='html'>
+        <div class="bottom">
+            {!! $posts->links() !!}
+        </div>
     </div>
 @endsection
 </body>

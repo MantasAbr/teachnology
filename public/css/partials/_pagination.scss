@@ -1,0 +1,35 @@
+.bottom{
+    nav{
+        text-align: center;
+    }
+}
+.pagination {
+    display: inline-block;
+    list-style-type: none;
+  li{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 8px 16px;
+      background-color: $lightGreen;
+      border-radius: 7px;
+      &:hover{
+          background-color: $darkerGreen;
+      }
+  }
+  .active{
+      background-color: $darkGreen;
+      color:white;
+      &:hover{
+        background-color: $darkGreen;
+    }
+  }
+  
+
+  
+a {
+    color:black;
+    float: left;
+    text-decoration: none;
+
+  }
+}

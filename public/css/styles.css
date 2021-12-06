@@ -2002,4 +2002,40 @@ button:hover {
   padding-top: 0;
   text-align: center;
 }
+
+.bottom nav {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.pagination li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px 16px;
+  background-color: #E4EFE7;
+  border-radius: 7px;
+}
+
+.pagination li:hover {
+  background-color: #cce0d1;
+}
+
+.pagination .active {
+  background-color: #064420;
+  color: white;
+}
+
+.pagination .active:hover {
+  background-color: #064420;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  text-decoration: none;
+}
 /*# sourceMappingURL=styles.css.map */

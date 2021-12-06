@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -23,16 +23,17 @@ class PostController extends Controller
     }
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::where(['User_idUser'=> Auth::User()->id])->orderBy('created_at', 'desc')->paginate(10);
         $userProfile = User::all();
         return view('myTestsList', compact('posts', 'userProfile'));
     }
     public function otherindex()
     {
-        $otherposts = Post::all();
+        $otherposts = Post::where('User_idUser', '!=', Auth::User()->id)->orderBy('created_at', 'desc')->paginate(10);
         return view('testsList', compact('otherposts'));
     }
-    public function show($id)
+
+        public function show($id)
     {
         $post = Post::find($id);
         $name = $post->user->name;
@@ -44,12 +45,12 @@ class PostController extends Controller
             $avarage = 0;
         }
 
-        $data = Comment::where(['Test_idTest' => $id])->get();         
-       
+        $data = Comment::where(['Test_idTest' => $id])->get();
+
         return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
 
-    
+
     public function updateComment(Request $request, $testid, $commentid)
     {
         $comment= $request->get('comment');
@@ -64,7 +65,7 @@ class PostController extends Controller
             $avarage = 0;
         }
 
-      
+
         Comment::where('idComment', $commentid) -> update(['comment' => $comment]);
 
         $data = Comment::where(['Test_idTest' => $testid])->get();
@@ -113,7 +114,7 @@ class PostController extends Controller
         return view('testEdit',compact('post')); //->with('messages','id');
     }
     public function addComment(Request $request, $testid, $userid){
-       
+
         $comment = new Comment;
         $comment->comment = $request->get('komentaras');
         $comment->Test_idTest = $testid;
@@ -133,7 +134,7 @@ class PostController extends Controller
 
         return view('testInfo', ['comments' => $data], compact('post'))->with('avarage', $avarage)->with('name', $name)->with('surname', $surname);
     }
-   
+
     public function update(Request $request,$id){
 
         $this->validate($request, [

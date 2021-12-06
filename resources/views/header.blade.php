@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="/css/styles.css" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 
     </head>
     <body>
@@ -97,7 +98,7 @@
                         <a href="/profile/"><img src="/img/payment/thc.png" class="payment-method"></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
                     </div>
 
-                </div>     
+                </div>
             </div>
         </div>
 

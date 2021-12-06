@@ -18,7 +18,8 @@
         "partials/_profile.scss",
         "partials/_admin.scss",
         "partials/_testSolve.scss",
-        "partials/_statistics.scss"
+        "partials/_statistics.scss",
+        "partials/_pagination.scss"
     ],
     "names": [],
     "file": "styles.css"

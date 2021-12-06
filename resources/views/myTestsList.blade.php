@@ -37,7 +37,6 @@
                 </button>
             </a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{route('testcreate')}}"><button style="cursor: pointer;">Sukurti naują testą</button></a>
-            <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('testStatistics') }}"><button style="cursor: pointer;">Pasirinkto testo statistika</button></a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
 
@@ -87,6 +86,12 @@
                 <div class=list-item><p class="choice">Pagal įvertinimą</p><input class="radio" type="radio" name="sortOptions"></input></div>
                 <button onclick="sortModal()">Rikiuoti</button>                    
             </div>                                                   
+        </div>
+    </div>
+    {{-- Pagination --}}
+    <div class="d-flex justify-content-center" name="action" value='html'>
+        <div class="bottom">
+            {!! $posts->links() !!}
         </div>
     </div>
 </div>

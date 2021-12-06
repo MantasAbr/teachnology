@@ -93,6 +93,9 @@
                                 </div>
                             @endif
                         </div>
+                      
+
+                            
                     </div>
         </div>
 </div>
@@ -101,17 +104,18 @@
     
 </div>
 <div id="valiuta" class="modal">
+<form method="post" action="{{route('addCur', $usersProfile->id)}}" >
      @csrf 
     <div class="modal-container">
         <div class="modal-box">
             <div class="modal-header-box">
-                <button class="exit" onclick="modal()">X</button>
+                <button class="exit" onClick="modal()">X</button>
                 <h3 class="splash">Valiutos pirkimas</h3>
             </div>
             <div class="hairline"></div>
                 <div class="crypto">
                     <a>Pasirinkite norimą sumą ir valiutą kurią norite konvertuoti į mūsų valiutą</a>
-                    <form method="post" action="{{route('addCur', $usersProfile->id)}}" >
+                    
                     <input type="number" min="0" name="kiekis"  value="" Required></td>
                     
                 </div>
@@ -130,7 +134,7 @@
                        <img class="thc" src="/img/crypto/thc.png"/> 
                       <br><br>
                       
-                      <a class="btn btn-primary" href="{{ route('addCur', Auth::user()->id) }}" style="margin-left:120px; border: solid 1px;">Konvertuoti</a>
+                      <button class="btn btn-primary" style="margin-left:120px; border: solid 1px;">Konvertuoti</button>
                     </dl>         
                 </div>
             </div>
@@ -140,9 +144,11 @@
 </div>
 
 <script type=text/javascript>
-            function modal(){
+          function modal(){
                 $('#valiuta').toggleClass('modal');
             }
+
+            
 
             $(".dropdown img.flag").addClass("flagvisibility");
         $(".dropdown dt a").click(function() {
@@ -167,16 +173,14 @@
         });
     
         $(".dropdown img.flag").toggleClass("flagvisibility");
-
         function EditProfile() {
             document.getElementById('name').disabled = false;
             document.getElementById('surname').disabled = false;
             document.getElementById('email').disabled = false;
-            document.getElementById('Edit').style.display = "none"; 
+            document.getElementById('Edit').style.display = "none";
             document.getElementById('Save').style.display = "initial";
         }
         </script>
-
 @endsection
 </body>
 </html>

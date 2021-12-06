@@ -130,7 +130,7 @@
                        <img class="thc" src="/img/crypto/thc.png"/> 
                       <br><br>
                       
-                      <button class="btn btn-primary" style="margin-left:120px; border: solid 1px;">Konvertuoti</button>
+                      <a class="btn btn-primary" href="{{ route('addCur', Auth::user()->id) }}" style="margin-left:120px; border: solid 1px;">Konvertuoti</a>
                     </dl>         
                 </div>
             </div>

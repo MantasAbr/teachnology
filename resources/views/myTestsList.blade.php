@@ -19,8 +19,6 @@
     </head>
 
 <body>
-
-<body>
     <div class="pageCointaner">
         <div class="testListSplashContainer">
             <h4 class="testListSplashText">Testų sąrašas</h4>
@@ -71,6 +69,12 @@
             </tbody>
         </table>
     </div>
+        {{-- Pagination --}}
+        <div class="d-flex justify-content-center" name="action" value='html'>
+            <div class="bottom">
+                {!! $posts->links() !!}
+            </div>
+        </div>
 
 <div id="rikiavimas" class="modal">
     <div class="modal-container">
@@ -88,12 +92,6 @@
             </div>                                                   
         </div>
     </div>
-    {{-- Pagination --}}
-    <div class="d-flex justify-content-center" name="action" value='html'>
-        <div class="bottom">
-            {!! $posts->links() !!}
-        </div>
-    </div>
 </div>
 
 <div id="filtravimas" class="modal">
@@ -101,14 +99,14 @@
         <div class="modal-box" style="width: 620px; height: 360px;">
             <div class="modal-header-box">
                 <button class="exit" onclick="filterModal()">X</button>
-                <h2 class="splash">Rikiavimas</h2>
+                <h2 class="splash">Filtravimas</h2>
             </div>
             <div class="hairline"></div>
             <div class="sort-list">
                 <div class=list-item><p class="choice">Visi testai</p><input class="radio" type="radio" name="filterOptions" checked></input></div>
                 <div class=list-item><p class="choice">Nespręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
                 <div class=list-item><p class="choice">Spręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
-                <button onclick="filterModal()">Rikiuoti</button>                    
+                <button onclick="filterModal()">Filtruoti</button>                    
             </div>                                                   
         </div>
     </div>

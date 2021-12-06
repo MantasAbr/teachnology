@@ -13,12 +13,13 @@ class CryptoController extends Controller
     { 
        
         
-        $crypto = User::find($id);
+        $crypto = User::find($id); 
         $suma=$crypto->currency;
-$crypto->currency = $request->get('kiekis') + $suma;
+       
+        $crypto->currency = $request->get('kiekis') + $suma;
 
-$crypto->save();
-return redirect()->back();
+        $crypto->save();
+        return redirect()->back();
       
     }
 }

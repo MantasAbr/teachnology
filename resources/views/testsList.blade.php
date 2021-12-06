@@ -68,6 +68,12 @@
         </table>
 
     </div>
+        {{-- Pagination --}}
+        <div class="d-flex justify-content-center" name="action" value='html'>
+            <div class="bottom">
+                {!! $otherposts->links() !!}
+            </div>
+        </div>
     <div style="margin-top: 80px;"></div>
 
     <div id="rikiavimas" class="modal">
@@ -93,19 +99,19 @@
             <div class="modal-box" style="width: 620px; height: 360px;">
                 <div class="modal-header-box">
                     <button class="exit" onclick="filterModal()">X</button>
-                    <h2 class="splash">Rikiavimas</h2>
+                    <h2 class="splash">Filtravimas</h2>
                 </div>
                 <div class="hairline"></div>
                 <div class="sort-list">
                     <div class=list-item><p class="choice">Visi testai</p><input class="radio" type="radio" name="filterOptions" checked></input></div>
                     <div class=list-item><p class="choice">Nespręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
                     <div class=list-item><p class="choice">Spręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
-                    <button onclick="filterModal()">Rikiuoti</button>                    
+                    <button onclick="filterModal()">Filtruoti</button>                    
                 </div>                                                   
             </div>
         </div>
     </div>
-
+ 
     <script type=text/javascript>
         function sortModal(){
             $('#rikiavimas').toggleClass('modal');

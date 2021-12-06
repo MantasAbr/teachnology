@@ -1,8 +1,25 @@
 @extends('header')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>TeachNology</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- Styles -->
+        <link href = "/css/styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    </head>
+
+<body>
+
 
 <div style="width: 50%; margin: auto; text-align: right;">
     <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/myTestsList') }}"><button style="cursor: pointer;">Atgal</button></a>
@@ -60,7 +77,6 @@
                         <input type="submit" name="save" id="save" class="submit" value ="Kurti testą" />
 
                     </form>
-                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
                     <script type=text/javascript>
                             $(document).ready(function(){
 
@@ -91,12 +107,12 @@
                                    if(number > 1)
                                     {
                                         //html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
-                                        html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
+                                        html += '<td><button type="button" name="add" id="add" class="addQuestion"><span class="material-icons">add</span></button></td></tr>';
                                         $('tbody').append(html);
                                     }
                                     else
                                     {
-                                            html += '<td><button type="button" name="add" id="add" class="addQuestion"><i class="fas fa-plus"></i></button></td></tr>';
+                                            html += '<td><button type="button" name="add" id="add" class="addQuestion"><span class="material-icons">add</span></button></td></tr>';
                                             $('tbody').append(html);
 
                                     }
@@ -149,15 +165,10 @@
                             });
                         </script>
                         <!-------------- -------------------------------------------------->
-
-
-
-                    </script>
-
                 </div>
             </div>
     </div>
 </div>
-
+</body>
 
 @endsection

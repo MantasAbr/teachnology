@@ -46,9 +46,16 @@
         <p class="name"><b>{{ $post->testName }}</b></p>
         <div class="hairline"></div>
 
-        <p>Lygis - <b>Elementary school</b></p>
-        @if($post->Category_idCategory == 2)
-            <p>Lygis - <b>Middle school</b></p>
+        @if($post->Category_idCategory == 1)
+            <p>Lygis - <b>1-4 klasės</b></p>
+            @elseif ($post->Category_idCategory == 2)
+                <p>Lygis - 5-8 klasės<b></b></p>
+                @elseif ($post->Category_idCategory == 3)
+                    <p>Lygis - 9-10 klasės<b></b></p>
+                    @elseif ($post->Category_idCategory == 4)
+                        <p>Lygis - 11-12 klasės<b></b></p>
+                        @elseif ($post->Category_idCategory == 5)
+                            <p>Lygis - aukštasis<b></b></p>
         @endif
 
         <div style="text-align: left;">

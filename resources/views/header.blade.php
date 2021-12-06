@@ -14,7 +14,8 @@
 
     </head>
     <body>
-    <div class="header">
+
+    <div class="topnav" id="myTopnav">
         <img src="/img/logo2.png">
 
         @if (!Auth::guest())
@@ -29,26 +30,45 @@
             <a class="logOut" href="{{ url('login') }}">
                 <i class="fa fa-sign-in fa-2x" ></i>
             </a>
+            <br>
+
         @endif
 
-        <nav>
-        <ul>
-            <li class="list"><a  href="/testsList">Testai</a></li>
-            <li class="list"><a href="/statistics">Statistika</a></li>
-            <li class="list"><a href="/myTestsList">Mano testai</a></li>
+            <a class="list first" href="/testsList">Testai</a>
+            <a class="list" href="/statistics">Statistika</a>
+            <a class="list" href="/myTestsList">Mano testai</a>
             @if (!Auth::guest())
-            <li class="list"><a href="/profile/{{Auth::user()->id}}">Profilis</a></li>
+                <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>
             @endif
-           <!-- <a class="premium" href="/premium">Nusipirkti Premium</a>  Kaip buvo -->
-           <li class="list"><a class="premium"><button class="premium">Nusipirkti Premium</button></a></li> <!-- Fix'as -->
+           <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
 
             @if (!Auth::guest())
-
-                        <a style="float: right; margin-right: 20px;">{{Auth::user()->email}}</a>
+                <a class="email">{{Auth::user()->email}}</a>
             @endif
-        </ul>
-        </nav>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars fa-2x"></i>
+        </a>
     </div>
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script> 
+
+
+
+
+
+
+
         <div id="modal" class="modal">
             <div class="modal-container">
                 <div class="modal-box">
@@ -66,16 +86,16 @@
                     </ul>
 
                     <div class="payment-select-container">
-                        <a href="https://www.swedbank.lt/private"><img src="/img/payment/swed.png" class="payment-method"></img></a>
+                        <a href="https://www.swedbank.lt/private"><img src="/img/payment/swed.png" class="payment-method"></a>
                         <div style="padding-left:20px"></div>
-                        <a href="https://www.luminor.lt/lt"><img src="/img/payment/dnb.png" class="payment-method"></img></a>
+                        <a href="https://www.luminor.lt/lt"><img src="/img/payment/dnb.png" class="payment-method"></a>
                     </div>
                     <div style="padding-top:15px"></div>
                     <div class="payment-select-container">
-                        <a href="https://www.seb.lt/"><img src="/img/payment/seb.png" class="payment-method"></img></a>
+                        <a href="https://www.seb.lt/"><img src="/img/payment/seb.png" class="payment-method"></a>
                         <div style="padding-left:20px"></div>
                         <!-- TODO routinti i profili -->
-                        <a href="/profile/"><img src="/img/payment/thc.png" class="payment-method"></img></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
+                        <a href="/profile/"><img src="/img/payment/thc.png" class="payment-method"></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
                     </div>
 
                 </div>

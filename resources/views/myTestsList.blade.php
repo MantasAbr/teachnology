@@ -13,6 +13,9 @@
 
         <!-- Styles -->
         <link href = "/css/styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
     </head>
 
 <body>
@@ -23,6 +26,16 @@
             <h4 class="testListSplashText">Testų sąrašas</h4>
 
             <!-- Atsiprašau už šitą nesamonę-->
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;">
+                <button href="#rikiavimas" onclick="sortModal()" style="cursor: pointer; display:flex; flex-direction:row; align-items: center; justify-content: center;">
+                <span class="material-icons">sort</span>Rikiuoti
+                </button>
+            </a>
+            <a style="height: 40px; margin-top:auto; margin-bottom: auto;">
+                <button href="#filtravimas" onclick="filterModal()" style="cursor: pointer; display:flex; flex-direction:row; align-items: center; justify-content: center;">
+                    <span class="material-icons">filter_alt</span>Filtruoti
+                </button>
+            </a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{route('testcreate')}}"><button style="cursor: pointer;">Sukurti naują testą</button></a>
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
@@ -57,7 +70,23 @@
                     @endforeach
             </tbody>
         </table>
+    </div>
 
+<div id="rikiavimas" class="modal">
+    <div class="modal-container">
+        <div class="modal-box" style="width: 620px; height: 360px;">
+            <div class="modal-header-box">
+                <button class="exit" onclick="sortModal()">X</button>
+                <h2 class="splash">Rikiavimas</h2>
+            </div>
+            <div class="hairline"></div>
+            <div class="sort-list">
+                <div class=list-item><p class="choice">Pagal įkėlimo datą</p><input class="radio" type="radio" name="sortOptions" checked></input></div>
+                <div class=list-item><p class="choice">Pagal peržiūras</p><input class="radio" type="radio" name="sortOptions"></input></div>
+                <div class=list-item><p class="choice">Pagal įvertinimą</p><input class="radio" type="radio" name="sortOptions"></input></div>
+                <button onclick="sortModal()">Rikiuoti</button>                    
+            </div>                                                   
+        </div>
     </div>
     {{-- Pagination --}}
     <div class="d-flex justify-content-center" name="action" value='html'>
@@ -65,6 +94,34 @@
             {!! $posts->links() !!}
         </div>
     </div>
+</div>
+
+<div id="filtravimas" class="modal">
+    <div class="modal-container">
+        <div class="modal-box" style="width: 620px; height: 360px;">
+            <div class="modal-header-box">
+                <button class="exit" onclick="filterModal()">X</button>
+                <h2 class="splash">Rikiavimas</h2>
+            </div>
+            <div class="hairline"></div>
+            <div class="sort-list">
+                <div class=list-item><p class="choice">Visi testai</p><input class="radio" type="radio" name="filterOptions" checked></input></div>
+                <div class=list-item><p class="choice">Nespręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
+                <div class=list-item><p class="choice">Spręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
+                <button onclick="filterModal()">Rikiuoti</button>                    
+            </div>                                                   
+        </div>
+    </div>
+</div>
+
+<script type=text/javascript>
+    function sortModal(){
+        $('#rikiavimas').toggleClass('modal');
+    }
+    function filterModal(){
+        $('#filtravimas').toggleClass('modal');
+    }
+</script>
 @endsection
 </body>
 

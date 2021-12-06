@@ -43,7 +43,7 @@
                                     
                               
 
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4 buttons">
                                 <button type="submit" class="btn btn-primary darkGreen">
                                     Prisijungti
                                 </button><br>
@@ -60,7 +60,7 @@
                             <div class="right">
                                 @guest
                                 @if (Route::has('login'))
-                                Neturite paskyros?
+                                <span>Neturite paskyros?</span>
                                     <a class="a-button" href="{{ route('register') }}">Registruotis</a>
                                 @endif
                             @endguest

@@ -33,7 +33,7 @@
     <table class="answerListTable">
         <thead>
             <th>Atsakymai</th>
-            <th>Teisingi atsakymai</th>
+            <th>Teisingai pažymėti atsakymai</th>
         </thead>
         <tbody>
         <form  method="POST" action="{{ route('testdov2', ['idTest' => $id, 'kelintas'=>$kelintas]) }}"  id="dynamic_form" enctype="multipart/form-data">
@@ -54,9 +54,11 @@
     </table>
     <div class="answerFooter">
         @if($bad == 1)
-            <p style="color: red;">Jūs negavote taškų</p>
+            <p style="color: orange;">Jūs negavote taškų.</p>
+            <img style="width: 120px; margin: auto;" src="/img/feedback/sad.png"> 
         @else
             <p>Jūs gavote <?php echo substr($questionsWeight, 1, -1);?> tašk.</p>
+            <img style="width: 120px; margin: auto;" src="/img/feedback/happy.png"> 
         @endif
             <input type="hidden" name="score" value = {{$score}} />
             <input type="hidden" name="correct" value = {{$correct}} />

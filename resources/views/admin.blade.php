@@ -1,5 +1,6 @@
 @extends('header')
 @section('content')
+<!DOCTYPE html>
 
 <div style="width: 50%; margin: auto; text-align: right;">
     <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
@@ -46,3 +47,5 @@
 
 </div>
 @endsection
+</body>
+</html>

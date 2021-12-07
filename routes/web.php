@@ -70,6 +70,8 @@ Route::post('/testsList/testInfo/{idTest}/test/{kelintas}', 'App\Http\Controller
 Route::post('/testsList/testInfo/{idTest}/test/{kelintas}/answer', 'App\Http\Controllers\PostController@testAnswers')->name('testansw');
 
 //Route::post('/testInfo/testInfo/{idTest}', 'App\Http\Controllers\PostController@comment')->name('addComment');
+//Premium pirkimas
+Route::get('/premium', 'App\Http\Controllers\ProfileController@premium')->name('premiumbuy');
 
 Route::get('/login', function () {
     return view('login');

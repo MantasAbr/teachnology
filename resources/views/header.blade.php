@@ -40,7 +40,11 @@
             @if (!Auth::guest())
                 <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>
             @endif
+            @if(Auth::user()->premiumEnds < Carbon\Carbon::now())
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
+           @else
+           <a class="premium">Jūs jau turite premium</a>
+           @endif
 
             @if (!Auth::guest())
                 <a class="email">{{Auth::user()->email}}</a>

@@ -85,9 +85,27 @@
             </div>
             <div class="hairline"></div>
             <div class="sort-list">
-                <div class=list-item><p class="choice">Pagal įkėlimo datą</p><input class="radio" type="radio" name="sortOptions" checked></input></div>
-                <div class=list-item><p class="choice">Pagal peržiūras</p><input class="radio" type="radio" name="sortOptions"></input></div>
-                <div class=list-item><p class="choice">Pagal įvertinimą</p><input class="radio" type="radio" name="sortOptions"></input></div>
+                <div class=list-item>
+                    <p class="choice">Pagal įkėlimo datą</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="sortOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
+                <div class=list-item>
+                    <p class="choice">Pagal peržiūras</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="sortOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
+                <div class=list-item>
+                    <p class="choice">Pagal įvertinimą</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="sortOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
                 <button onclick="sortModal()">Rikiuoti</button>                    
             </div>                                                   
         </div>
@@ -103,9 +121,27 @@
             </div>
             <div class="hairline"></div>
             <div class="sort-list">
-                <div class=list-item><p class="choice">Visi testai</p><input class="radio" type="radio" name="filterOptions" checked></input></div>
-                <div class=list-item><p class="choice">Nespręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
-                <div class=list-item><p class="choice">Spręsti testai</p><input class="radio" type="radio" name="filterOptions"></input></div>
+                <div class=list-item>
+                    <p class="choice">Visi testai</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="filterOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
+                <div class=list-item>
+                    <p class="choice">Nespręsti testai</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="filterOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
+                <div class=list-item>
+                    <p class="choice">Spręsti testai</p>
+                    <label class="checkbox-container-radio">
+                        <input type="radio" name="filterOptions">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
                 <button onclick="filterModal()">Filtruoti</button>                    
             </div>                                                   
         </div>

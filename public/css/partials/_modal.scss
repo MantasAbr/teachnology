@@ -154,7 +154,12 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		width: 60%;
+		width: 40%;
+		height: 25px;
+		align-items: center;
+		p{
+			margin: 0px;
+		}
 	}
 
 	.choice {

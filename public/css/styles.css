@@ -45,7 +45,7 @@
   font-weight: 500;
   width: 190px;
   height: 40px;
-  margin-left: 0;
+  margin-left: 5px;
   text-decoration: none;
   padding: 0;
 }
@@ -487,6 +487,62 @@ textarea:focus {
   background-color: #cce0d1;
 }
 
+.checkbox-container-radio {
+  display: block;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.checkbox-container-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-container-radio .checkmark-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #FDFAF6;
+  border-radius: 50%;
+  border: 1px solid #064420;
+}
+
+.checkbox-container-radio:hover input ~ .checkmark-radio {
+  background-color: #cce0d1;
+}
+
+.checkbox-container-radio input:checked ~ .checkmark-radio {
+  background-color: #cce0d1;
+}
+
+.checkbox-container-radio .checkmark-radio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container-radio input:checked ~ .checkmark-radio:after {
+  display: block;
+}
+
+.checkbox-container-radio .checkmark-radio:after {
+  top: 7px;
+  left: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #064420;
+}
+
 ::-webkit-input-placeholder {
   color: #afaeae;
   opacity: 1;
@@ -794,7 +850,7 @@ button:hover {
 :root {
   --star-size: 60px;
   --star-color: #fff;
-  --star-background: #fc0;
+  --star-background: #ffa700;
 }
 
 .Stars {
@@ -816,11 +872,11 @@ button:hover {
 }
 
 .starss select {
-  color: #FDDA0D;
+  color: #ffa700;
 }
 
 .starss select option {
-  color: #FDDA0D;
+  color: #ffa700;
 }
 
 .testListSplashContainer {
@@ -1607,7 +1663,15 @@ button:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 60%;
+  width: 40%;
+  height: 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container .list-item p {
+  margin: 0px;
 }
 
 .modal-container .choice {

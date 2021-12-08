@@ -34,8 +34,8 @@
 
         @endif
 
-            <a class="list first" href="/testsList">Testai</a>
-            <a class="list" href="/statistics">Statistika</a>
+            <a class="list first" href="/statistics">Statistika</a>    
+            <a class="list" href="/testsList">Testai</a>
             <a class="list" href="/myTestsList">Mano testai</a>
             @if (!Auth::guest())
                 <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>

@@ -15,9 +15,10 @@
     z-index: 2;
     font-size: 20px;
     font-weight: 700;
-    @include breakpoint(1000px){
+    @include breakpoint(1160px){
         font-size: 18px;
     }
+    
 
     img{
         float: left;
@@ -27,7 +28,7 @@
     }
     .logOut i {
         float: right;
-        margin-top: 1%;
+        margin-top: 20px;
         margin-right: 1%;
         color: $darkGreen;
     }
@@ -41,9 +42,17 @@
         margin-left: 5px;
         text-decoration: none;
         padding: 0;
-        @include breakpoint(1000px){
+        @include breakpoint(1160px){
             font-size: 18px;
             width: 160px;
+        }
+        @include breakpoint(1125px){
+            font-size: 16px;
+            width: 140px;
+        }
+        @include breakpoint(1010px){
+            font-size: 14px;
+            width: 100px;
         }
     }   
 
@@ -66,8 +75,16 @@
         margin-left: 10px;
         //margin-top: 30px;
 
-        @include breakpoint(1000px){
+        @include breakpoint(1125px){
+            font-size: 16px;
             width: 110px;
+        }
+        @include breakpoint(1010px){
+            font-size: 14px;
+            width: 100px;
+        }
+        @include breakpoint(960px){
+            width: 90px;
         }
     }
     .email{
@@ -89,7 +106,7 @@
     }
 
 
-    @media screen and (max-width: 890px) {
+    @include breakpoint(910px) {
         img{
             margin-right: 0;
             height: 70px;
@@ -114,10 +131,11 @@
             display: block;
             color: $darkGreen;
             margin-right: 20px;
+            margin-top: 20px;
             width: unset;
             position: absolute;
             right: 0;
-            top: 6px;
+            top: 0;
         }
         .email{
             display: block;
@@ -127,7 +145,7 @@
     }
 }
 
-@include breakpoint (890px) {
+@include breakpoint (910px) {
     .topnav.responsive {
         height: auto;
         br{
@@ -143,7 +161,7 @@
         .icon {
             position: absolute;
             right: 0;
-            top: 6px;
+            top: 0px;
         }
         .logOut{
             display: contents;
@@ -163,9 +181,9 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
-        .first{
-            margin-top: 48px;
-        }
+        // .first{
+        //     margin-top: 48px;
+        // }
     }
 }
 
@@ -175,4 +193,12 @@
            font-size: 12px;
         }
     }
+}
+
+.emailas{
+    text-align: right;
+    float: right;
+    margin-right: 20px;
+    top: -40px;
+    position: relative;
 }

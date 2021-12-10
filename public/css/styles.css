@@ -19,7 +19,7 @@
   font-weight: 700;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1160px) {
   .topnav {
     font-size: 18px;
   }
@@ -34,7 +34,7 @@
 
 .topnav .logOut i {
   float: right;
-  margin-top: 1%;
+  margin-top: 20px;
   margin-right: 1%;
   color: #064420;
 }
@@ -50,10 +50,24 @@
   padding: 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1160px) {
   .topnav .premium {
     font-size: 18px;
     width: 160px;
+  }
+}
+
+@media (max-width: 1125px) {
+  .topnav .premium {
+    font-size: 16px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 1010px) {
+  .topnav .premium {
+    font-size: 14px;
+    width: 100px;
   }
 }
 
@@ -79,9 +93,23 @@
   margin-left: 10px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1125px) {
   .topnav .list {
+    font-size: 16px;
     width: 110px;
+  }
+}
+
+@media (max-width: 1010px) {
+  .topnav .list {
+    font-size: 14px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 960px) {
+  .topnav .list {
+    width: 90px;
   }
 }
 
@@ -110,7 +138,7 @@
   }
 }
 
-@media screen and (max-width: 890px) {
+@media (max-width: 910px) {
   .topnav img {
     margin-right: 0;
     height: 70px;
@@ -135,10 +163,11 @@
     display: block;
     color: #064420;
     margin-right: 20px;
+    margin-top: 20px;
     width: unset;
     position: absolute;
     right: 0;
-    top: 6px;
+    top: 0;
   }
   .topnav .email {
     display: block;
@@ -147,7 +176,7 @@
   }
 }
 
-@media (max-width: 890px) {
+@media (max-width: 910px) {
   .topnav.responsive {
     height: auto;
   }
@@ -164,7 +193,7 @@
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 6px;
+    top: 0px;
   }
   .topnav.responsive .logOut {
     display: contents;
@@ -184,15 +213,20 @@
     font-size: 16px;
     margin-bottom: 10px;
   }
-  .topnav.responsive .first {
-    margin-top: 48px;
-  }
 }
 
 @media (max-width: 450px) {
   .topnav.responsive .email {
     font-size: 12px;
   }
+}
+
+.emailas {
+  text-align: right;
+  float: right;
+  margin-right: 20px;
+  top: -40px;
+  position: relative;
 }
 
 * {
@@ -642,6 +676,8 @@ button:hover {
   background-color: #064420;
   color: #FDFAF6;
   margin-bottom: 15px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 .darkGreen:hover {
@@ -1697,6 +1733,10 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.profile .valiuta button {
+  margin-left: 0;
+}
+
 .profile button {
   margin-top: 20px;
   margin-bottom: 15px;
@@ -1730,25 +1770,64 @@ button:hover {
   width: 50%;
 }
 
-.password .passwordUpdate input {
+.password .card-header {
+  border-bottom: 2px solid #064420;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 410px) {
+  .password .card-header h1 {
+    font-size: 25px;
+  }
+}
+
+.password .password-change {
   margin: auto;
+  text-align: left;
   width: 50%;
 }
 
+.password .password-change input {
+  margin: auto;
+  width: 100%;
+}
+
 @media (max-width: 950px) {
-  .password .passwordUpdate input {
-    width: 70%;
+  .password .password-change {
+    width: 65%;
   }
 }
 
-@media (max-width: 400px) {
-  .password .passwordUpdate input {
-    width: 85%;
+@media (max-width: 420px) {
+  .password .password-change {
+    width: 75%;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 740px) {
   .password {
+    width: 90%;
+  }
+}
+
+.name {
+  width: 40%;
+  margin: auto;
+  text-align: left;
+}
+
+.name input {
+  width: 100%;
+}
+
+.back-password {
+  width: 50%;
+  margin: auto;
+  text-align: right;
+}
+
+@media (max-width: 740px) {
+  .back-password {
     width: 90%;
   }
 }

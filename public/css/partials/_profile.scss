@@ -4,6 +4,12 @@
 
 .profile{
     margin-bottom: 20px;
+
+    .valiuta{
+        button{
+            margin-left: 0;
+        }
+    }
     button{
         margin-top: 20px;
         margin-bottom: 15px;
@@ -30,20 +36,52 @@
 
 .password{
     width: 50%;
-    .passwordUpdate{
-        input{
-            margin: auto;
-            width: 50%;
-            @include breakpoint(950px){
-                width: 70%;
-            }
-            @include breakpoint(400px){
-                width: 85%;
+
+    .card-header{
+        border-bottom: 2px solid $darkGreen;
+        margin-bottom: 20px;
+        @include breakpoint(410px){
+            h1{
+                font-size: 25px;
             }
         }
-    
     }
-    @include breakpoint(700px){
+
+    .password-change{
+        margin: auto;
+        text-align: left;
+        width: 50%;
+        input{
+            margin: auto;
+            width: 100%;
+        }
+        @include breakpoint(950px){
+            width: 65%;
+        }
+        @include breakpoint(420px){
+            width: 75%;
+        }
+    }
+    @include breakpoint(740px){
+        width: 90%;
+    }
+}
+
+.name{
+    width: 40%;
+    margin: auto;
+    text-align: left;
+
+    input{
+        width: 100%;
+    }
+}
+
+.back-password{
+    width: 50%;
+    margin: auto; 
+    text-align: right;
+    @include breakpoint(740px){
         width: 90%;
     }
 }

@@ -31,7 +31,7 @@
 
                             <div class="col-md-6">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Slaptažodis') }}</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Naudotojo el. paštas">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Naudotojo slaptažodis">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

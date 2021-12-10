@@ -14,7 +14,6 @@
 
     </head>
     <body>
-
     <div class="topnav" id="myTopnav">
         <img src="/img/logo2.png">
 
@@ -40,17 +39,26 @@
             @if (!Auth::guest())
                 <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>
             @endif
+
+            @if (!Auth::guest() && Auth::user()->role == 1)
+                <a class="list" href="{{ route('adminshow', Auth::user()->id) }}">Naudotojai</a>
+            @endif
+
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
 
-            @if (!Auth::guest())
+            {{-- @if (!Auth::guest())
                 <a class="email">{{Auth::user()->email}}</a>
-            @endif
+            @endif --}}
 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars fa-2x"></i>
         </a>
     </div>
-
+<div class="emailas">
+    @if (!Auth::guest())
+        <a class="email">{{Auth::user()->email}}</a>
+    @endif
+</div>
 
     <script>
         function myFunction() {

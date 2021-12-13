@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
-	
+
     </head>
 
 <body style="margin-top: 0px;">
@@ -59,18 +59,19 @@
         @endif
 
         <div style="text-align: left;">
+            @if(Auth::User()->premiumEnds > Carbon\Carbon::now())
             @if($post->ratingSum == null)
                 <p style="margin-bottom: 0px;">Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
             @endif
 
             @if($post->ratingSum != null)
-        
+
             <div>
                 <p style="float: left; margin-bottom: 0px;">Įvertinimas - <b><?php/* echo round($avarage, 2) */?></b></p>
                 <div class="Stars" style="--rating: {{ round($avarage, 2)}};" aria-label="Rating is 2.3 out of 5">
                 </div>
             </div>
-       
+
             @endif
             @if($post->ratingSum == null)
                 <p style="float: left; width: 100%;">Kiek kartų įvertinta - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
@@ -83,6 +84,9 @@
             @if($post->completedCount != null)
                 <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
             @endif
+            @else
+                <p> <b><span style="color: red;" >Nori matyti statistiką? Įsigyk premium funkcionalumą<span></b></p>
+     @endif
         </div>
         <p>Testo kūrėjas  - <b>{{ $name }}</b> <b>{{$surname }}</b></p>
         <div class="hairline"></div>
@@ -92,25 +96,25 @@
         @endif
 
         <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('testdo', ['idTest' => $post->idTest, 'kelintas'=>$kelintas = 0]) }}"><button class="testProceedButton">Pradėti testą</button></a>
-        
 
-        
-  
+
+
+
         <form  method="post" action="{{ route('addComment', ['idTest' =>  $post->idTest, 'idUser' => Auth::user()->id] ) }}">
-        @csrf 
+        @csrf
 		<h1>Rašyti komentarą</h1>
         <label>Komentaras:  </label><br>
-        <textarea type="text" class="textarea" name="komentaras" placeholder="Įrašykite komentarą" Required></textarea>	
+        <textarea type="text" class="textarea" name="komentaras" placeholder="Įrašykite komentarą" Required></textarea>
         <br>
         <button class="btn btn-primary" style="margin-top: 20px">Siųsti</button>
-        </form> 
-       
+        </form>
+
         <table>
-    
+
         <tr>
             <td>Komentarai</td>
-         
-            
+
+
         </tr>
         @foreach($comments as $comment)
         <tr>
@@ -118,20 +122,20 @@
             @csrf
             <td>
                 <div style="text-align: center;">
-                    
-                    @if (Auth::user()->id == $comment->User_idUser) 
+
+                    @if (Auth::user()->id == $comment->User_idUser)
                         <span class="delete-comm"><a href="{{ route('deleteComment',  [ 'idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}"><i class="fas fa-trash-alt"></i></a></span>
                         <span class="edit-comm"><a id="Edit{{$comment['idComment']}}" onclick="EditComment({{$comment['idComment']}})"><i class="fas fa-pen"></i></a></span>
-                    
+
                         {{-- <span class="save-comm"><a ><i class="fas fa-save"></i></a></span> --}}
                     @endif
                     @if (Auth::user()->id != $comment->User_idUser)
                         <span class="delete-comm"><a style="color: #E4EFE7;">.</a></span>
                         <span class="delete-comm"><a style="color: #E4EFE7;">.</a></span>
                     @endif
-                   
+
                     <textarea class="textarea" id="{{$comment['idComment']}}" name="comment" autofocus placeholder="Komentaras" disabled>{{$comment['comment']}}</textarea>
-                    @if (Auth::user()->id == $comment->User_idUser) 
+                    @if (Auth::user()->id == $comment->User_idUser)
 
                     <button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none; margin-top: 5px; margin-bottom: 0;"> Saugoti </button>
                     @endif
@@ -141,12 +145,12 @@
             {{-- @if (Auth::user()->id == $comment->User_idUser)
             <td><button id="Save{{$comment['idComment']}}" type="submit" class="btn btn-primary darkGreen" style="display: none;"> Saugoti </button> </td>
             @endif --}}
-        </form>   
+        </form>
         </tr>
         @endforeach
-    </table>        
+    </table>
     </div>
-			
+
 </div>
 </body>
 <script>

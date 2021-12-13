@@ -37,7 +37,7 @@
                         <a href="{{ route('profileshow', $userProf->id) }}">Profilis</a>
                     @endif
                     @if (Auth::user()->id == $userProf->id && $userProf->role == 1)
-                        <a href="{{ route('adminshow', $userProf->id) }}">Naudotojų sąrašas</a>
+                        <a href="{{ route('adminshow', $userProf->id) }}">Naudotojai</a>
                     @endif
                 @endforeach
             @else

@@ -13,7 +13,7 @@
         <link href = "/css/styles.css" rel="stylesheet">
     </head>
 <body>
-    <div style="width: 40%; margin: auto; text-align: right;">
+    <div class="back-password">
         <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="/profile/{{Auth::user()->id}}"><button style="cursor: pointer;">Atgal</button></a>
     </div>
     <div style="text-align: center;" class="container-center profile password">
@@ -21,10 +21,12 @@
             <div class="card-body">
                 <div style="width: 100%;" class="passwordUpdate">
                     @csrf      
-                    <h3>Slaptažodžio keitimas</h3>    
+                    <div class="card-header">
+                        <h1>Slaptažodžio keitimas</h1>
+                    </div>
                     <form method="POST" action="{{ route('UpdatePassword') }}">
                         @csrf
-                            <div class="col-md-6">
+                            <div class="password-change">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Slaptažodis') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Naujas slaptažodis">
 
@@ -35,7 +37,7 @@
                                 @enderror
                             </div>
                             <br>
-                            <div class="col-md-6">
+                            <div class="password-change">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Pakartokite slaptažodį') }}</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Pakartotas naujas slaptažodis">
                             </div>

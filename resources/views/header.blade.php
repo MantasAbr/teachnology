@@ -14,7 +14,6 @@
 
     </head>
     <body>
-
     <div class="topnav" id="myTopnav">
         <img src="/img/logo2.png">
 
@@ -34,27 +33,37 @@
 
         @endif
 
-            <a class="list first" href="/testsList">Testai</a>
-            <a class="list" href="/statistics">Statistika</a>
+            <a class="list first" href="/statistics">Statistika</a>    
+            <a class="list" href="/testsList">Testai</a>
             <a class="list" href="/myTestsList">Mano testai</a>
             @if (!Auth::guest())
                 <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>
             @endif
+
+            @if (!Auth::guest() && Auth::user()->role == 1)
+                <a class="list" href="{{ route('adminshow', Auth::user()->id) }}">Naudotojai</a>
+            @endif
+
             @if(Auth::user()->premiumEnds < Carbon\Carbon::now())
+            
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
            @else
            <a class="premium">Jūs jau turite premium</a>
            @endif
 
-            @if (!Auth::guest())
+            {{-- @if (!Auth::guest())
                 <a class="email">{{Auth::user()->email}}</a>
-            @endif
+            @endif --}}
 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars fa-2x"></i>
         </a>
     </div>
-
+<div class="emailas">
+    @if (!Auth::guest())
+        <a class="email">{{Auth::user()->email}}</a>
+    @endif
+</div>
 
     <script>
         function myFunction() {

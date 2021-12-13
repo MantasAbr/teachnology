@@ -67,7 +67,7 @@
                                     <br>
 
                                     <div class="col-md-6">
-                                        <div class="email">
+                                        <div class="email name">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('El. paštas') }}</label>
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value=" {{ $usersProfile->email}}" required autocomplete="surname" autofocus placeholder="El. paštas" disabled>
 

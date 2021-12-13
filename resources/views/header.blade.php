@@ -33,7 +33,7 @@
 
         @endif
 
-            <a class="list first" href="/statistics">Statistika</a>    
+            <a class="list first" href="/statistics">Statistika</a>
             <a class="list" href="/testsList">Testai</a>
             <a class="list" href="/myTestsList">Mano testai</a>
             @if (!Auth::guest())
@@ -43,13 +43,14 @@
             @if (!Auth::guest() && Auth::user()->role == 1)
                 <a class="list" href="{{ route('adminshow', Auth::user()->id) }}">Naudotojai</a>
             @endif
-
+        @if (!Auth::guest())
             @if(Auth::user()->premiumEnds < Carbon\Carbon::now())
-            
+
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
            @else
            <a class="premium">Jūs jau turite premium</a>
            @endif
+        @endif
 
             {{-- @if (!Auth::guest())
                 <a class="email">{{Auth::user()->email}}</a>

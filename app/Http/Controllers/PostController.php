@@ -29,7 +29,8 @@ class PostController extends Controller
     }
     public function otherindex()
     {
-        $otherposts = Post::where('User_idUser', '!=', Auth::User()->id)->orderBy('created_at', 'desc')->paginate(10);
+        $otherposts = Post::orderBy('created_at', 'desc')->paginate(10);
+        //->with('otherposts', ::orderBy('created_at', 'desc')->get())
         return view('testsList', compact('otherposts'));
     }
 

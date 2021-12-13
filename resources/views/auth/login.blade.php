@@ -9,9 +9,7 @@
                 </div>
 
                 <div class="card-body">
-                @if (session('error'))
-                <a>{{session('error') }}</a>
-                @endif
+
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -21,11 +19,6 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">El. paštas</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Naudotojo el. paštas">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
 
 
@@ -40,7 +33,20 @@
                                 @enderror
                             </div>
 
-                                    
+                            
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong style="color: #C41818;"><?php echo 'Neteisingai įvesti duomenys' ?></strong>
+                                </span>
+                                <br>
+                                <br>
+                            @enderror
+
+                            @if (session('error'))
+                                <a style="color: #C41818;">{{session('error') }}</a>
+                                <br>
+                                <br>
+                           @endif        
                               
 
                             <div class="col-md-8 offset-md-4 buttons">

@@ -47,10 +47,19 @@
                     <tr>
                         <td>{{ $post->testName }}</td>
                         @if($post->Category_idCategory == 1)
-                            <td>Elementary school</td>
+                            <td>1-4 klasės</td>
                         @endif
                         @if($post->Category_idCategory == 2)
-                            <td>Middle school</td>
+                            <td>5-8 klasės</td>
+                        @endif
+                        @if($post->Category_idCategory == 3)
+                            <td>9-10 klasės</td>
+                        @endif
+                        @if($post->Category_idCategory == 4)
+                            <td>11-12 klasės</td>
+                        @endif
+                        @if($post->Category_idCategory == 5)
+                            <td>Aukštasis išsilavinimas</td>
                         @endif
                         <td>
                             <a href="{{ route('postshow', $post->idTest) }}">

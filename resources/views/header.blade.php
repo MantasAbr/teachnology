@@ -92,12 +92,9 @@
                     </div>
                     <div class="hairline"></div>
 
-                    <p style="margin-left: 20px; font-size:larger;">Įsigijus svetainės <i style="color: orange;">Premium</i> prenumeratą, gausite prieigą prie šių naujų funkcijų:</p>
-                    <ul>
-                        <li>Galimybė peržiūrėti savo testų statistiką!</li>
-                        <li>...!</li>
-                        <li>...!</li>
-                    </ul>
+                    <p style="margin-left: 20px; font-size:larger;">Įsigijus svetainės <i style="color: orange;">Premium</i> prenumeratą, gausite prieigą prie testų statistikų!</p>
+
+                    <div style="padding-bottom: 50px;"></div>   
 
                     <div class="payment-select-container">
                         <a href="https://www.swedbank.lt/private"><img src="/img/payment/swed.png" class="payment-method"></a>

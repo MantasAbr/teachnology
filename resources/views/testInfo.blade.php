@@ -123,11 +123,13 @@
             <td>
                 <div style="text-align: center;">
 
-                    @if (Auth::user()->id == $comment->User_idUser)
+                    @if (Auth::user()->id == $comment->User_idUser || Auth::user()->role == 1)
                         <span class="delete-comm"><a href="{{ route('deleteComment',  [ 'idTest' => $post->idTest, 'idComment' => $comment->idComment]) }}"><i class="fas fa-trash-alt"></i></a></span>
+                        @if (Auth::user()->id == $comment->User_idUser)
                         <span class="edit-comm"><a id="Edit{{$comment['idComment']}}" onclick="EditComment({{$comment['idComment']}})"><i class="fas fa-pen"></i></a></span>
 
                         {{-- <span class="save-comm"><a ><i class="fas fa-save"></i></a></span> --}}
+                        @endif
                     @endif
                     @if (Auth::user()->id != $comment->User_idUser)
                         <span class="delete-comm"><a style="color: #E4EFE7;">.</a></span>

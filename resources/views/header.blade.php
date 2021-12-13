@@ -44,7 +44,12 @@
                 <a class="list" href="{{ route('adminshow', Auth::user()->id) }}">Naudotojai</a>
             @endif
 
+            @if(Auth::user()->premiumEnds < Carbon\Carbon::now())
+            
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
+           @else
+           <a class="premium">Jūs jau turite premium</a>
+           @endif
 
             {{-- @if (!Auth::guest())
                 <a class="email">{{Auth::user()->email}}</a>
@@ -69,7 +74,7 @@
                 x.className = "topnav";
             }
         }
-    </script> 
+    </script>
 
 
 
@@ -103,7 +108,7 @@
                         <a href="https://www.seb.lt/"><img src="/img/payment/seb.png" class="payment-method"></a>
                         <div style="padding-left:20px"></div>
                         <!-- TODO routinti i profili -->
-                        <a href="/profile/"><img src="/img/payment/thc.png" class="payment-method"></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
+                        <a href="{{route('premiumbuy')}}"><img src="/img/payment/thc.png" class="payment-method"></a> <!-- Čia mūsų tas crypto tipo, po to normalia fotke reiks uzdet-->
                     </div>
 
                 </div>

@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+@if (\Session::has('status'))
+    <div style="bottom: -60px;" class="alert alert-warning">
+        <p>{!! \Session::get('status') !!}</p>
+    </div>
+@elseif(\Session::has('good'))
+    <div class="alert alert-success">
+        <p>{!! \Session::get('good') !!}</p>
+    </div>
+@endif
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">

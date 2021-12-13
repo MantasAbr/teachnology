@@ -77,6 +77,11 @@
                         <input type="submit" name="save" id="save" class="submit" value ="Kurti testą" />
 
                     </form>
+                    </div>
+            </div>
+    </div>
+</div>
+</body>
                     <script type=text/javascript>
                             $(document).ready(function(){
 
@@ -164,11 +169,7 @@
 
                             });
                         </script>
-                        <!-------------- -------------------------------------------------->
-                </div>
-            </div>
-    </div>
-</div>
-</body>
+                
 
 @endsection
+</html>

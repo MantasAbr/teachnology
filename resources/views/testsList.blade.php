@@ -44,7 +44,6 @@
             </thead>
             <tbody>
             @foreach($otherposts as $post)
-                @if(Auth::user()->id != $post->User_idUser)
                     <tr>
                         <td>{{ $post->testName }}</td>
                         @if($post->Category_idCategory == 1)
@@ -59,7 +58,6 @@
                             </a>
                         </td>
                         </td>
-                        @endif
 
                         </td>
                     </tr>

@@ -1091,6 +1091,8 @@ button:hover {
       align-self: center;
   padding: 0px 0px;
   font-size: 18px;
+  width: 100%;
+  text-align: center;
 }
 
 .testInfoContainer .infoHeader {

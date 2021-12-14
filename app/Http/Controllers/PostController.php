@@ -101,11 +101,18 @@ class PostController extends Controller
         $ans = Answer::where([ 'Question_idQuestion' => $quest[$count]]);
             $ans->delete();
             }
+        $com = Comment::where([ 'Test_idTest' => $id]);
+        $com->delete();
         $questdel = Question::where([ 'test_idTest' => $id]);
         $questdel->delete();
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->route('posts')->with('status','Pasirinktas testas ištrintas');
+        if(Auth::user()->role == 0){
+            return redirect()->route('posts')->with('status','Pasirinktas testas ištrintas');
+        }
+        else{
+            return redirect()->route('otherpostss')->with('status','Pasirinktas testas ištrintas');
+        }
     }
     public function edit($id){
 
@@ -151,7 +158,7 @@ class PostController extends Controller
 
 
         $post->save();
-        return redirect()->route('posts')->with('status','Testo informacija atnaujinta');
+        return redirect()->route('postshow', $id)->with('status','Testo informacija atnaujinta');
     }
     public function create()
     {
@@ -406,6 +413,6 @@ class PostController extends Controller
         }
         $userInf->save();
         //dd($userInf);
-        return redirect()->route('otherpostss')->with('status','Pasirinktas testas ištrintas');
+        return redirect()->route('postshow', $id);
     }
 }

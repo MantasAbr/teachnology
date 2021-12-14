@@ -30,7 +30,7 @@ class StatsController extends Controller
         $userTest = $userTest->values()->take(5);
         //top 5 protingiausi vartotojai
         $userSmart = $user->sortByDesc(function ($product, $key) {
-            if($product['ratingSum'] > 0) {
+            if($product['testMarkSum'] > 0) {
                 return ($product['testMarkSum'] / $product['testCount']);
             }
             else{

@@ -24,7 +24,7 @@
                 <div style="display: flex; flex-direction: row;">
 
 
-                    <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ route('posts') }}" class="btn btn-primary"><button style="cursor: pointer;">Atgal</button></a><br>
+                    <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ route('postshow', $post->idTest) }}" class="btn btn-primary"><button style="cursor: pointer;">Atgal</button></a><br>
                     {!! Form::close() !!}<br>
 
 
@@ -52,8 +52,8 @@
                     {{Form::text('info', $post->info, ['class' => 'form-control', 'placeholder' => 'Testo informacija'])}}
                 </div>
 
-                <div class="form-group">
-                    {{ Form::submit('Saugoti', ['class'=>'btn-primary'])}}
+                <div class="form-group" style="width: 30%; margin: auto;">
+                    {{ Form::submit('Saugoti', ['class'=>'a-button'])}}
                 </div>
             </div>
         </div>

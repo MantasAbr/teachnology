@@ -52,17 +52,20 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Slaptažodis') }}</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Naudotojo slaptažodis">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                
                             </div>
 
                             <div class="col-md-6">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Pakartokite slaptažodį') }}</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Pakartotas naudotojo slaptažodis">
                             </div>
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong style="color: #C41818;">Slaptažodis yra per trumpas arba nesutampa</strong>
+                                    </span>
+                                    <br><br>
+                                @enderror
 
                                 <button type="submit" class="btn btn-primary darkGreen">
                                    Registruotis

@@ -83,6 +83,7 @@
             @endif
             @if ($mark >= 8 && $mark != 10)
                 <span style="color: #064420;"><?php echo round($mark, 2)?></span>
+                <br>
                 <img style="margin-top: 10px; width: 300px;" src="/img/feedback/bravo-clap.gif" /> 
             @endif
             @if ($mark == 10)

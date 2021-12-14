@@ -57,7 +57,7 @@
                     @elseif ($post->Category_idCategory == 4)
                         <p>Lygis - 11-12 klasės<b></b></p>
                         @elseif ($post->Category_idCategory == 5)
-                            <p>Lygis - aukštasis<b></b></p>
+                            <p>Lygis - Aukštasis<b></b></p>
         @endif
 
         <div class="left-info" style="text-align: left;">

@@ -34,7 +34,9 @@
                     <span class="material-icons">filter_alt</span>Filtruoti
                 </button>
             </a>
+            @if(Auth::User()->role == 0)
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{route('testcreate')}}"><button style="cursor: pointer;">Sukurti naują testą</button></a>
+            @endif
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
         </div>
 
@@ -115,8 +117,8 @@
                         <span class="checkmark-radio"></span>
                     </label>
                 </div>
-                <button onclick="sortModal()">Rikiuoti</button>                    
-            </div>                                                   
+                <button onclick="sortModal()">Rikiuoti</button>
+            </div>
         </div>
     </div>
 </div>
@@ -151,8 +153,8 @@
                         <span class="checkmark-radio"></span>
                     </label>
                 </div>
-                <button onclick="filterModal()">Filtruoti</button>                    
-            </div>                                                   
+                <button onclick="filterModal()">Filtruoti</button>
+            </div>
         </div>
     </div>
 </div>

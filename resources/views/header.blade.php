@@ -35,7 +35,11 @@
 
             <a class="list first" href="/statistics">Statistika</a>
             <a class="list" href="/testsList">Testai</a>
+        @if(Auth::guest())
             <a class="list" href="/myTestsList">Mano testai</a>
+        @elseif(Auth::user()->role == 0)
+            <a class="list" href="/myTestsList">Mano testai</a>
+        @endif
             @if (!Auth::guest())
                 <a class="list" href="/profile/{{Auth::user()->id}}">Profilis</a>
             @endif
@@ -44,10 +48,10 @@
                 <a class="list" href="{{ route('adminshow', Auth::user()->id) }}">Naudotojai</a>
             @endif
         @if (!Auth::guest())
-            @if(Auth::user()->premiumEnds < Carbon\Carbon::now())
-
+        @if(Auth::user()->role == 1)
+            @elseif(Auth::user()->premiumEnds < Carbon\Carbon::now())
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
-           @else
+           @elseif(Auth::user()->premiumEnds > Carbon\Carbon::now())
            <a class="premium">Jūs jau turite premium</a>
            @endif
         @endif
@@ -94,7 +98,7 @@
 
                     <p style="margin-left: 20px; font-size:larger;">Įsigijus svetainės <i style="color: orange;">Premium</i> prenumeratą, gausite prieigą prie testų statistikų!</p>
 
-                    <div style="padding-bottom: 50px;"></div>   
+                    <div style="padding-bottom: 50px;"></div>
 
                     <div class="payment-select-container">
                         <a href="https://www.swedbank.lt/private"><img src="/img/payment/swed.png" class="payment-method"></a>

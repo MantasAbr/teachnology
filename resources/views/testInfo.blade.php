@@ -25,7 +25,7 @@
 
 
         <div style="display: flex; flex-direction: row;">
-        @if(Auth::user()->id == $post->User_idUser)
+        @if(Auth::user()->id == $post->User_idUser || Auth::user()->role == 1)
             <a style="height: 40px; margin-top:auto; margin-bottom: auto;">
                 {!! Form::open(['action' => ['App\Http\Controllers\PostController@destroy',$post->idTest],
                                         'method'=>'POST']) !!}
@@ -34,7 +34,9 @@
 
                 {{Form::submit('Ištrinti', ['class'=>'deleteButton'])}}
                 {!! Form::close() !!}
+                @if(Auth::user()->id == $post->User_idUser)
                 <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('postedit', $post->idTest) }}"><button style="cursor: pointer;">Redaguoti</button></a>
+                  @endif
             @endif
             </a>
 
@@ -59,7 +61,7 @@
         @endif
 
         <div style="text-align: left;">
-            @if(Auth::User()->premiumEnds > Carbon\Carbon::now())
+            @if(Auth::User()->premiumEnds > Carbon\Carbon::now() || Auth::user()->role == 1)
             @if($post->ratingSum == null)
                 <p style="margin-bottom: 0px;">Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
             @endif
@@ -94,12 +96,12 @@
             <p class="info"><b>{{ $post->info }}</b><p>
         @if($post->Category_idCategory == 1)
         @endif
-
+            @if(Auth::User()->role == 0)
         <a style="height: 40px; margin-top:auto; margin-bottom: auto;" href="{{ route('testdo', ['idTest' => $post->idTest, 'kelintas'=>$kelintas = 0]) }}"><button class="testProceedButton">Pradėti testą</button></a>
+           @endif
 
 
-
-
+        @if(Auth::User()->role == 0)
         <form  method="post" action="{{ route('addComment', ['idTest' =>  $post->idTest, 'idUser' => Auth::user()->id] ) }}">
         @csrf
 		<h1>Rašyti komentarą</h1>
@@ -108,6 +110,7 @@
         <br>
         <button class="btn btn-primary" style="margin-top: 20px">Siųsti</button>
         </form>
+        @endif
 
         <table>
 

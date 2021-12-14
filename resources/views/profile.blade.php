@@ -24,18 +24,21 @@
 
         <div class="row justify-content-center">
                     <div class="card-body">
-
+                        @if(Auth::user()->role == 0)
                         <div class="valiuta">
                             <button style="float: left;" href="#valiuta" class="valiuta" onclick="modal()">Įsigyti valiutą</button>
                         </div>
+
                         <div style="width: 100%;" class="form-group">
                             @csrf
                             <h3 style="text-align: left; margin-top: 0px;">TeachNology valiutos kiekis: <strong>{{ $usersProfile->currency }}</strong></h3>
+
                             @if($usersProfile->premiumEnds >= Carbon\Carbon::now())
                                 <p>Premium pasibaigs: <strong>{{ $usersProfile->premiumEnds }}</strong></p>
                             @else
                                 <p>Premium: <strong>Nėra aktyvuotas</strong></p>
                         @endif
+                            @endif
                         @if($usersProfile->google_id == null)
                             <form method="POST" action="{{ route('UpdateProfile') }}">
                                 @csrf
@@ -99,6 +102,7 @@
 
                             @endif
                         </div>
+
 
 
 

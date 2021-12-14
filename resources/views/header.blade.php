@@ -35,9 +35,9 @@
 
             <a class="list first" href="/statistics">Statistika</a>
             <a class="list" href="/testsList">Testai</a>
-        @if(Auth::guest())
-            <a class="list" href="/myTestsList">Mano testai</a>
-        @elseif(Auth::user()->role == 0)
+        {{-- @if(Auth::guest())
+            <a class="list" href="/myTestsList">Mano testai</a> --}}
+        @if(!Auth::guest() && Auth::user()->role == 0)
             <a class="list" href="/myTestsList">Mano testai</a>
         @endif
             @if (!Auth::guest())

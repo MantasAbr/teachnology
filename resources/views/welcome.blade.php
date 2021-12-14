@@ -45,12 +45,12 @@
             @endif
 
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
-            @if (!Auth::guest())
-                <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
-            @endif
+                @if(!Auth::guest() && Auth::user()->role == 0)
+                    <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
+                @endif
             <a href="{{ route('statsstuff') }}">Statistika</a>
 
-            @if (!Auth::guest())
+            @if (!Auth::guest() )
                 <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     Atsijungti
                 </a>

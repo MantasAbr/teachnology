@@ -42,6 +42,11 @@
         margin-left: 5px;
         text-decoration: none;
         padding: 0;
+        &-yra{
+            &:hover{
+                color: #b3ab40;
+            }
+        }
         @include breakpoint(1160px){
             font-size: 18px;
             width: 160px;

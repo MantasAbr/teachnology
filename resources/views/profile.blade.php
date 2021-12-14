@@ -34,9 +34,9 @@
                             <h3 style="text-align: left; margin-top: 0px;">TeachNology valiutos kiekis: <strong>{{ $usersProfile->currency }}</strong></h3>
 
                             @if($usersProfile->premiumEnds >= Carbon\Carbon::now())
-                                <p>Premium pasibaigs: <strong>{{ $usersProfile->premiumEnds }}</strong></p>
+                                <p style="text-align: left; margin-top: 0px;">Premium pasibaigs: <strong>{{ $usersProfile->premiumEnds }}</strong></p>
                             @else
-                                <p>Premium: <strong>Nėra aktyvuotas</strong></p>
+                                <p style="text-align: left; margin-top: 0px;">Premium: <strong>Nėra aktyvuotas</strong></p>
                         @endif
                             @endif
                         @if($usersProfile->google_id == null)

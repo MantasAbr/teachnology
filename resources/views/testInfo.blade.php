@@ -60,7 +60,7 @@
                             <p>Lygis - aukštasis<b></b></p>
         @endif
 
-        <div style="text-align: left;">
+        <div class="left-info" style="text-align: left;">
             @if(Auth::User()->premiumEnds > Carbon\Carbon::now() || Auth::user()->role == 1)
             @if($post->ratingSum == null)
                 <p style="margin-bottom: 0px;">Įvertinimas - <b><span style="color: red;">Testo dar niekas nesprendė. Būk pirmas!<span></b></p>
@@ -69,7 +69,7 @@
             @if($post->ratingSum != null)
 
             <div>
-                <p style="float: left; margin-bottom: 0px;">Įvertinimas - <b><?php/* echo round($avarage, 2) */?></b></p>
+                <p class="ivert" style="float: left; margin-bottom: 0px;">Įvertinimas - <b><?php/* echo round($avarage, 2) */?></b></p>
                 <div class="Stars" style="--rating: {{ round($avarage, 2)}};" aria-label="Rating is 2.3 out of 5">
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <p>Išspręsta kartų - <b>{{ $post->completedCount }}</b></p>
             @endif
             @else
-                <p> <b><span style="color: red;" >Nori matyti statistiką? Įsigyk premium funkcionalumą<span></b></p>
+                <p style="text-align: center;"> <b><span style="color: red;" >Nori matyti statistiką? Įsigyk premium funkcionalumą<span></b></p>
      @endif
         </div>
         <p>Testo kūrėjas  - <b>{{ $name }}</b> <b>{{$surname }}</b></p>

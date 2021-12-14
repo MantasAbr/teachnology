@@ -45,7 +45,9 @@
             @endif
 
             <a href="{{ url('testsList') }}">Testų sąrašas</a>
-            <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
+            @if (!Auth::guest())
+                <a href="{{ url('myTestsList') }}">Mano testų sąrašas</a>
+            @endif
             <a href="{{ route('statsstuff') }}">Statistika</a>
 
             @if (!Auth::guest())

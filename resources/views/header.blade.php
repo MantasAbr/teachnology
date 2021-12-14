@@ -52,7 +52,7 @@
             @elseif(Auth::user()->premiumEnds < Carbon\Carbon::now())
            <a class="premium"><button class="premium">Nusipirkti Premium</button></a>
            @elseif(Auth::user()->premiumEnds > Carbon\Carbon::now())
-           <a class="premium">Jūs jau turite premium</a>
+           <a class="premium premium-yra">Jūs jau turite premium</a>
            @endif
         @endif
 

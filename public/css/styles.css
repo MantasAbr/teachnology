@@ -50,6 +50,10 @@
   padding: 0;
 }
 
+.topnav .premium-yra:hover {
+  color: #b3ab40;
+}
+
 @media (max-width: 1160px) {
   .topnav .premium {
     font-size: 18px;
@@ -1083,6 +1087,18 @@ button:hover {
   }
 }
 
+.testInfoContainer .left-info {
+  text-align: left;
+}
+
+.testInfoContainer .left-info p {
+  text-align: left;
+}
+
+.testInfoContainer .left-info p.ivert {
+  width: 110px;
+}
+
 .testInfoContainer p {
   -ms-grid-column-align: center;
       justify-self: center;
@@ -1115,7 +1131,7 @@ button:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0px 20px;
+  padding: 10px 20px;
   font-size: 18px;
   border-radius: 7px;
   border: #064420 solid thin;
@@ -1194,6 +1210,20 @@ button:hover {
   width: 100%;
 }
 
+.testInfoContainer-edit .edit {
+  width: 50%;
+  margin: auto;
+}
+
+.testInfoContainer-edit input {
+  width: 100%;
+}
+
+.testInfoContainer-edit .btn-primary {
+  width: 100px;
+  margin: auto;
+}
+
 .hairline {
   border-bottom: #064420 solid thin;
 }
@@ -1233,6 +1263,15 @@ button:hover {
 
 .testProceedButton:hover {
   background-color: #F86624;
+}
+
+@media (max-width: 650px) {
+  .edit-test h1 {
+    font-size: 22px;
+  }
+  .edit-test .edit {
+    width: 80%;
+  }
 }
 
 .card,

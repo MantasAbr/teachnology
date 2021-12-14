@@ -5,14 +5,14 @@
 <div style="width: 50%; margin: auto; text-align: right;">
     <a style="height: 40px; margin-top:auto; margin-bottom: auto; margin-right: -10px;" href="{{ url('/') }}"><button style="cursor: pointer;">Atgal</button></a>
 </div>
-<div style="text-align: center;" class="container-center-admin">
+<div style="text-align: center; margin-bottom: 20px" class="container-center-admin">
     <table class="testListTable">
     
         <tr>
             <td>Id</td>
             <td>Vardas</td>
             <td>Pavardė</td>
-            <td>Email</td>
+            <td>El. paštas</td>
             <td></td>
         </tr>
         @foreach($users as $user)
